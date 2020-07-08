@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KFUPM Assessment is the website to see information about courses and majors offered by King Fahd University of Petroleum and Minerals">
+    <meta name="keywords" content="KFUPM, flowchart, courses, curriculum, Math101, Phys101, Chem101, math kfupm, physics 101 kfupm, math 101 kfupm, chem 101 kfupm, EE kfupm, ME kfupm">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <title>Course | KFUPM Assessment</title>
+    <link rel="icon" href="logo.png">
+
+</head>
+
+<body>
+    <header class='header' id='myHeader'> <!--Sticky Header with Home Text, Search Bar, About & Help -->
+        <span class='header-text' onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a href="index.html">KFUPM Assessment</a></span>
+        <div class="search-group">
+            <input type='search' class='search-bar' placeholder="Search for a course...">
+            <button type="submit" class="sbmt"><img class="imgbtn"
+                    src="https://www.loirelife.com/wp-content/uploads/2015/01/Gites-in-France-Search.png" alt="Search Btn"></button>
+        </div>
+        <nav class='nav-group'>
+            <span onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a href="about.html">About</a></span>
+            <span onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a href="help.html">Help</a></span>
+        </nav>
+        <a class="icon" onclick="toggleNav()">
+            <div class="menu-btn">
+                <div class="menu-btn__burger"></div>
+            </div>
+        </a>
+    </header>
+
+    <nav class="dropDownNav"> <!--Adding Hamburger Icon instead of search bar and others for Mobiles -->
+        <div class="search-group">
+            <input type='search' class='search-bar' placeholder="Search for a course...">
+            <button type="submit" class="sbmt"><img class="imgbtn"
+                    src="https://www.loirelife.com/wp-content/uploads/2015/01/Gites-in-France-Search.png" alt="Search Btn"></button>
+        </div>
+        <a href="help.html">Help</a>
+        <a href="about.html">About</a>
+    </nav>
+
+    <div class='content'>
+        <section class="landing"> <!--Main page with title, Logo, Major Image & Course Name-->
+            <div class='wide-logo'>
+            </div>
+            <header class="major">
+                <h1>Course</h1>
+                <h1>Course Title</h1>
+            </header>
+            <img class='course-image' alt="Course" src="CHEM.jpg">
+        </section>
+
+        <!--Course Information are below !-->
+        <section class="outcome">
+            <header>
+                <h1 onmouseover="changeColorM(this)" onmouseout="changeColorM(this)" id="SD1">Course Description</h1>
+            </header>
+                <p id="x1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam mollitia, harum deserunt sed nam minus, laudantium sapiente iste alias totam accusamus maiores sequi rerum voluptas accusantium fugiat, similique voluptate nostrum! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur dicta dolore, saepe quis deserunt ad voluptas dolorum corporis voluptatum eveniet laudantium officiis cupiditate id animi fugit sint maxime dignissimos quo?</p>
+        </section>
+        <section>
+            <header>
+                <h1 onmouseover="changeColorM(this)" onmouseout="changeColorM(this)" id="SD2">Course Syllabus</h1>
+            </header>
+            <ul id="x2">
+                <li>Lecture: </li>
+                <li>Lab: </li>
+            </ul>
+        </section>
+        <section class="outcome">
+            <header>
+                <h1 onmouseover="changeColorM(this)" onmouseout="changeColorM(this)" id="SD3">Course Outcomes</h1>
+            </header>
+                <p id="x3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam mollitia, harum deserunt sed nam minus, laudantium sapiente iste alias totam accusamus maiores sequi rerum voluptas accusantium fugiat, similique voluptate nostrum! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur dicta dolore, saepe quis deserunt ad voluptas dolorum corporis voluptatum eveniet laudantium officiis cupiditate id animi fugit sint maxime dignissimos quo?</p>
+        </section>
+        <section>
+            <header>
+                <h1 onmouseover="changeColorM(this)" onmouseout="changeColorM(this)" id="SD4">Course Pre-requisites</h1>
+            </header>
+            <ul id="x4">
+                <li>Course</li>
+                <li>Course</li>
+                <li>Course</li>
+            </ul>
+        </section>
+        <section>
+            <header>
+                <h1 onmouseover="changeColorM(this)" onmouseout="changeColorM(this)" id="SD5" >Related Courses</h1>
+            </header>
+            <ul id="x5">
+                <li>Course</li>
+                <li>Course</li>
+                <li>Course</li>
+            </ul>
+        </section>
+
+        <section>
+            <header>
+                <h1 onmouseover="changeColorM(this)" onmouseout="changeColorM(this)" id="SD6">Resources</h1>
+            </header>
+            <p id="x6"><a href="http://resources.stkfupm.com" target="_blank" onmouseover="changeColorLM(this)" onmouseout="changeColorLM(this)">resources.stkfupm.com</a></p>
+        </section>
+
+        <div>
+        <img id='p' src="BG.png" alt="LOGO" class="courses-image">
+        </div>
+    </div>
+
+
+    <footer class='footer'> <!--Footer that contains information of KFUPM and Copyrights-->
+        <div class='contact-info'>
+            <h4 class='contacting'>Contact us:</h4>
+                <p>013-860-0000</p>
+                <p>info@kfupm.edu.sa</p>
+                <p>KFUPM</p>
+                <p>Dahran</p>
+                <p>Kingdom of Saudi Arabia</p>
+        </div>
+
+        <nav class='links'>
+            <p><a href="http://www.kfupm.edu.sa" target="_blank" onmouseover="changeColorL(this)" onmouseout="changeColorL(this)">kfupm.com</a></p>
+            <a href="https://www.facebook.com/KFUPM/" target="_blank" class="fa fa-facebook"></a>
+            <a href="https://twitter.com/kfupm?lang=en" target="_blank" class="fa fa-twitter"></a>
+            <a href="https://www.instagram.com/kfupm/?hl=en" target="_blank" class="fa fa-instagram"></a>
+        </nav>
+
+        <div class= 'cr'>
+            <p>Copyrights © KFUPM 2020</p>
+            <p><a href='http://www.kfupm.edu.sa/pages/PrivacyPolicy.aspx' target="_blank">Privacy Policies</a>  | <a href='https://goo.gl/maps/MxbJcTLBKhETeAPd6' target="_blank">KFUPM Map</a></p>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+
+</body>
+
+<script>
+// Srcipting from External link, for toggling courses, information headers and picture below !
+
+    $(document).ready(function(){
+            $('#SD1').click(function(){
+            $('#x1').slideToggle(1000);
+            $('#p').slideToggle(1000);
+            });
+                
+            $('#SD2').click(function(){
+            $('#x2').slideToggle(1000);
+            });
+
+            $('#SD3').click(function(){
+            $('#x3').slideToggle(1000);
+            });
+
+            $('#SD4').click(function(){
+            $('#x4').slideToggle(1000);
+            });
+
+            $('#SD5').click(function(){
+            $('#x5').slideToggle(1000);
+            });
+
+            $('#SD6').click(function(){
+            $('#x6').slideToggle(1000);
+            });
+      });
+            
+</script>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KFUPM Assessment is the website to see information about courses and majors offered by King Fahd University of Petroleum and Minerals">
+    <meta name="keywords" content="KFUPM, flowchart, courses, curriculum, Math101, Phys101, Chem101, math kfupm, physics 101 kfupm, math 101 kfupm, chem 101 kfupm, EE kfupm, ME kfupm">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <title>Home | KFUPM Assessment</title>
+    <link rel="icon" href="logo.png">
+
+</head>
+
+<body>
+    <header class='header' id='myHeader'> <!--Sticky Header with Home Text, Search Bar, About & Help -->
+        <span class='header-text' onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a
+                href="index.html">KFUPM Assessment</a></span>
+        <div class="search-group">
+            <input type='search' class='search-bar' placeholder="Search for a course...">
+            <button type="submit" class="sbmt"><img class="imgbtn"
+                    src="https://www.loirelife.com/wp-content/uploads/2015/01/Gites-in-France-Search.png" alt="Search Button"></button>
+        </div>
+        <nav class='nav-group'>
+            <span onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a href="about.html">About</a></span>
+            <span onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a href="help.html">Help</a></span>
+        </nav>
+        <a class="icon" onclick="toggleNav()">
+            <div class="menu-btn">
+                <div class="menu-btn__burger"></div>
+            </div>
+        </a>
+    </header>
+
+    <nav class="dropDownNav"> <!--Adding Hamburger Icon instead of search bar and others for Mobiles -->
+        <div class="search-group">
+            <input type='search' class='search-bar' placeholder="Search for a course...">
+            <button type="submit" class="sbmt"><img class="imgbtn"
+                    src="https://www.loirelife.com/wp-content/uploads/2015/01/Gites-in-France-Search.png" alt="Search Btn"></button>
+        </div>
+        <a href="help.html">Help</a>
+        <a href="about.html">About</a>
+    </nav>
+
+    <div class='content'> 
+        <section class="landing"> <!--Main page with title, Logo, & most viewed courses-->
+            
+            <div class='wide-logo'>
+            </div>
+            <div class="bg-image">
+            <header>
+                <h1>Welcome to KFUPM Assessment System</h1>
+            </header>
+            <h3>View courses information, pre-requisites, and much more!</h3>
+        </div>
+        </section>
+
+        <section>
+            <header class="viewed">
+                <h3>Most Viewed Courses</h3>
+            </header>
+
+            <div class="card-container">
+                <div class="card">
+                    <div class='card-image image1'></div>
+                    <div class="text-container text-header">
+                        <h4 onmouseover="changeColorM(this)" onmouseout="changeColorM(this)"><b>Math101</b></h4>
+                        <p class="color-new-text">Calculus I</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class='card-image image2'></div>
+                    <div class="text-container text-header">
+                        <h4 onmouseover="changeColorM(this)" onmouseout="changeColorM(this)"><b>ICS103</b></h4>
+                        <p class="color-new-text">Programming in C</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class='card-image image3'></div>
+                    <div class="text-container text-header">
+                        <h4 onmouseover="changeColorM(this)" onmouseout="changeColorM(this)"><b>SWE316</b></h4>
+                        <p class="color-new-text">Software Designing</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <img class= "other-right-image" src="BG.png" alt="LOGO">
+        <img class= "other-left-image" src="BG.png" alt="LOGO">
+
+        <section>
+            <header>
+                <h1 id="Sd">Look for courses that you want!</h1> <!--Square Cards that contain majors in all colleges-->
+            </header>
+            <div class='card-container' id="x">
+                <div class="square-card">
+                    <div class="text-container">
+                        <h4 id="c1"><b>College of Science</b></h4>
+                        <div id="ca">
+                            <p class="color-new-text" onmouseover="changeColor(this)" onmouseout="changeColor(this)">
+                                <a href='major.html'>Chemistry</a></p>
+                            <p class="color-new-text" onmouseover="changeColor(this)" onmouseout="changeColor(this)">
+                                Life Science</p>
+                            <p class="color-new-text" onmouseover="changeColor(this)" onmouseout="changeColor(this)">
+                                Math</p>
+                            <p class="color-new-text" onmouseover="changeColor(this)" onmouseout="changeColor(this)">
+                                Physics</p>
+                            <p class="color-new-text" onmouseover="changeColor(this)" onmouseout="changeColor(this)">
+                                Statistics</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="square-card">
+                    <div class="text-container">
+                        <h4 id="c2"><b>College of Engineering</b></h4>
+                        <div id="cb">
+                            <p class="color-new-text" onmouseover="changeColor(this)" onmouseout="changeColor(this)">
+                                Aerospace Engg.</p>
+                            <p class="color-new-text" onmouseover="changeColor(this)" onmouseout="changeColor(this)">
+                                Chemical Engg.</p>
+                            <p class="color-new-text" onmouseover="changeColor(this)" onmouseout="changeColor(this)">
+                                Civil Engg.</p>
+                            <p class="color-new-text" onmouseover="changeColor(this)" onmouseout="changeColor(this)">
+                                Electrical Engg.</p>
+                            <p class="color-new-text" onmouseover="changeColor(this)" onmouseout="changeColor(this)">
+                                Mechanical Engg.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="square-card">
+                    <div class="text-container">
+                        <h4 id="c3"><b>College of Computer Science & Engineering</b></h4>
+                        <div id="cc">
+                            <p class="color-new-text" onmouseover="changeColor(this)" onmouseout="changeColor(this)">
+                                Computer Engg.</p>
+                            <p class="color-new-text" onmouseover="changeColor(this)" onmouseout="changeColor(this)">
+                                Computer Science</p>
+                            <p class="color-new-text" onmouseover="changeColor(this)" onmouseout="changeColor(this)">
+                                Software Engg.</p>
+                            <p class="color-new-text" onmouseover="changeColor(this)" onmouseout="changeColor(this)">
+                                Systems Engg.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="square-card">
+                    <div class="text-container">
+                        <h4 id="c4"><b>KFUPM Business School</b></h4>
+                        <div id="cd">
+                            <p class="color-new-text" onmouseover="changeColor(this)" onmouseout="changeColor(this)">
+                                Accounting & Finance</p>
+                            <p class="color-new-text" onmouseover="changeColor(this)" onmouseout="changeColor(this)">
+                                Information Systems & Management</p>
+                            <p class="color-new-text" onmouseover="changeColor(this)" onmouseout="changeColor(this)">
+                                Management & Markting</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="square-card">
+                    <div class="text-container">
+                        <h4 id="c5"><b>College of General Studies</b></h4>
+                        <div id="ce">
+                            <p class="color-new-text" onmouseover="changeColor(this)" onmouseout="changeColor(this)">
+                                English Language Dept.</p>
+                            <p class="color-new-text" onmouseover="changeColor(this)" onmouseout="changeColor(this)">
+                                Global & Social Studies</p>
+                            <p class="color-new-text" onmouseover="changeColor(this)" onmouseout="changeColor(this)">
+                                Islamic & Arabic Studies</p>
+                            <p class="color-new-text" onmouseover="changeColor(this)" onmouseout="changeColor(this)">
+                                Prep-year Program</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="square-card">
+                    <div class="text-container">
+                        <h4 id="c6"><b>College of Petroleum Engineering & Geosciences</b></h4>
+                        <div id="cf">
+                            <p class="color-new-text" onmouseover="changeColor(this)" onmouseout="changeColor(this)">
+                                Geosciences</p>
+                            <p class="color-new-text" onmouseover="changeColor(this)" onmouseout="changeColor(this)">
+                                Petroleum Engg.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="square-card">
+                    <div class="text-container">
+                        <h4 id="c7"><b>College of Enviromental Design</b></h4>
+                        <div id="cg">
+                            <p class="color-new-text" onmouseover="changeColor(this)" onmouseout="changeColor(this)">
+                                Architectural Engg.</p>
+                            <p class="color-new-text" onmouseover="changeColor(this)" onmouseout="changeColor(this)">
+                                Architecture</p>
+                            <p class="color-new-text" onmouseover="changeColor(this)" onmouseout="changeColor(this)">
+                                City & Regional Planning</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+
+        <div>
+            <img id="pr" src="logo.png" alt='LOGO' class="index-image-right">
+            <img id="pl" src="logo.png" alt='LOGO' class="index-image-left">
+        </div>
+
+    </div>
+    <footer class='footer'> <!--Footer that contains information of KFUPM and Copyrights-->
+        <div class='contact-info'>
+            <h4 class='contacting'>Contact us:</h4>
+            <p>013-860-0000</p>
+            <p>info@kfupm.edu.sa</p>
+            <p>KFUPM</p>
+            <p>Dahran</p>
+            <p>Kingdom of Saudi Arabia</p>
+        </div>
+
+        <div class='links'>
+            <p><a href="http://www.kfupm.edu.sa" target="_blank" onmouseover="changeColorL(this)"
+                    onmouseout="changeColorL(this)">kfupm.com</a></p>
+            <a href="https://www.facebook.com/KFUPM/" target="_blank" class="fa fa-facebook"></a>
+            <a href="https://twitter.com/kfupm?lang=en" target="_blank" class="fa fa-twitter"></a>
+            <a href="https://www.instagram.com/kfupm/?hl=en" target="_blank" class="fa fa-instagram"></a>
+        </div>
+
+        <div class= 'cr'>
+            <p>Copyrights © KFUPM 2020</p>
+            <p><a href='http://www.kfupm.edu.sa/pages/PrivacyPolicy.aspx' target="_blank">Privacy Policies</a>  | <a href='https://goo.gl/maps/MxbJcTLBKhETeAPd6' target="_blank">KFUPM Map</a></p>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+
+</body>
+
+<script>
+    // Srcipting from External link, for toggling Colleges square cards, majors in the college and logo pictures below !
+
+    $(document).ready(function () {
+
+        $('#Sd').click(function () {
+            $('#x').slideToggle(2000);
+            $('#pr').slideToggle(1000);
+            $('#pl').slideToggle(1000);
+        });
+
+        $('#c1').click(function () {
+            $('#ca').slideToggle(2000);
+        });
+
+        $('#c2').click(function () {
+            $('#cb').slideToggle(2000);
+        });
+
+        $('#c3').click(function () {
+            $('#cc').slideToggle(2000);
+        });
+
+        $('#c4').click(function () {
+            $('#cd').slideToggle(2000);
+        });
+
+        $('#c5').click(function () {
+            $('#ce').slideToggle(2000);
+        });
+
+        $('#c6').click(function () {
+            $('#cf').slideToggle(2000);
+        });
+
+        $('#c7').click(function () {
+            $('#cg').slideToggle(2000);
+        });
+    });
+</script>
+</html>
