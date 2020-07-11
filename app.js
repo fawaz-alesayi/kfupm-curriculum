@@ -8,7 +8,7 @@ app.set('view engine', 'ejs')
 
 
 app.get('/', (req, res) => {
-    res.send("All O.K.")
+    res.render('index')
 })
 
 
