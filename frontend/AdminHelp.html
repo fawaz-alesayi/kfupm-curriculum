@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KFUPM Curriculum is the website to see information about courses and majors offered by King Fahd University of Petroleum and Minerals">
+    <meta name="keywords" content="KFUPM, flowchart, courses, curriculum, Math101, Phys101, Chem101, math kfupm, physics 101 kfupm, math 101 kfupm, chem 101 kfupm, EE kfupm, ME kfupm">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Help | KFUPM Curriculum</title>
+    <link rel="icon" href="logo.png">
+
+</head>
+
+<body class="admin">
+    <header class='header' id='myHeader'> <!--Sticky Header with Home Text, Search Bar, About & Help -->
+        <span class='header-text' onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a href="AdminIndex.html">KFUPM Curriculum Admin Page</a></span>
+        <div class="search-group">
+            <input type='search' class='search-bar' placeholder="Search for a course...">
+            <button type="submit" class="sbmt"><img class="imgbtn"
+                    src="https://www.loirelife.com/wp-content/uploads/2015/01/Gites-in-France-Search.png" alt="Search Btn"></button>
+        </div>
+        <nav class='nav-group'>
+            <span onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a href="AdminAbout.html">About</a></span>
+            <span onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a href="AdminHelp.html">Help</a></span>
+            <span onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a href="index.html">Logout</a></span>
+
+        </nav>
+        <a class="icon" onclick="toggleNav()">
+            <div class="menu-btn">
+                <div class="menu-btn__burger"></div>
+            </div></a>
+    </header>
+
+    <nav class="dropDownNav"> <!--Adding Hamburger Icon instead of search bar and others for Mobiles -->
+        <div class="search-group">
+            <input type='search' class='search-bar' placeholder="Search for a course...">
+            <button type="submit" class="sbmt"><img class="imgbtn"
+                    src="https://www.loirelife.com/wp-content/uploads/2015/01/Gites-in-France-Search.png" alt="Search Btn"></button>
+        </div>
+        <a href="AdminAbout.html">About</a>
+        <a href="AdminHelp.html">Help</a>
+        <a href="index.html">Logout</a>
+    </nav>
+
+    <div class='content'> <!--Main page with title, Logo, & Help paragraph-->
+        <section class="landing">
+            <div class='wide-logo'>
+            </div>
+            <header>
+                <h1>Help</h1>
+                    <p class="p-for-ha">
+                        KFUPM Curriculum Admin page is a functional page to let the admin modify, add, remove 
+                        or update courses information in the System. Admin can choose any major and change the flowchart 
+                        or courses by clicking on function button or text to process changing easily ! Plus, Admin can
+                        go to courses page and modify all information right there by clicking on the button, or text of
+                        the paragraph that needs to be changed. Admin pages are the same of default pages, only 
+                        background color is different & there're functions so the Admin can use them to do modification
+                        easily, and successfully.
+                    </p>
+            </header>
+        </section>
+        <img src="BG.png" alt="Logo" class="hhh-image">
+
+</div>
+    
+
+    <footer class='footer'> <!--Footer that contains information of KFUPM and Copyrights-->
+        <div class='contact-info'>
+            <h4 class='contacting'>Contact us:</h4>
+                <p>013-860-0000</p>
+                <p>info@kfupm.edu.sa</p>
+                <p>KFUPM</p>
+                <p>Dahran</p>
+                <p>Kingdom of Saudi Arabia</p>
+        </div>
+
+        <div class='links'>
+            <p><a href="http://www.kfupm.edu.sa" target="_blank" onmouseover="changeColorL(this)" onmouseout="changeColorL(this)">kfupm.com</a></p>
+            <a href="https://www.facebook.com/KFUPM/" target="_blank" class="fa fa-facebook"></a>
+            <a href="https://twitter.com/kfupm?lang=en" target="_blank" class="fa fa-twitter"></a>
+            <a href="https://www.instagram.com/kfupm/?hl=en" target="_blank" class="fa fa-instagram"></a>
+        </div>
+
+        <div class= 'cr'>
+            <p>Copyrights © KFUPM 2020</p>
+            <p><a href='http://www.kfupm.edu.sa/pages/PrivacyPolicy.aspx' target="_blank">Privacy Policies</a>  | <a href='https://goo.gl/maps/MxbJcTLBKhETeAPd6' target="_blank">KFUPM Map</a></p>
+        </div>
+    </footer>
+
+    <script src="index.js"></script>
+    <script src="help.js"></script>
+    <script src="login.js"></script>
+
+</body>
+</html>
