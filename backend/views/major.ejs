@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="KFUPM Assessment is the website to see information about courses and majors offered by King Fahd University of Petroleum and Minerals">
     <meta name="keywords" content="KFUPM, flowchart, courses, curriculum, Math101, Phys101, Chem101, math kfupm, physics 101 kfupm, math 101 kfupm, chem 101 kfupm, EE kfupm, ME kfupm">
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="/styles/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
     <title>Major | KFUPM Assessment</title>
@@ -50,31 +50,22 @@
             <header class="major">
                 <h1>Major</h1>
             </header>
-            <img class='course-image' alt="Major" src="CHEM.jpg">
+            <img class='course-image' alt="Major" src="/CHEM.jpg">
         </section>
 
 
         <section> <!--Texts with pointers which are for courses in this Major-->
             <header class='course-header' id="cSlideDown"  onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Courses</header>
             <nav class='course-container' id="cox">
-                <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)"><a href="course.html">Course</a></div>
-                <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Course</div>
-                <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Course</div>
-                <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Course</div>
-                <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Course</div>
-                <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Course</div>
-                <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Course</div>
-                <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Course</div>
-                <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Course</div>
-                <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Course</div>
-                <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Course</div>
-                <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Course</div>
+                <% results.forEach(course => { %>
+                <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)"><a href=<%= `/courses/${course.code}` %>><%= course.code %></a></div>
+                <% }) %>
             </nav>
         </section>
 
         <section> <!--Flow chart Picture-->
             <header class="flowchart-header" id="FcSlideDown" onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Flow Chart</header>
-            <img class="center" alt="FC" id="pix" src="assets/Chem_FC.jpg">
+            <img class="center" alt="FC" id="pix" src="/assets/Chem_FC.jpg">
         </section>
 
         <section> <!--Resources of the Major-->
@@ -82,8 +73,8 @@
         </section>
 
         <div>
-            <img id= 'picr' src="BG.png" alt='LOGO' class="major-image-right">
-            <img id= 'picl' src="BG.png" alt='LOGO' class="major-image-left">
+            <img id= 'picr' src="/BG.png" alt='LOGO' class="major-image-right">
+            <img id= 'picl' src="/BG.png" alt='LOGO' class="major-image-left">
         </div>
 
     </div>
@@ -110,7 +101,7 @@
         </div>
     </footer>
 
-    <script src="index.js"></script>
+    <script src="/index.js"></script>
 
 </body>
 
