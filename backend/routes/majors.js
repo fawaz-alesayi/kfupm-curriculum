@@ -8,12 +8,14 @@ const pool = require('../database.js').pool
 */
 majors.get('/:major', (req, res) => {
     pool.query('SELECT courses.code, majors.flowchart_image_name, majors.keywords FROM majors INNER JOIN courses on courses.major_id=majors.major_id AND majors.code=?;', req.params.major, (err, results) => {
-        if (err)
-        {
+        if (err) {
             res.end()
             throw err
         }
-        res.render('major.ejs', {results})
+        if (req.session.role == 'admin')
+            res.render('major_admin.ejs', { results })
+        else
+            res.render('major.ejs', { results })
     })
 })
 

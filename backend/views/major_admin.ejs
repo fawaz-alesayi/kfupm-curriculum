@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="KFUPM Curriculum is the website to see information about courses and majors offered by King Fahd University of Petroleum and Minerals">
     <meta name="keywords" content="KFUPM, flowchart, courses, curriculum, Math101, Phys101, Chem101, math kfupm, physics 101 kfupm, math 101 kfupm, chem 101 kfupm, EE kfupm, ME kfupm">
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="/styles/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
     <title>Major | KFUPM Curriculum</title>
@@ -16,16 +16,15 @@
 
 <body class="admin">
     <header class='header' id='myHeader'> <!--Sticky Header with Home Text, Search Bar, About & Help -->
-        <span class='header-text' onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a href="AdminIndex.html">KFUPM Curriculum Admin Page</a></span>
+        <span class='header-text' onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a href="/index.html">KFUPM Curriculum</a></span>
         <div class="search-group">
             <input type='search' class='search-bar' placeholder="Search for a course...">
             <button type="submit" class="sbmt"><img class="imgbtn"
                     src="https://www.loirelife.com/wp-content/uploads/2015/01/Gites-in-France-Search.png" alt="Search Btn"></button>
         </div>
         <nav class='nav-group'>
-            <span onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a href="AdminAbout.html">About</a></span>
-            <span onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a href="AdminHelp.html">Help</a></span>
-            <span onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a href="index.html">Logout</a></span>
+            <span onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a href="about.html">About</a></span>
+            <span onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a href="help.html">Help</a></span>
         </nav>
         <a class="icon" onclick="toggleNav()">
             <div class="menu-btn">
@@ -40,9 +39,8 @@
             <button type="submit" class="sbmt"><img class="imgbtn"
                     src="https://www.loirelife.com/wp-content/uploads/2015/01/Gites-in-France-Search.png" alt="Search Btn"></button>
         </div>
-        <a href="AdminAbout.html">About</a>
-        <a href="AdminHelp.html">Help</a>
-        <a href="index.html">Logout</a>
+        <a href="help.html">Help</a>
+        <a href="about.html">About</a>
     </nav>
 
     <div class='content'> 
@@ -52,61 +50,87 @@
             <header class="major">
                 <h1>Major</h1>
             </header>
-            <img class='course-image' alt="Major" src="CHEM.jpg">
+            <img class='course-image' alt="Major" src="/CHEM.jpg">
         </section>
 
 
         <section> <!--Texts with pointers which are for courses in this Major-->
             <header class='course-header' id="cSlideDown"  onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Courses</header>
-
-
-
             <nav class='course-container' id="cox">
-                <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)"><a href="AdminCourses.html">Course</a></div>
-                <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Course</div>
-                <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Course</div>
-                <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Course</div>
-                <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Course</div>
-                <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Course</div>
-                <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Course</div>
-                <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Course</div>
-                <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Course</div>
-                <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Course</div>
-                <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Course</div>
-                <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Course</div>
+                <% results.forEach(course => { %>
+                <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)"><a href=<%= `/courses/${course.code}` %>><%= course.code %></a></div>
+                <% }) %>
             </nav>
-
-            <button id="ac" class="addbtn" onClick = "GFS_Function()"> 
-                Add Course 
-            </button>
-            <button id="rc" class="rmvbtn" onClick = "GFG_Function()"> 
-                Remove Course
-            </button> 
-            
         </section>
+
+        <button class="addbtn" onClick = "GFS_Function()"> 
+            Add Course 
+        </button>
+
+
 
         <section> <!--Flow chart Picture-->
             <header class="flowchart-header" id="FcSlideDown" onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Flow Chart</header>
-            <img class="center" alt="FC" id="pix" src="assets/Chem_FC.jpg">
-
-            <form id="fileToUpload" class="fcch" action="AdminMajor.php" method="POST" enctype="multipart/form-data">
-                Select image to upload:
-                <input class="fcch-up" type="file" name="fileToUpload" id="fileToUpload">
-                <br>
-                <input class='fcch-btn' type="submit" value="Upload Image" name="submit" id='fileToUpload'>
-              </form>
+            <img class="center" alt="FC" id="pix" src="/assets/Chem_FC.jpg">
         </section>
 
         <section> <!--Resources of the Major-->
             <header class='link-header center'><a href="http://resources.stkfupm.com/?dir=uploads/CHEM" target="_blank" onmouseover="changeColorLM(this)" onmouseout="changeColorLM(this)">Resources</a></header>
-            <button id="cru" class="resbtn"> 
-                Change Resources
-            </button> 
         </section>
 
         <div>
-            <img id= 'picr' src="BG.png" alt='LOGO' class="major-image-right">
-            <img id= 'picl' src="BG.png" alt='LOGO' class="major-image-left">
+            <img id= 'picr' src="/BG.png" alt='LOGO' class="major-image-right">
+            <img id= 'picl' src="/BG.png" alt='LOGO' class="major-image-left">
+        </div>
+
+        <h4 class="svh" id="mySurveyBtn">
+            It's our pleasure to take Survey for the system by clicking Here!
+        </h4>
+        
+        <div id="mySurveyMdl" class="modal">
+
+            <div class="modal-content">
+                <span class="close-ing">&times;</span>
+                    <h2 class="SurveyMonkey">Add a Course (inputs marked as * are required)</h2>
+                    <form required='req0' name="message" id="message" action="help.html">
+                        <p>Course Code *</p>
+                        <input type='text' name='courseCode' placeholder="MATH101, PHYS101, ...">
+
+                        <p>Course Level</p>
+                        <input type='number' name='courseLevel' placeholder="100, 200, 300, ...">
+
+                        <p>Course Name</p>
+                        <input type='text' name='courseName'>
+
+                        <p>Prerequisites</p>
+                        <input style='display: block;' type='text' class='prereq' name='prerequisite'>
+                        <i class="fa" onclick="insertInput()">&#xf067;</i>
+
+                        <p>Syllabus Link</p>
+                        <input type='text' name='CourseSyllabusLink'>
+
+                        <p>Lab Syllabus Link</p>
+                        <input type='text' name='LabSyllabusLink'>
+
+                        <p>Resources Link</p>
+                        <input type='text' name='resourcesLink'>
+
+                        <p>Keywords</p>
+                        <input type='text' name='courseKeywords' placeholder="kfupm, math, orientation">
+
+
+
+                        <p></p>
+                        <br>
+
+
+                        <br>
+                        <br>
+                        <input class="sbmt-for-survey" id="sbmt-for-sur" type=submit value="Submit">
+                        <br>
+                        <br>
+                    </form>
+            </div>
         </div>
 
     </div>
@@ -133,10 +157,9 @@
         </div>
     </footer>
 
-    <script src="index.js"></script>
-    <script src="login.js"></script>
-    <script src="admin.js"></script>
-    
+    <script src="/index.js" type="text/javascript"></script>
+    <script src="/admin.js" type="text/javascript"></script>
+    <script src='/help.js' type="text/javascript"></script>
 
 </body>
 
@@ -147,16 +170,12 @@
 $(document).ready(function(){
     $('#FcSlideDown').click(function(){
         $('#pix').slideToggle(1000);
-        $('#fileToUpload').slideToggle(1000);
-        $('#cru').slideToggle(1000);
         });
             
      $('#cSlideDown').click(function(){
         $('#cox').slideToggle(1000);
         $('#picr').slideToggle(1000);
         $('#picl').slideToggle(1000);
-        $('#ac').slideToggle(1000);
-        $('#rc').slideToggle(1000);
 		});
   });
         

@@ -3,10 +3,7 @@ const pool = require('../database.js').pool
 const bcrypt = require('bcrypt')
 
 admin.get('/login', (req, res) => {
-    if (!req.session)
-        res.render('adminlogin.ejs')
-    else
-        res.redirect('/')
+    res.render('adminlogin.ejs')
 })
 
 admin.post('/login', async (req, res) => {

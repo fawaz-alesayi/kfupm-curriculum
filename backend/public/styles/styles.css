@@ -1233,10 +1233,6 @@ body .content .coursebtn2:hover {
   opacity: 0.7;
 }
 
-body .content #x1, body .content #x2, body .content #x3, body .content #x4, body .content #x5, body .content #x6, body .content #ccd, body .content #ccs, body .content #cco, body .content #ccpr, body .content #crc, body .content #crr {
-  display: none;
-}
-
 body .footer {
   font-size: 1vmax;
   width: 100%;

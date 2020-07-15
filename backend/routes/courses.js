@@ -22,7 +22,10 @@ courses.get('/:course', (req, res) => {
                     }
                     prereqs = results2
                     console.log("EXECUTED INNER...")
-                    res.render('course.ejs', { prereqs: prereqs, courseInfo: courseInfo })
+                    if (req.session.role == 'admin')
+                        res.render('course_admin.ejs', { prereqs: prereqs, courseInfo: courseInfo })
+                    else
+                        res.render('course.ejs', { prereqs: prereqs, courseInfo: courseInfo })
                 })
             }
             else
