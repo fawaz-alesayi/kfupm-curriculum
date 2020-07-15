@@ -1,0 +1,84 @@
+HTML :
+           
+              <!--NEW ONE FOR LOGIN-->
+              <div class="dropdown">
+                <button class="dropbtn">Login 
+                </button>
+                <div class="dropdown-content">
+                    <form action="/action_page.php">
+                        <input class='tegt' type="text" placeholder="Username" name="username" required>
+                        <input class='tegt' type="password" placeholder="Password" name="Password" required>
+                        <button type="submit">Login !</button>
+                      </form>
+                </div>
+              </div> 
+
+            <span onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a href="about.html">About</a></span>
+            <span onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a href="help.html">Help</a></span>
+       
+
+CSS :
+
+//LOGIN DROPDOWN !!!
+            .dropdown {
+                overflow: hidden;
+                z-index: 1;
+
+
+                .dropdown-content {
+                    display: none;
+                    position: absolute;
+                    background-color: #c3c9e7;
+                    min-width: 190px;
+                    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                    z-index: 5;
+                  }
+
+                  .tegt {
+                    padding: 6px;
+                    margin-top: 8px;
+                    margin-left: 4px;
+                    margin-bottom: 8px;
+                    font-size: 17px;
+                    border: none;
+                    width: 120px;
+                  }
+
+                .dropbtn {
+                  font-size: 16px;
+                  display: inline-block;
+                  border: none;
+                  outline: none;
+                  color: white;
+                  padding: 10px 38px;
+                  background-color: inherit;
+                  font-family: inherit;
+                  margin-left: -20px;
+                }
+
+                .dropdown-content button {
+                    float: right;
+                    padding: 6px 10px;
+                    margin-top: 8px;
+                    margin-right: 16px;
+                    background-color: rgb(102, 110, 233);
+                    color: white;
+                    font-size: 17px;
+                    border: none;
+                    cursor: pointer;
+                
+                    &:hover {
+                      background-color: indigo;
+                    }
+                  }
+
+              }
+              
+              .navbar a:hover, .dropdown:hover .dropbtn {
+                background-color: rgb(37, 49, 83);
+              }
+
+              
+              .dropdown:hover .dropdown-content {
+                display: flex;
+              }

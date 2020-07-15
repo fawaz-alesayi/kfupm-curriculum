@@ -6,25 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="KFUPM Curriculum is the website to see information about courses and majors offered by King Fahd University of Petroleum and Minerals">
     <meta name="keywords" content="KFUPM, flowchart, courses, curriculum, Math101, Phys101, Chem101, math kfupm, physics 101 kfupm, math 101 kfupm, chem 101 kfupm, EE kfupm, ME kfupm">
-    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="/styles/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Login | KFUPM Curriculum</title>
-    <link rel="icon" href="logo.png">
+    <link rel="icon" href="/logo.png">
 
 </head>
 
 <body>
     <header class='header' id='myHeader'>  <!--Sticky Header with Home Text, Search Bar, About & Help -->
-        <span class='header-text' onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a href="index.html">KFUPM Curriculum</a></span>
+        <span class='header-text' onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a href="/index.html">KFUPM Curriculum</a></span>
         <div class="search-group">
             <input type='search' class='search-bar' placeholder="Search for a course...">
             <button type="submit" class="sbmt"><img class="imgbtn"
                     src="https://www.loirelife.com/wp-content/uploads/2015/01/Gites-in-France-Search.png" alt="Search Btn"></button>
         </div>
         <nav class='nav-group'>
-              <span onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a href="about.html">About</a></span>
-              <span onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a href="help.html">Help</a></span>
-              <span onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a href="AdminLogin.html">Login</a></span>
+              <span onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a href="/about.html">About</a></span>
+              <span onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a href="/help.html">Help</a></span>
         </nav>
         <a class="icon" onclick="toggleNav()">
             <div class="menu-btn">
@@ -39,9 +38,8 @@
             <button type="submit" class="sbmt"><img class="imgbtn"
                     src="https://www.loirelife.com/wp-content/uploads/2015/01/Gites-in-France-Search.png" alt="Search Btn"></button>
         </div>
-        <a href="about.html">About</a>
-        <a href="help.html">Help</a>
-        <a href="AdminLogin.html">Login</a>
+        <a href="/about.html">About</a>
+        <a href="/help.html">Help</a>
 
     </nav>
 
@@ -54,18 +52,17 @@
     <h2 class="admin-login-h2">
         Admin Login
     </h2>
-        <form name="messagel" class="messagel" id="message1" action="AdminIndex.html">
-        
+        <form action="/admin/login" class="messagel" id="message1" method="post">
             <label class="messageingl">
             Username:
             <br>
-            <input required='req1' type="text" name="Name" size="60" class="textarea" required>
+            <input required='req1' type="text" name="username" size="60" naxlength="255" class="textarea" autofocus required>
         </label>
         <br>
         <label class="messageingl">
             Password:
             <br>
-            <input required='req1' type="password" name="City" size="60" class="textarea" required>
+            <input required='req1' type="password" name="password" size="60" class="textarea" required>
         </label>
         <br>
 
@@ -100,7 +97,7 @@
         </div>
     </footer>
 
-    <script src="index.js"></script>
+    <script src="/index.js"></script>
 
 </body>
 </html>

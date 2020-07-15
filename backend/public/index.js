@@ -40,7 +40,7 @@ function changeColorLM(obj) {
 }
 // TO HERE
 
-//Header will contain only KFUPM assessment and hamgurger icon for remaining
+//Header will contain only KFUPM Curriculum and hamgurger icon for remaining
 function toggleNav() {
     let nav = document.getElementsByClassName("dropDownNav")[0]
     console.assert(nav != null)
@@ -77,61 +77,75 @@ menuBtn.addEventListener('click', () => {
   }
 });
 
-// pop up box for survey 
-var modal = document.getElementById("mySurveyMdl");
+// SILDE SHOW IN THE HOME PAGE !!!
 
-// Get the button that opens the modal
-var btn = document.getElementById("mySurveyBtn");
+var slideIndex = 1;
+showSlides(slideIndex);
 
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close-ing")[0];
-
-var submit = document.getElementById("sbmt-for-sur");
-
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
+function plusSlides(n) {
+  showSlides(slideIndex += n);
 }
 
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
+function currentSlide(n) {
+  showSlides(slideIndex = n);
 }
 
-submit.onclick = function() {
-    modal.style.display = "none";
+function plusSlides(n){
+  clearInterval(myTimer);
+  if (n < 0){
+    showSlides(slideIndex -= 1);
+  } else {
+   showSlides(slideIndex += 1); 
+  }
+  if (n === -1){
+    myTimer = setInterval(function(){plusSlides(n + 2)}, 6000);
+  } else {
+    myTimer = setInterval(function(){plusSlides(n + 1)}, 6000);
+  }
 }
 
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
 
-// pop up box for Contacting
-var modal1 = document.getElementById("mySurveyMdl1");
 
-// Get the button that opens the modal
-var btn1 = document.getElementById("mySurveyBtn1");
+  for (i = 0; i < dots.length; i++) { 
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
 
-// Get the <span> element that closes the modal
-var span1 = document.getElementsByClassName("close-ing1")[0];
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
 
-var submit1 = document.getElementById("sbmt-for-sur1");
-
-// When the user clicks the button, open the modal 
-btn1.onclick = function() {
-  modal1.style.display = "block";
 }
 
-// When the user clicks on <span> (x), close the modal
-span1.onclick = function() {
-  modal1.style.display = "none";
+window.addEventListener("load",function() {
+  showSlides(slideIndex);
+  myTimer = setInterval(function(){plusSlides(1)}, 6000);
+})
+
+function currentSlide(n){
+  clearInterval(myTimer);
+  myTimer = setInterval(function(){plusSlides(n + 1)}, 6000);
+  showSlides(slideIndex = n);
 }
 
-submit1.onclick = function() {
-    modal1.style.display = "none";
+var slideshowContainer = document.getElementsByClassName('slideshow-container')[0];
+slideshowContainer.addEventListener('mouseenter', pause)
+slideshowContainer.addEventListener('mouseleave', resume)
+
+pause = () => {
+  clearInterval(myTimer);
 }
 
-//resize text area for different devices
-function adjust() {
-  txt = document.querySelector("textarea");
-
-  txt.style.width = "100%";
-  txt.style.height = "100%";
+resume = () =>{
+  clearInterval(myTimer);
+  myTimer = setInterval(function(){plusSlides(slideIndex)}, 6000);
 }
+// END OF SILDE SHOW IN THE HOME PAGE !!!
+

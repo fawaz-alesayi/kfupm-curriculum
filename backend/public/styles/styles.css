@@ -180,11 +180,17 @@ html {
   padding-top: 10vh;
 }
 
+.admin {
+  background-color: #bdbdbd;
+}
+
 body {
   background-color: #EBFCFF;
 }
 
 body .header {
+  background-image: url("rsz.jpg");
+  background-size: cover;
   width: 100%;
   height: 10vh;
   padding: auto;
@@ -394,6 +400,36 @@ body .dropDownNav * {
   text-decoration: none;
 }
 
+body .dropDownNav .login-container {
+  float: none;
+}
+
+body .dropDownNav .login-container .inbit {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+  width: 120px;
+  color: black;
+}
+
+body .dropDownNav .login-container .button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  margin-left: 3px;
+  background-color: #666ee9;
+  color: white;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+body .dropDownNav .login-container .button:hover {
+  background-color: indigo;
+}
+
 body .toggled {
   height: 250px;
 }
@@ -403,6 +439,103 @@ body .content {
   font-size: 20px;
   margin-bottom: 100px;
   position: relative;
+  /* Slideshow container for HOME PAGE*/
+  /* The dots/bullets/indicators */
+}
+
+body .content .slideshow-container {
+  max-width: 1250px;
+  position: relative;
+  margin: auto;
+  /* Fading animation */
+  /* Next & previous buttons */
+  /* Position the "next button" to the right */
+  /* On hover, add a black background color with a little bit see-through */
+  /* On smaller screens, decrease text size */
+}
+
+body .content .slideshow-container .mySlides {
+  display: none;
+}
+
+body .content .slideshow-container .mySlides .imgslide {
+  vertical-align: middle;
+  border-radius: 8%;
+}
+
+body .content .slideshow-container .fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: .3;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: .3;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+body .content .slideshow-container .prev, body .content .slideshow-container .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  -webkit-transition: 0.6s ease;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+body .content .slideshow-container .next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+body .content .slideshow-container .prev:hover, body .content .slideshow-container .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+@media only screen and (max-width: 300px) {
+  body .content .slideshow-container .prev, body .content .slideshow-container .next, body .content .slideshow-container .text {
+    font-size: 11px;
+  }
+}
+
+body .content .dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  -webkit-transition: background-color 0.6s ease;
+  transition: background-color 0.6s ease;
+}
+
+body .content .active, body .content .dot:hover {
+  background-color: #717171;
 }
 
 body .content .viewed {
@@ -451,6 +584,8 @@ body .content .modal {
 }
 
 body .content .modal .modal-content {
+  background-image: url("space.jpg");
+  background-size: cover;
   background-color: #191b30;
   margin: auto;
   padding: 20px;
@@ -458,6 +593,9 @@ body .content .modal .modal-content {
   width: 80%;
   color: white;
   line-height: 1.5;
+  font-weight: 700;
+  font-size: larger;
+  color: #e6e5e3;
 }
 
 body .content .modal .modal-content .SurveyMonkey {
@@ -526,6 +664,8 @@ body .content .modal1 {
 }
 
 body .content .modal1 .modal-content1 {
+  background-image: url("space.jpg");
+  background-size: cover;
   background-color: #191b30;
   margin: auto;
   padding: 20px;
@@ -533,6 +673,8 @@ body .content .modal1 .modal-content1 {
   width: 80%;
   color: white;
   line-height: 1.5;
+  font-weight: 700;
+  font-size: larger;
 }
 
 body .content .modal1 .modal-content1 .SurveyMonkey1 {
@@ -644,6 +786,81 @@ body .content .landing p {
     font-size: 16px;
     margin-top: 10px;
   }
+}
+
+body .content .landing .admin-login-h2 {
+  text-align: center;
+  font-size: 44px;
+  color: #52be31;
+  font-family: 'David Libre', serif;
+  line-height: 1.3;
+  stroke: black;
+  stroke-width: 10px;
+}
+
+body .content .landing .admin-login-h3 {
+  text-align: left;
+  padding-left: 30px;
+  font-size: 36px;
+  color: #bd1a42;
+  font-family: 'Signika', sans-serif;
+  line-height: 1.5;
+}
+
+body .content .landing .messagel {
+  position: relative;
+  margin-bottom: 30px;
+  padding: 25px;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+}
+
+body .content .landing .messagel .messageingl {
+  padding: 25px;
+  font-size: 32px;
+  color: indigo;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+body .content .landing .messagel .messageingl .textarea {
+  margin-left: 25px;
+  margin-top: 3px;
+  padding-right: 10px;
+  padding-bottom: 15px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  width: 55%;
+  height: 55%;
+  line-height: 1.2;
+}
+
+body .content .landing .messagel .sbmt-for-surveyl {
+  width: 20%;
+  margin-top: 30px;
+  position: relative;
+  padding: 10px;
+  margin-left: 38%;
+  width: 20%;
+  height: 10%;
+  border-radius: 3px;
+  background-color: yellowgreen;
+  border: 1px yellowgreen;
+  cursor: pointer;
+  color: white;
+  font-size: 22px;
+  border: 0;
+}
+
+body .content .landing .messagel .sbmt-for-surveyl:hover {
+  opacity: 0.8;
+  background-color: #1B4965;
+}
+
+body .content .landing .messagel .sbmt-for-surveyl:active {
+  -webkit-filter: brightness(70%);
+          filter: brightness(70%);
 }
 
 body .content .card-container, body .content .course-container {
@@ -809,7 +1026,7 @@ body .content .major-image-left {
 
 body .content .other-right-image {
   position: absolute;
-  top: 400px;
+  top: 625px;
   left: -30px;
   width: 20%;
   height: 350px;
@@ -818,7 +1035,7 @@ body .content .other-right-image {
 
 body .content .other-left-image {
   position: absolute;
-  top: 400px;
+  top: 625px;
   right: -30px;
   width: 20%;
   height: 350px;
@@ -853,7 +1070,7 @@ body .content .other-left-image {
   }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 900px) {
   body .content .courses-image {
     display: none;
   }
@@ -874,15 +1091,150 @@ body .content .other-left-image {
     width: 30%;
     height: 400px;
   }
+  body .content .hhh-image {
+    position: absolute;
+    bottom: 50px;
+    right: 0px;
+    width: 30%;
+    height: 400px;
+  }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 800px) {
   body .content .ah-image {
     display: none;
   }
   body .content .hh-image {
     display: none;
   }
+  body .content .hhh-image {
+    display: none;
+  }
+}
+
+body .content .fcch {
+  text-align: center;
+  display: block;
+  color: #09b912;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+body .content .fcch .fcch-up {
+  margin: auto;
+  padding: 10px;
+  border: 0px;
+  color: gold;
+  margin-bottom: 10px;
+  cursor: pointer;
+  background-color: #4f71b1;
+  background-size: 1px;
+}
+
+body .content .fcch .fcch-btn {
+  margin: auto;
+  padding: 10px;
+  border: 0px;
+  background-color: indigo;
+  color: ivory;
+  cursor: pointer;
+  font-size: 22px;
+}
+
+body .content .fcch .fcch-btn:hover {
+  opacity: 0.7;
+}
+
+body .content .addbtn {
+  background-color: indigo;
+  margin-left: 20%;
+  font-size: 22px;
+  padding: 10px;
+  padding-right: 10px;
+  text-align: center;
+  border: 2px;
+  border-color: chartreuse;
+  color: ivory;
+  cursor: pointer;
+}
+
+body .content .addbtn:hover {
+  opacity: 0.7;
+}
+
+body .content .rmvbtn {
+  background-color: indigo;
+  margin-left: 36%;
+  font-size: 22px;
+  padding: 10px;
+  padding-right: 10px;
+  text-align: center;
+  border: 2px;
+  border-color: chartreuse;
+  color: ivory;
+  cursor: pointer;
+}
+
+body .content .rmvbtn:hover {
+  opacity: 0.7;
+}
+
+body .content .resbtn {
+  background-color: #a72d70;
+  margin-left: 41.7%;
+  font-size: 22px;
+  margin-bottom: 10px;
+  padding: 10px;
+  padding-right: 10px;
+  text-align: center;
+  border: 2px;
+  border-color: chartreuse;
+  color: ivory;
+  cursor: pointer;
+}
+
+body .content .resbtn:hover {
+  opacity: 0.7;
+}
+
+body .content .coursebtn1 {
+  background-color: #a72d70;
+  margin-left: 1%;
+  font-size: 22px;
+  margin-bottom: 10px;
+  padding: 10px;
+  padding-right: 10px;
+  text-align: center;
+  border: 2px;
+  border-color: chartreuse;
+  color: ivory;
+  cursor: pointer;
+}
+
+body .content .coursebtn1:hover {
+  opacity: 0.7;
+}
+
+body .content .coursebtn2 {
+  background-color: #32aa27;
+  margin-left: 1%;
+  font-size: 22px;
+  margin-bottom: 10px;
+  padding: 10px;
+  padding-right: 10px;
+  text-align: center;
+  border: 2px;
+  border-color: chartreuse;
+  color: ivory;
+  cursor: pointer;
+}
+
+body .content .coursebtn2:hover {
+  opacity: 0.7;
+}
+
+body .content #x1, body .content #x2, body .content #x3, body .content #x4, body .content #x5, body .content #x6, body .content #ccd, body .content #ccs, body .content #cco, body .content #ccpr, body .content #crc, body .content #crr {
+  display: none;
 }
 
 body .footer {

@@ -185,11 +185,19 @@ html {
        .sticky + .content {
          padding-top: 10vh;
        }    
-  
+  //BACKGROUND FOR ADMIN PAGE ONLY
+       .admin{
+        background-color: #bdbdbd;
+    }
 body {
     background-color: $body-color;
     // This is the same as saying body .header { }
+
+   
+    
     .header {
+        background-image: url("rsz.jpg");
+        background-size: cover;
         width: 100%;
         height: 10vh;
         padding: auto;
@@ -201,8 +209,6 @@ body {
         overflow: hidden;
         text-decoration: none;
         font-family: $header-font;
-
-        
 
         // This is the same as selecting .header .header-text { }
         .header-text {
@@ -217,7 +223,7 @@ body {
         }
 
         
-        //header that has KFUPM assessment text, search bar, about and help
+        //header that has KFUPM Curriculum text, search bar, about and help
         .nav-group {
             display: flex;
             > span {
@@ -232,8 +238,9 @@ body {
                     color: inherit;
                 }
             }
+
         }
-        // make navigation bar (Header) hide all except KFUPM Assessment
+// make navigation bar (Header) hide all except KFUPM Curriculum
         @media screen and (max-width: 700px) {
             .nav-group {
                 display: none;
@@ -353,13 +360,44 @@ body {
                     padding: 10px;
                 }
             }
-        } 
-
+        }
+        
         * {
             padding: 10px;
             color: white;
             text-decoration: none;
         }
+
+        .login-container {
+            float: none;
+
+            .inbit {
+                padding: 6px;
+                margin-top: 8px;
+                font-size: 17px;
+                border: none;
+                width:120px;
+                color: black;
+              }
+            
+            .button {
+                float: right;
+                padding: 6px 10px;
+                margin-top: 8px;
+                margin-right: 16px;
+                margin-left: 3px;
+                background-color: rgb(102, 110, 233);
+                color: white;
+                font-size: 17px;
+                border: none;
+                cursor: pointer;
+              }
+
+            .button:hover {
+                background-color: indigo;
+            }
+          }
+
     }
 
     .toggled {
@@ -371,6 +409,96 @@ body {
         font-size: 20px;
         margin-bottom: 100px;
         position: relative;
+
+            
+        /* Slideshow container for HOME PAGE*/
+.slideshow-container {
+    max-width: 1250px;
+    position: relative;
+    margin: auto;
+
+    .mySlides {
+        display: none;
+          
+          .imgslide {
+              vertical-align: middle;
+              border-radius: 8%;
+            }
+    }
+
+     /* Fading animation */
+  .fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @-webkit-keyframes fade {
+    from {opacity: .3} 
+    to {opacity: 1}
+  }
+  
+  @keyframes fade {
+    from {opacity: .3} 
+    to {opacity: 1}
+  }
+
+   /* Next & previous buttons */
+   .prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+
+    /* On smaller screens, decrease text size */
+    @media only screen and (max-width: 300px) {
+        .prev, .next,.text {font-size: 11px}
+      }
+
+  }
+
+  
+  /* The dots/bullets/indicators */
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+  }
+  
+  .active, .dot:hover {
+    background-color: #717171;
+  }
+
+
+  // END OF 
+  // SILDE SHOW
+  // in HOME PAGE !!!
 
         .viewed{
             font-size: 30px;
@@ -428,6 +556,8 @@ body {
           
 
             .modal-content {
+                background-image: url("space.jpg");
+                background-size: cover;
                 background-color: rgb(25, 27, 48);
                 margin: auto;
                 padding: 20px;
@@ -435,6 +565,9 @@ body {
                 width: 80%;
                 color: white;
                 line-height: 1.5;
+                font-weight: 700;
+                font-size: larger;
+                color: rgb(230, 229, 227);
 //head of survey
                 .SurveyMonkey{
                     color: yellowgreen;
@@ -512,13 +645,17 @@ body {
           
 
             .modal-content1 {
+                background-image: url("space.jpg");
+                background-size: cover;
                 background-color: rgb(25, 27, 48);
                 margin: auto;
                 padding: 20px;
                 border: 1px solid rgb(166, 192, 240);
                 width: 80%;
-                color: white;
+                color: rgb(255, 255, 255);
                 line-height: 1.5;
+                font-weight: 700;
+                font-size: larger;
 
 //head of Send a message
                 .SurveyMonkey1{
@@ -582,6 +719,7 @@ body {
                 }
                   
         }
+
 //for clicking on courses 
         #Sd{
             cursor: pointer;
@@ -635,7 +773,89 @@ body {
                     margin-top: 10px;
                 }
             }
+
+     //for login page main texts
+    .admin-login-h2{
+        text-align: center;
+        font-size: 44px;
+        color: rgb(82, 190, 49);
+        font-family: 'David Libre', serif;
+        line-height: 1.3;
+        stroke: black;
+        stroke-width: 10px;
+    }
+
+    .admin-login-h3{
+        text-align: left;
+        padding-left: 30px;
+        font-size: 36px;
+        color: rgb(189, 26, 66);
+        font-family: 'Signika', sans-serif;
+        line-height: 1.5;
+    }
+
+     //for login layout page
+    .messagel{
+                position: relative;
+                margin-bottom: 30px;
+                padding: 25px;
+                width: 100%;
+                height: 100%;
+                text-align: left;
+        
+        
+        //for label texts in modal content
+                      .messageingl{
+                        padding: 25px;
+                        font-size: 32px;
+                        color: indigo;
+                        font-weight: 700;
+                        line-height: 1.5;
+        
+        //for labels in modal content
+                        .textarea{
+                            margin-left: 25px;
+                            margin-top: 3px;
+                            padding-right: 10px;
+                            padding-bottom: 15px;
+                            font-size: 18px;
+                            margin-bottom: 10px;
+                            width: 55%;
+                            height: 55%; 
+                            line-height: 1.2;
+                        }
+                      }
+                            
+        //submit button for message
+                      .sbmt-for-surveyl{
+                        width: 20%;
+                        margin-top: 30px;
+                        position: relative;
+                        padding: 10px;
+                        margin-left: 38%;
+                        width: 20%;
+                        height: 10%;
+                        border-radius: 3px;
+                        background-color: yellowgreen;
+                        border: 1px yellowgreen;
+                        cursor: pointer;
+                        color: white;
+                        font-size: 22px;
+                        border: 0;
+        
+                        &:hover {
+                            opacity: 0.8;
+                            background-color: #1B4965;
+                        }
+            
+                        &:active {
+                            filter: brightness(70%);
+                        }
+                      }
+                    }
         } 
+        //END OF LOGIN PAGE
+
         // styles for square cards
         .card-container {
             display: flex;
@@ -679,6 +899,7 @@ body {
                 text-decoration: inherit;
                 color: inherit;
             }
+            
         }
 
         .course {
@@ -757,7 +978,7 @@ body {
 
     .other-right-image{
         position: absolute;
-        top: 400px;
+        top: 625px;
         left: -30px;
         width: 20%;
         height: 350px;
@@ -766,7 +987,7 @@ body {
 
     .other-left-image{
         position: absolute;
-        top: 400px;
+        top: 625px;
         right: -30px;
         width: 20%;
         height: 350px;
@@ -806,7 +1027,7 @@ body {
     }
 // lower image in course page hides for mobiles
 
-    @media screen and (max-width: 1000px) {
+    @media screen and (max-width: 900px) {
         .courses-image{
             display: none;
         }
@@ -827,10 +1048,17 @@ body {
             width: 30%;
             height: 400px;
         }
+        .hhh-image{
+            position: absolute;
+            bottom: 50px;
+            right: 0px;
+            width: 30%;
+            height: 400px;
+        }
     }
 // lower image in about and help pages hides for mobiles
 
-    @media screen and (max-width: 1000px) {
+    @media screen and (max-width: 800px) {
         .ah-image{
             display: none;
         }
@@ -838,11 +1066,128 @@ body {
         .hh-image{
             display: none;
         }
+        .hhh-image{
+            display: none;
+        }
     }
 
+    .fcch{
+        text-align: center;
+        display: block;
+        color: rgb(9, 185, 18);
+        font-size: 26px;
+        font-weight: 700;         
+
+
+        .fcch-up{
+            margin: auto;
+            padding: 10px;
+            border: 0px;
+            color: gold;
+            margin-bottom: 10px; 
+            cursor: pointer;
+            background-color: rgb(79, 113, 177);
+            background-size: 1px;
+  
+        }
+        .fcch-btn{
+            margin: auto;
+            padding: 10px;
+            border: 0px;
+            background-color: indigo;
+            color: ivory;
+            cursor: pointer;
+            font-size: 22px;
+            &:hover{
+                opacity: 0.7;
+            }
+        }
+    }
+    .addbtn{
+        background-color: indigo;
+        margin-left: 20%;
+        font-size: 22px;
+        padding: 10px;
+        padding-right: 10px;
+        text-align: center;
+        border: 2px;
+        border-color: chartreuse;
+        color: ivory;
+        cursor: pointer;
+        &:hover{
+            opacity: 0.7;
+        }
+    }
+    .rmvbtn{
+        background-color: indigo;
+        margin-left: 36%;
+        font-size: 22px;
+        padding: 10px;
+        padding-right: 10px;
+        text-align: center;
+        border: 2px;
+        border-color: chartreuse;
+        color: ivory;
+        cursor: pointer;
+        &:hover{
+            opacity: 0.7;
+        }
+    }
+    .resbtn{
+        background-color: rgb(167, 45, 112);
+        margin-left: 41.7%;
+        font-size: 22px;
+        margin-bottom: 10px;
+        padding: 10px;
+        padding-right: 10px;
+        text-align: center;
+        border: 2px;
+        border-color: chartreuse;
+        color: ivory;
+        cursor: pointer;
+        &:hover{
+            opacity: 0.7;
+        }
+    }
+
+    .coursebtn1{
+        background-color: rgb(167, 45, 112);
+        margin-left: 1%;
+        font-size: 22px;
+        margin-bottom: 10px;
+        padding: 10px;
+        padding-right: 10px;
+        text-align: center;
+        border: 2px;
+        border-color: chartreuse;
+        color: ivory;
+        cursor: pointer;
+        &:hover{
+            opacity: 0.7;
+        }
+    }
+
+    .coursebtn2{
+        background-color: rgb(50, 170, 39);
+        margin-left: 1%;
+        font-size: 22px;
+        margin-bottom: 10px;
+        padding: 10px;
+        padding-right: 10px;
+        text-align: center;
+        border: 2px;
+        border-color: chartreuse;
+        color: ivory;
+        cursor: pointer;
+        &:hover{
+            opacity: 0.7;
+        }
+    }
+
+    #x1, #x2, #x3, #x4, #x5, #x6, #ccd, #ccs, #cco, #ccpr, #crc, #crr {
+        display: none;
+    }
 }
-
-
 
 // Footer styling
     .footer {
@@ -899,5 +1244,5 @@ body {
         }
 
         }
-    }
+    }             
 }

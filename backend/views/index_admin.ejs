@@ -14,19 +14,19 @@
 
 </head>
 
-<body>
+<body class="admin">
     <header class='header' id='myHeader'> <!--Sticky Header with Home Text, Search Bar, About & Help -->
         <span class='header-text' onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a
-                href="index.html">KFUPM Curriculum</a></span>
+                href="AdminIndex.html">KFUPM Curriculum Admin Page</a></span>
         <div class="search-group">
             <input type='search' class='search-bar' placeholder="Search for a course...">
             <button type="submit" class="sbmt"><img class="imgbtn"
                     src="https://www.loirelife.com/wp-content/uploads/2015/01/Gites-in-France-Search.png" alt="Search Button"></button>
         </div>
         <nav class='nav-group'>
-
-            <span onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a href="about.html">About</a></span>
-            <span onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a href="help.html">Help</a></span>
+            <span onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a href="/about.html">About</a></span>
+            <span onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a href="/help.html">Help</a></span>
+            <span onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a href="/admin/logout">Logout</a></span>
         </nav>
         <a class="icon" onclick="toggleNav()">
             <div class="menu-btn">
@@ -41,14 +41,14 @@
             <button type="submit" class="sbmt"><img class="imgbtn"
                     src="https://www.loirelife.com/wp-content/uploads/2015/01/Gites-in-France-Search.png" alt="Search Btn"></button>
         </div>
-        <a href="about.html">About</a>
-        <a href="help.html">Help</a>
-          </div>
+        <a href="AdminAbout.html">About</a>
+        <a href="AdminHelp.html">Help</a>
+        <a href="index.html">Logout</a>
     </nav>
 
     <div class='content'> 
 
-        <div class="slideshow-container" title="Home pictures">
+        <div class="slideshow-container">
 
             <div class="mySlides fade">
               <img class="imgslide" src="1a.jpg" style="width:100%">
@@ -117,15 +117,15 @@
         <br>
         <section>
             <header>
-                <h1 id="Sd">Look for courses that you want!</h1> <!--Square Cards that contain majors in all colleges-->
+                <h1 id="Sd">Click on Majors to Access Courses of clicked Major</h1> <!--Square Cards that contain majors in all colleges-->
             </header>
-            <div class='card-container' id="x">
+            <div class='card-container' id="xmi">
                 <div class="square-card">
                     <div class="text-container">
                         <h4 id="c1"><b>College of Science</b></h4>
                         <div id="ca">
                             <p class="color-new-text" onmouseover="changeColor(this)" onmouseout="changeColor(this)">
-                                <a href='major.html'>Chemistry</a></p>
+                                <a href='AdminMajor.html'>Chemistry</a></p>
                             <p class="color-new-text" onmouseover="changeColor(this)" onmouseout="changeColor(this)">
                                 Life Science</p>
                             <p class="color-new-text" onmouseover="changeColor(this)" onmouseout="changeColor(this)">
@@ -272,7 +272,7 @@
     $(document).ready(function () {
 
         $('#Sd').click(function () {
-            $('#x').slideToggle(2000);
+            $('#xmi').slideToggle(1000);
             $('#pr').slideToggle(1000);
             $('#pl').slideToggle(1000);
         });

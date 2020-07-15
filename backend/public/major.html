@@ -8,13 +8,14 @@
     <meta name="keywords" content="KFUPM, flowchart, courses, curriculum, Math101, Phys101, Chem101, math kfupm, physics 101 kfupm, math 101 kfupm, chem 101 kfupm, EE kfupm, ME kfupm">
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>About | KFUPM Curriculum</title>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <title>Major | KFUPM Curriculum</title>
     <link rel="icon" href="logo.png">
 
 </head>
 
 <body>
-    <header class='header' id='myHeader'>  <!--Sticky Header with Home Text, Search Bar, About & Help -->
+    <header class='header' id='myHeader'> <!--Sticky Header with Home Text, Search Bar, About & Help -->
         <span class='header-text' onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a href="index.html">KFUPM Curriculum</a></span>
         <div class="search-group">
             <input type='search' class='search-bar' placeholder="Search for a course...">
@@ -43,24 +44,51 @@
         <a href="help.html">Help</a>
         <a href="AdminLogin.html">Login</a>
     </nav>
-    
-    <div class='content'> <!--Main page with title, Logo, & About paragraph-->
-        <section class="landing">
+
+    <div class='content'> 
+        <section class="landing"> <!--Main page with title, Logo of university and major-->
             <div class='wide-logo'>
             </div>
-            <header>
-                <h1>About<br>KFUPM Curriculum System</h1>
-
-                <p class="p-for-ha">
-                    KFUPM Curriculum System is a system that helps KFUPM Students to look for courses, description of courses, outcomes, pre-requisties, syllabus ... etc. This system has collected Information from reliable sources such as KFUPM web site. The system was developed by Group 10 (Khaled Araj & Fawaz Alesayi) Under supervising by Prof. El-Sayed El-Alfy in Software 363 Term 193 Project.
-                </p>
+            <header class="major">
+                <h1>Major</h1>
             </header>
-
+            <img class='course-image' alt="Major" src="CHEM.jpg">
         </section>
 
-        <img src="BG.png" alt="Logo" class="ah-image">
-    </div>
 
+        <section> <!--Texts with pointers which are for courses in this Major-->
+            <header class='course-header' id="cSlideDown"  onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Courses</header>
+            <nav class='course-container' id="cox">
+                <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)"><a href="course.html">Course</a></div>
+                <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Course</div>
+                <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Course</div>
+                <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Course</div>
+                <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Course</div>
+                <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Course</div>
+                <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Course</div>
+                <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Course</div>
+                <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Course</div>
+                <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Course</div>
+                <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Course</div>
+                <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Course</div>
+            </nav>
+        </section>
+
+        <section> <!--Flow chart Picture-->
+            <header class="flowchart-header" id="FcSlideDown" onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Flow Chart</header>
+            <img class="center" alt="FC" id="pix" src="assets/Chem_FC.jpg">
+        </section>
+
+        <section> <!--Resources of the Major-->
+            <header class='link-header center'><a href="http://resources.stkfupm.com/?dir=uploads/CHEM" target="_blank" onmouseover="changeColorLM(this)" onmouseout="changeColorLM(this)">Resources</a></header>
+        </section>
+
+        <div>
+            <img id= 'picr' src="BG.png" alt='LOGO' class="major-image-right">
+            <img id= 'picl' src="BG.png" alt='LOGO' class="major-image-left">
+        </div>
+
+    </div>
     <footer class='footer'> <!--Footer that contains information of KFUPM and Copyrights-->
         <div class='contact-info'>
             <h4 class='contacting'>Contact us:</h4>
@@ -71,12 +99,12 @@
                 <p>Kingdom of Saudi Arabia</p>
         </div>
 
-        <div class='links'>
+        <nav class='links'>
             <p><a href="http://www.kfupm.edu.sa" target="_blank" onmouseover="changeColorL(this)" onmouseout="changeColorL(this)">kfupm.com</a></p>
             <a href="https://www.facebook.com/KFUPM/" target="_blank" class="fa fa-facebook"></a>
             <a href="https://twitter.com/kfupm?lang=en" target="_blank" class="fa fa-twitter"></a>
             <a href="https://www.instagram.com/kfupm/?hl=en" target="_blank" class="fa fa-instagram"></a>
-        </div>
+        </nav>
 
         <div class= 'cr'>
             <p>Copyrights © KFUPM 2020</p>
@@ -88,4 +116,22 @@
     <script src="login.js"></script>
 
 </body>
+
+
+<script> 
+// Srcipting from External link, for toggling courses, flow chart and logo pictures below !
+
+$(document).ready(function(){
+    $('#FcSlideDown').click(function(){
+        $('#pix').slideToggle(1000);
+        });
+            
+     $('#cSlideDown').click(function(){
+        $('#cox').slideToggle(1000);
+        $('#picr').slideToggle(1000);
+        $('#picl').slideToggle(1000);
+		});
+  });
+        
+</script>
 </html>
