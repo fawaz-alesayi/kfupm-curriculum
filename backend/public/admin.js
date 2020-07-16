@@ -88,3 +88,20 @@ function insertInput() {
     let clone = $(".prereq").last().clone()
     $(".prereq").last().after(clone)
 }
+
+
+function addCourse() {
+$.ajax({
+    type: 'post',
+    url: '/courses',
+    data: $('#addCourse').serialize(),
+    success: function (data) {
+        console.log(data);
+        $("#addCourse").append('<p style="color: green;">' + data.status + ': ' + data.responseText + '</p>')
+    },
+    error: (data) => {
+        console.log(data)
+        $("#addCourse").append('<p style="color: red;">Error Code ' + data.status + ': ' + data.responseText + '</p>')
+    }
+})
+}

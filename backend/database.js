@@ -24,14 +24,14 @@ function initDB() {
             pool.query(`USE ${dbName};`, err => {
                 if (err) throw err
                 pool.query('CREATE TABLE IF NOT EXISTS colleges ( \
-                    college_id INT,\
+                    college_id INT AUTO_INCREMENT,\
                     `name` VARCHAR(50),\
                     PRIMARY KEY (college_id));', err => {
                     if (err) throw err
                 })
 
                 pool.query('CREATE TABLE IF NOT EXISTS departments ( \
-                    department_id INT,\
+                    department_id INT AUTO_INCREMENT,\
                     `name` VARCHAR(50),\
                     code VARCHAR(6),\
                     college_id INT,\
@@ -41,10 +41,11 @@ function initDB() {
                 })
 
                 pool.query('CREATE TABLE IF NOT EXISTS majors ( \
-                    major_id INT,\
+                    major_id INT AUTO_INCREMENT,\
                     name VARCHAR(255),\
                     code VARCHAR(10),\
-                    flowchart_image_name VARCHAR(50),\
+                    flowchart_url TEXT,\
+                    resource_url TEXT,\
                     keywords TEXT,\
                     department_id INT,\
                     PRIMARY KEY (major_id),\
@@ -53,7 +54,7 @@ function initDB() {
                 })
 
                 pool.query('CREATE TABLE IF NOT EXISTS courses ( \
-                    course_id INT,\
+                    course_id INT AUTO_INCREMENT,\
                     code VARCHAR(10),\
                     level INT,\
                     name VARCHAR(255),\

@@ -107,11 +107,13 @@
             <header>
                 <h1 onmouseover="changeColorM(this)" onmouseout="changeColorM(this)" id="SD5">Related Courses</h1>
             </header>
-            <ul id="x5">
-                <li>Course</li>
-                <li>Course</li>
-                <li>Course</li>
-            </ul>
+            <% if (related.length) { %>
+                <ul id="x5">
+                    <% related.forEach(course => {  %>
+                    <li><%= related.code %></li>
+                    <% }) %>
+                </ul>
+                <% } %>
         </section>
 
         <section>

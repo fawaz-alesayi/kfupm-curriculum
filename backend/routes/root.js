@@ -33,6 +33,7 @@ root.get('/', (req, res) => {
             let data = Object.keys(obj).map(key => {
                 return { college: key, majors: obj[key] }
             })
+            console.log(data)
             if (req.session.role == 'admin')
                 res.render('index_admin.ejs', { data })
             else

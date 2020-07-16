@@ -7,7 +7,7 @@ const pool = require('../database.js').pool
     - Keywords
 */
 majors.get('/:major', (req, res) => {
-    pool.query('SELECT courses.code, majors.flowchart_image_name, majors.keywords FROM majors INNER JOIN courses on courses.major_id=majors.major_id AND majors.code=?;', req.params.major, (err, results) => {
+    pool.query('SELECT majors.major_id, courses.code, majors.flowchart_image_name, majors.keywords FROM majors INNER JOIN courses on courses.major_id=majors.major_id AND majors.code=?;', req.params.major, (err, results) => {
         if (err) {
             res.end()
             throw err
