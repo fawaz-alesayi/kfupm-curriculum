@@ -30,39 +30,39 @@ function initDB() {
                     if (err) throw err
                 })
 
-                pool.query('CREATE TABLE IF NOT EXISTS departments ( \
-                    department_id INT AUTO_INCREMENT,\
-                    `name` VARCHAR(50),\
-                    code VARCHAR(6),\
-                    college_id INT,\
-                    PRIMARY KEY (department_id),\
-                    FOREIGN KEY (college_id) REFERENCES colleges(college_id) );', err => {
-                    if (err) throw err
-                })
+                // pool.query('CREATE TABLE IF NOT EXISTS departments ( \
+                //     department_id INT AUTO_INCREMENT,\
+                //     `name` VARCHAR(255),\
+                //     code VARCHAR(255),\
+                //     college_id INT,\
+                //     PRIMARY KEY (department_id),\
+                //     FOREIGN KEY (college_id) REFERENCES colleges(college_id) );', err => {
+                //     if (err) throw err
+                // })
 
                 pool.query('CREATE TABLE IF NOT EXISTS majors ( \
                     major_id INT AUTO_INCREMENT,\
                     name VARCHAR(255),\
-                    code VARCHAR(10),\
+                    code VARCHAR(255),\
                     flowchart_url TEXT,\
                     resource_url TEXT,\
                     keywords TEXT,\
-                    department_id INT,\
+                    college_id INT,\
                     PRIMARY KEY (major_id),\
-                    FOREIGN KEY (department_id) REFERENCES departments(department_id) );', err => {
+                    FOREIGN KEY (college_id) REFERENCES colleges(college_id) );', err => {
                     if (err) throw err
                 })
 
                 pool.query('CREATE TABLE IF NOT EXISTS courses ( \
                     course_id INT AUTO_INCREMENT,\
-                    code VARCHAR(10),\
+                    code VARCHAR(255),\
                     level INT,\
                     name VARCHAR(255),\
                     description TEXT,\
                     syllabus TEXT,\
                     lab_syllabus TEXT,\
                     keywords TEXT,\
-                    course_image_name VARCHAR(255),\
+                    course_image_url TEXT,\
                     resources_url TEXT,\
                     major_id INT,\
                     PRIMARY KEY (course_id),\

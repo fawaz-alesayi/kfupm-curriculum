@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="KFUPM Curriculum is the website to see information about courses and majors offered by King Fahd University of Petroleum and Minerals">
-    <meta name="keywords" content="KFUPM, flowchart, courses, curriculum, Math101, Phys101, Chem101, math kfupm, physics 101 kfupm, math 101 kfupm, chem 101 kfupm, EE kfupm, ME kfupm">
+    <meta name="description"
+        content="KFUPM Curriculum is the website to see information about courses and majors offered by King Fahd University of Petroleum and Minerals">
+    <meta name="keywords"
+        content="KFUPM, flowchart, courses, curriculum, Math101, Phys101, Chem101, math kfupm, physics 101 kfupm, math 101 kfupm, chem 101 kfupm, EE kfupm, ME kfupm">
     <link rel="stylesheet" href="/styles/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
@@ -15,36 +17,23 @@
 </head>
 
 <body>
-    <header class='header' id='myHeader'> <!--Sticky Header with Home Text, Search Bar, About & Help -->
-        <span class='header-text' onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a href="/index.html">KFUPM Curriculum</a></span>
-        <div class="search-group">
-            <input type='search' class='search-bar' placeholder="Search for a course...">
-            <button type="submit" class="sbmt"><img class="imgbtn"
-                    src="https://www.loirelife.com/wp-content/uploads/2015/01/Gites-in-France-Search.png" alt="Search Btn"></button>
-        </div>
-        <nav class='nav-group'>
-            <span onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a href="about.html">About</a></span>
-            <span onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a href="help.html">Help</a></span>
-        </nav>
-        <a class="icon" onclick="toggleNav()">
-            <div class="menu-btn">
-                <div class="menu-btn__burger"></div>
-            </div>
-        </a>
-    </header>
+    <%- include('partials/header') %>
 
-    <nav class="dropDownNav"> <!--Adding Hamburger Icon instead of search bar and others for Mobiles -->
+    <nav class="dropDownNav">
+        <!--Adding Hamburger Icon instead of search bar and others for Mobiles -->
         <div class="search-group">
             <input type='search' class='search-bar' placeholder="Search for a course...">
             <button type="submit" class="sbmt"><img class="imgbtn"
-                    src="https://www.loirelife.com/wp-content/uploads/2015/01/Gites-in-France-Search.png" alt="Search Btn"></button>
+                    src="https://www.loirelife.com/wp-content/uploads/2015/01/Gites-in-France-Search.png"
+                    alt="Search Btn"></button>
         </div>
         <a href="help.html">Help</a>
         <a href="about.html">About</a>
     </nav>
 
-    <div class='content'> 
-        <section class="landing"> <!--Main page with title, Logo of university and major-->
+    <div class='content'>
+        <section class="landing">
+            <!--Main page with title, Logo of university and major-->
             <div class='wide-logo'>
             </div>
             <header class="major">
@@ -54,72 +43,61 @@
         </section>
 
 
-        <section> <!--Texts with pointers which are for courses in this Major-->
-            <header class='course-header' id="cSlideDown"  onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Courses</header>
+        <section>
+            <!--Texts with pointers which are for courses in this Major-->
+            <header class='course-header' id="cSlideDown" onmouseover="changeColorM(this)"
+                onmouseout="changeColorM(this)">Courses</header>
             <nav class='course-container' id="cox">
                 <% results.forEach(course => { %>
-                <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)"><a href=<%= `/courses/${course.code}` %>><%= course.code %></a></div>
+                <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)"><a
+                        href=<%= `/courses/${course.code}` %>><%= course.code %></a></div>
                 <% }) %>
             </nav>
         </section>
 
-        <section> <!--Flow chart Picture-->
-            <header class="flowchart-header" id="FcSlideDown" onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Flow Chart</header>
-            <img class="center" alt="FC" id="pix" src="/assets/Chem_FC.jpg">
+        <% if (results.flowchart_url) { %>
+        <section>
+            <!--Flow chart Picture-->
+            <header class="flowchart-header" id="FcSlideDown" onmouseover="changeColorM(this)"
+                onmouseout="changeColorM(this)">Flow Chart</header>
+            <img class="center" alt="FC" id="pix" src=<%= results.flowchart_url %>>
         </section>
+        <% } %>
 
-        <section> <!--Resources of the Major-->
-            <header class='link-header center'><a href="http://resources.stkfupm.com/?dir=uploads/CHEM" target="_blank" onmouseover="changeColorLM(this)" onmouseout="changeColorLM(this)">Resources</a></header>
+        <section>
+            <!--Resources of the Major-->
+            <header class='link-header center'><a href="http://resources.stkfupm.com/?dir=uploads/CHEM" target="_blank"
+                    onmouseover="changeColorLM(this)" onmouseout="changeColorLM(this)">Resources</a></header>
         </section>
 
         <div>
-            <img id= 'picr' src="/BG.png" alt='LOGO' class="major-image-right">
-            <img id= 'picl' src="/BG.png" alt='LOGO' class="major-image-left">
+            <img id='picr' src="/BG.png" alt='LOGO' class="major-image-right">
+            <img id='picl' src="/BG.png" alt='LOGO' class="major-image-left">
         </div>
 
     </div>
-    <footer class='footer'> <!--Footer that contains information of KFUPM and Copyrights-->
-        <div class='contact-info'>
-            <h4 class='contacting'>Contact us:</h4>
-                <p>013-860-0000</p>
-                <p>info@kfupm.edu.sa</p>
-                <p>KFUPM</p>
-                <p>Dahran</p>
-                <p>Kingdom of Saudi Arabia</p>
-        </div>
-
-        <nav class='links'>
-            <p><a href="http://www.kfupm.edu.sa" target="_blank" onmouseover="changeColorL(this)" onmouseout="changeColorL(this)">kfupm.com</a></p>
-            <a href="https://www.facebook.com/KFUPM/" target="_blank" class="fa fa-facebook"></a>
-            <a href="https://twitter.com/kfupm?lang=en" target="_blank" class="fa fa-twitter"></a>
-            <a href="https://www.instagram.com/kfupm/?hl=en" target="_blank" class="fa fa-instagram"></a>
-        </nav>
-
-        <div class= 'cr'>
-            <p>Copyrights © KFUPM 2020</p>
-            <p><a href='http://www.kfupm.edu.sa/pages/PrivacyPolicy.aspx' target="_blank">Privacy Policies</a>  | <a href='https://goo.gl/maps/MxbJcTLBKhETeAPd6' target="_blank">KFUPM Map</a></p>
-        </div>
-    </footer>
+    <%- include('partials/footer') %>
 
     <script src="/index.js"></script>
 
 </body>
 
 
-<script> 
-// Srcipting from External link, for toggling courses, flow chart and logo pictures below !
+<script>
+    // Srcipting from External link, for toggling courses, flow chart and logo pictures below !
 
-$(document).ready(function(){
-    $('#FcSlideDown').click(function(){
-        $('#pix').slideToggle(1000);
+    $(document).ready(function () {
+        $('#FcSlideDown').click(function () {
+            $('#pix').slideToggle(1000);
         });
-            
-     $('#cSlideDown').click(function(){
-        $('#cox').slideToggle(1000);
-        $('#picr').slideToggle(1000);
-        $('#picl').slideToggle(1000);
-		});
-  });
-        
+
+        $('#cSlideDown').click(function () {
+            $('#cox').slideToggle(1000);
+            $('#picr').slideToggle(1000);
+            $('#picl').slideToggle(1000);
+        });
+    });
+
 </script>
+
 </html>

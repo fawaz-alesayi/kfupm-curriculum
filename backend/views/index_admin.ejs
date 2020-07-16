@@ -17,35 +17,15 @@
 </head>
 
 <body class="admin">
-    <header class='header' id='myHeader'>
-        <!--Sticky Header with Home Text, Search Bar, About & Help -->
-        <span class='header-text' onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a
-                href="/index">KFUPM Curriculum</a></span>
-        <div class="search-group">
-            <input type='search' class='search-bar' placeholder="Search for a course...">
-            <button type="submit" class="sbmt"><img class="imgbtn"
-                    src="https://www.loirelife.com/wp-content/uploads/2015/01/Gites-in-France-Search.png"
-                    alt="Search Button"></button>
-        </div>
-        <nav class='nav-group'>
-            <span onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a href="about.html">About</a></span>
-            <span onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a href="help.html">Help</a></span>
-            <span onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a href="/logout">Logout</a></span>
-        </nav>
-        <a class="icon" onclick="toggleNav()">
-            <div class="menu-btn">
-                <div class="menu-btn__burger"></div>
-            </div>
-        </a>
-    </header>
+    <%- include('partials/header') %>
 
     <nav class="dropDownNav">
         <!--Adding Hamburger Icon instead of search bar and others for Mobiles -->
         <div class="search-group">
-            <input type='search' class='search-bar' placeholder="Search for a course...">
-            <button type="submit" class="sbmt"><img class="imgbtn"
-                    src="https://www.loirelife.com/wp-content/uploads/2015/01/Gites-in-France-Search.png"
-                    alt="Search Btn"></button>
+            <input type='search' class='search-bar' placeholder="Search for a course..."
+                onkeyup="searchCourses(this.value)">
+            <div id="result-group">
+            </div>
         </div>
         <a href="help.html">Help</a>
         <a href="about.html">About</a>

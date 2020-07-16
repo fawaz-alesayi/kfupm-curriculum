@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="KFUPM Curriculum is the website to see information about courses and majors offered by King Fahd University of Petroleum and Minerals">
-    <meta name="keywords" content="KFUPM, flowchart, courses, curriculum, Math101, Phys101, Chem101, math kfupm, physics 101 kfupm, math 101 kfupm, chem 101 kfupm, EE kfupm, ME kfupm">
+    <meta name="description"
+        content="KFUPM Curriculum is the website to see information about courses and majors offered by King Fahd University of Petroleum and Minerals">
+    <meta name="keywords"
+        content="KFUPM, flowchart, courses, curriculum, Math101, Phys101, Chem101, math kfupm, physics 101 kfupm, math 101 kfupm, chem 101 kfupm, EE kfupm, ME kfupm">
     <link rel="stylesheet" href="/styles/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Login | KFUPM Curriculum</title>
@@ -14,29 +16,15 @@
 </head>
 
 <body>
-    <header class='header' id='myHeader'>  <!--Sticky Header with Home Text, Search Bar, About & Help -->
-        <span class='header-text' onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a href="/index.html">KFUPM Curriculum</a></span>
-        <div class="search-group">
-            <input type='search' class='search-bar' placeholder="Search for a course...">
-            <button type="submit" class="sbmt"><img class="imgbtn"
-                    src="https://www.loirelife.com/wp-content/uploads/2015/01/Gites-in-France-Search.png" alt="Search Btn"></button>
-        </div>
-        <nav class='nav-group'>
-              <span onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a href="/about.html">About</a></span>
-              <span onmouseover="changeColorH(this)" onmouseout="changeColorH(this)"><a href="/help.html">Help</a></span>
-        </nav>
-        <a class="icon" onclick="toggleNav()">
-            <div class="menu-btn">
-                <div class="menu-btn__burger"></div>
-            </div>
-        </a>
-    </header>
+    <%- include('partials/header') %>
 
-    <nav class="dropDownNav"> <!--Adding Hamburger Icon instead of search bar and others for Mobiles -->
+    <nav class="dropDownNav">
+        <!--Adding Hamburger Icon instead of search bar and others for Mobiles -->
         <div class="search-group">
-            <input type='search' class='search-bar' placeholder="Search for a course...">
-            <button type="submit" class="sbmt"><img class="imgbtn"
-                    src="https://www.loirelife.com/wp-content/uploads/2015/01/Gites-in-France-Search.png" alt="Search Btn"></button>
+            <input type='search' class='search-bar' placeholder="Search for a course..."
+                onkeyup="searchCourses(this.value)">
+            <div id="result-group">
+            </div>
         </div>
         <a href="/about.html">About</a>
         <a href="/help.html">Help</a>
@@ -44,60 +32,47 @@
     </nav>
 
 
-  <div class='content'> <!--Main page with title, Logo, & Help paragraph-->
+    <div class='content'>
+        <!--Main page with title, Logo, & Help paragraph-->
         <section class="landing">
             <div class='wide-logo'>
             </div>
-            
-    <h2 class="admin-login-h2">
-        Admin Login
-    </h2>
-        <form action="/admin/login" class="messagel" id="message1" method="post">
-            <label class="messageingl">
-            Username:
-            <br>
-            <input required='req1' type="text" name="username" size="60" naxlength="255" class="textarea" autofocus required>
-        </label>
-        <br>
-        <label class="messageingl">
-            Password:
-            <br>
-            <input required='req1' type="password" name="password" size="60" class="textarea" required>
-        </label>
-        <br>
 
-        <input class="sbmt-for-surveyl" id="sbmt-for-surl" type=submit value="Login">
-            <br>
-    </form>
-</div>
-</div>
-</section>
-</div>
+            <h2 class="admin-login-h2">
+                Admin Login
+            </h2>
+            <form action="/admin/login" class="messagel" id="message1" method="post">
+                <label class="messageingl">
+                    Username:
+                    <br>
+                    <input required='req1' type="text" name="username" size="60" naxlength="255" class="textarea"
+                        autofocus required>
+                </label>
+                <br>
+                <label class="messageingl">
+                    Password:
+                    <br>
+                    <input required='req1' type="password" name="password" size="60" class="textarea" required>
+                </label>
+                <br>
+                <% if (!result) { %>
+                <p style="color: red">
+                    Incorrect username or password
+                </p>
+                <% } %>
 
-<footer class='footer'> <!--Footer that contains information of KFUPM and Copyrights-->
-        <div class='contact-info'>
-            <h4 class='contacting'>Contact us:</h4>
-                <p>013-860-0000</p>
-                <p>info@kfupm.edu.sa</p>
-                <p>KFUPM</p>
-                <p>Dahran</p>
-                <p>Kingdom of Saudi Arabia</p>
-        </div>
+                <input class="sbmt-for-surveyl" id="sbmt-for-surl" type=submit value="Login">
+                <br>
+            </form>
+    </div>
+    </div>
+    </section>
+    </div>
 
-        <div class='links'>
-            <p><a href="http://www.kfupm.edu.sa" target="_blank" onmouseover="changeColorL(this)" onmouseout="changeColorL(this)">kfupm.com</a></p>
-            <a href="https://www.facebook.com/KFUPM/" target="_blank" class="fa fa-facebook"></a>
-            <a href="https://twitter.com/kfupm?lang=en" target="_blank" class="fa fa-twitter"></a>
-            <a href="https://www.instagram.com/kfupm/?hl=en" target="_blank" class="fa fa-instagram"></a>
-        </div>
-
-        <div class= 'cr'>
-            <p>Copyrights © KFUPM 2020</p>
-            <p><a href='http://www.kfupm.edu.sa/pages/PrivacyPolicy.aspx' target="_blank">Privacy Policies</a>  | <a href='https://goo.gl/maps/MxbJcTLBKhETeAPd6' target="_blank">KFUPM Map</a></p>
-        </div>
-    </footer>
+    <%- include('partials/footer') %>
 
     <script src="/index.js"></script>
 
 </body>
+
 </html>

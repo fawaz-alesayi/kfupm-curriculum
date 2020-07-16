@@ -1,57 +1,57 @@
 // Changing Color of the text when mouse on the text, FROM HERE
 function changeColor(obj) {
-    if (obj.style.color == 'indigo') {
-        obj.style.color = 'white';
-    } else {
-        obj.style.color = 'indigo';
-    }
+  if (obj.style.color == 'indigo') {
+    obj.style.color = 'white';
+  } else {
+    obj.style.color = 'indigo';
+  }
 }
 
 function changeColorM(obj) {
-    if (obj.style.color == 'indigo') {
-        obj.style.color = 'black';
-    } else {
-        obj.style.color = 'indigo';
-    }
+  if (obj.style.color == 'indigo') {
+    obj.style.color = 'black';
+  } else {
+    obj.style.color = 'indigo';
+  }
 }
 
 function changeColorH(obj) {
-    if (obj.style.color == 'cyan') {
-        obj.style.color = 'white';
-    } else {
-        obj.style.color = 'cyan';
-    }
+  if (obj.style.color == 'cyan') {
+    obj.style.color = 'white';
+  } else {
+    obj.style.color = 'cyan';
+  }
 }
 
 function changeColorL(obj) {
-    if (obj.style.color == 'teal') {
-        obj.style.color = 'white';
-    } else {
-        obj.style.color = 'teal';
-    }
+  if (obj.style.color == 'teal') {
+    obj.style.color = 'white';
+  } else {
+    obj.style.color = 'teal';
+  }
 }
 
 function changeColorLM(obj) {
-    if (obj.style.color == 'teal') {
-        obj.style.color = 'purple';
-    } else {
-        obj.style.color = 'teal';
-    }
+  if (obj.style.color == 'teal') {
+    obj.style.color = 'purple';
+  } else {
+    obj.style.color = 'teal';
+  }
 }
 // TO HERE
 
 //Header will contain only KFUPM Curriculum and hamgurger icon for remaining
 function toggleNav() {
-    let nav = document.getElementsByClassName("dropDownNav")[0]
-    console.assert(nav != null)
-    if (nav.classList.contains("toggled"))
-        nav.classList.remove('toggled')
-    else
-        nav.classList.add("toggled")
+  let nav = document.getElementsByClassName("dropDownNav")[0]
+  console.assert(nav != null)
+  if (nav.classList.contains("toggled"))
+    nav.classList.remove('toggled')
+  else
+    nav.classList.add("toggled")
 }
 
 //Navigation Being sticky on scrolling
-window.onscroll = function() {scrolls()};
+window.onscroll = function () { scrolls() };
 
 var header = document.getElementById("myHeader");
 var sticky = header.offsetTop;
@@ -68,7 +68,7 @@ function scrolls() {
 const menuBtn = document.querySelector('.menu-btn');
 let menuOpen = false;
 menuBtn.addEventListener('click', () => {
-  if(!menuOpen) {
+  if (!menuOpen) {
     menuBtn.classList.add('open');
     menuOpen = true;
   } else {
@@ -90,17 +90,17 @@ function currentSlide(n) {
   showSlides(slideIndex = n);
 }
 
-function plusSlides(n){
+function plusSlides(n) {
   clearInterval(myTimer);
-  if (n < 0){
+  if (n < 0) {
     showSlides(slideIndex -= 1);
   } else {
-   showSlides(slideIndex += 1); 
+    showSlides(slideIndex += 1);
   }
-  if (n === -1){
-    myTimer = setInterval(function(){plusSlides(n + 2)}, 6000);
+  if (n === -1) {
+    myTimer = setInterval(function () { plusSlides(n + 2) }, 6000);
   } else {
-    myTimer = setInterval(function(){plusSlides(n + 1)}, 6000);
+    myTimer = setInterval(function () { plusSlides(n + 1) }, 6000);
   }
 }
 
@@ -108,30 +108,30 @@ function showSlides(n) {
   var i;
   var slides = document.getElementsByClassName("mySlides");
   var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}    
-  if (n < 1) {slideIndex = slides.length}
+  if (n > slides.length) { slideIndex = 1 }
+  if (n < 1) { slideIndex = slides.length }
   for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";  
+    slides[i].style.display = "none";
   }
 
 
-  for (i = 0; i < dots.length; i++) { 
-      dots[i].className = dots[i].className.replace(" active", "");
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
   }
 
-  slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
+  slides[slideIndex - 1].style.display = "block";
+  dots[slideIndex - 1].className += " active";
 
 }
 
-window.addEventListener("load",function() {
+window.addEventListener("load", function () {
   showSlides(slideIndex);
-  myTimer = setInterval(function(){plusSlides(1)}, 6000);
+  myTimer = setInterval(function () { plusSlides(1) }, 6000);
 })
 
-function currentSlide(n){
+function currentSlide(n) {
   clearInterval(myTimer);
-  myTimer = setInterval(function(){plusSlides(n + 1)}, 6000);
+  myTimer = setInterval(function () { plusSlides(n + 1) }, 6000);
   showSlides(slideIndex = n);
 }
 
@@ -143,9 +143,9 @@ pause = () => {
   clearInterval(myTimer);
 }
 
-resume = () =>{
+resume = () => {
   clearInterval(myTimer);
-  myTimer = setInterval(function(){plusSlides(slideIndex)}, 6000);
+  myTimer = setInterval(function () { plusSlides(slideIndex) }, 6000);
 }
 // END OF SILDE SHOW IN THE HOME PAGE !!!
 
@@ -153,15 +153,30 @@ resume = () =>{
 // Search Functionality
 
 function searchCourses(searchText) {
-  console.log(searchText)
-  $.ajax({
-    type: 'get',
-    url: `courses/search/${searchText}`,
-    success: function (data) {
-        console.log(data)
-    },
-    error: (data) => {
-        console.log(data)
-    }
-})
+  if (searchText) {
+    $.ajax({
+      type: 'get',
+      url: `/courses/search/${searchText}`,
+      success: function (data) {
+        addResults(data)
+      },
+      error: (data) => {
+        $(".dropDownNav .search-group").css('border-radius', '25px 25px 0 0')
+        $('.result-group').empty()
+        $('.result-group').append(`<div class="result">No courses found.</div>`)
+      }
+    })
+  } else {
+    $(".dropDownNav .search-group").css('border-radius', '25px')
+    $('.result-group').empty()
+  }
+}
+
+function addResults(data) {
+  $(".dropDownNav .search-group").css('border-radius', '25px')
+  $('.result-group').empty()
+  if (data) {
+    $(".dropDownNav .search-group").css('border-radius', '25px 25px 0 0')
+    data.forEach(course => { $('.result-group').append(`<div class="result"><a href="/courses/${course.code}">${course.code}: ${course.name}</a></div>`) })
+  }
 }

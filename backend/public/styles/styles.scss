@@ -35,12 +35,12 @@ html {
     width: 80vw;
     height: auto;
     box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
     border: 1px solid #00B4CC;
-    justify-content: start;
+    position: relative;
     margin-left: 25px;
     margin-right: 25px;
+    align-self: baseline;
+    top: 20px;
     .search-bar {
         display: block;
         width: 100%;
@@ -48,9 +48,29 @@ html {
         border: none;
         padding-left: 10px;
         margin: 0;
+        padding-top: 10px;
+        padding-bottom: 10px;
 
         &:focus {
             outline: 0;
+        }
+    }
+
+    .result {
+        background-color: white;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px;
+        z-index: 3;
+        color: black;
+
+        &:hover {
+            background-color: $body-color;
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
         }
     }
 //button of search
@@ -206,9 +226,11 @@ body {
         align-items: center;
         justify-content: space-around;
         background-color: $header-color;
-        overflow: hidden;
+        //overflow: hidden;
         text-decoration: none;
         font-family: $header-font;
+
+
 
         // This is the same as selecting .header .header-text { }
         .header-text {
@@ -343,7 +365,7 @@ body {
 
         .search-group {
             align-self: center;
-            border-radius: 25px 0px 0px 25px;
+            border-radius: 25px;
             border-style: none;
             color: black;
             .search-bar {
@@ -351,6 +373,16 @@ body {
                 border-radius: inherit;
                 padding-right: 0;
             }
+
+            .result-group {
+                padding: 0;
+
+                a {
+                    text-decoration: none;
+                    color: black;
+                }
+            }
+
             .sbmt {
                 border-radius: 0px 25px 25px 0px;
                 .imgbtn {
@@ -407,7 +439,7 @@ body {
     .content {
         padding: 30px;
         font-size: 20px;
-        margin-bottom: 100px;
+        margin-bottom: 20%;
         position: relative;
 
             

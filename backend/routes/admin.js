@@ -3,7 +3,7 @@ const pool = require('../database.js').pool
 const bcrypt = require('bcrypt')
 
 admin.get('/login', (req, res) => {
-    res.render('adminlogin.ejs')
+    res.render('adminlogin.ejs', {result: true})
 })
 
 admin.post('/login', async (req, res) => {
@@ -14,7 +14,7 @@ admin.post('/login', async (req, res) => {
         }
         else {
             if (result.length == 0) {
-                res.send("Incorrect username or password.")
+                res.render('adminlogin.ejs', {result: false})
             }
             else {
                 const saltedPwd = String(result[0].pwd)
@@ -25,7 +25,7 @@ admin.post('/login', async (req, res) => {
                     res.redirect('/')
                 }
                 else
-                    res.send("Incorrect username or password")
+                res.render('adminlogin.ejs', {result: false})
             }
         }
     })

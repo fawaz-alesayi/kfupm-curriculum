@@ -10,7 +10,7 @@ courses.get('/', (req, res) => {
 courses.get('/:course', (req, res) => {
     let courseInfo
     let prereqs
-    pool.query('SELECT courses.course_id, courses.`code`, courses.`name`, courses.`description`, courses.syllabus, courses.lab_syllabus, courses.keywords, courses.course_image_name, courses.resources_url FROM courses WHERE courses.code=? LIMIT 1;',
+    pool.query('SELECT courses.course_id, courses.`code`, courses.`name`, courses.`description`, courses.syllabus, courses.lab_syllabus, courses.keywords, courses.course_image_url, courses.resources_url FROM courses WHERE courses.code=? LIMIT 1;',
         req.params.course, (err, results) => {
             if (err) {
                 res.sendStatus(404)

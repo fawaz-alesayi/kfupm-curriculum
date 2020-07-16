@@ -17,8 +17,7 @@ const pool = require('../database.js').pool;
 root.get('/', (req, res) => {
     let options = {
         sql: 'SELECT colleges.`name`, majors.`name`, majors.code FROM colleges \
-    INNER JOIN departments ON colleges.college_id = departments.college_id \
-    INNER JOIN majors ON departments.department_id = majors.department_id;',
+    INNER JOIN majors ON colleges.college_id = majors.college_id;',
         nestTables: true
     };
     let obj = {}
