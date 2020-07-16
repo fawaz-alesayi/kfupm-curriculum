@@ -45,6 +45,22 @@ courses.get('/:course', (req, res) => {
         })
 })
 
+courses.get('/search/:searchText', (req, res) => {
+    pool.query('SELECT courses.`code`, courses.`name` FROM courses WHERE courses.code LIKE ' + pool.escape('%'+req.params.searchText+'%') + ';', (err, results) => {
+        if (err) {
+            console.error(err)
+        }
+        else {
+            if (results.length != 0) {
+                console.log(results)
+                res.send(results)
+            } else {
+                res.status(404).send("No courses found")
+            }
+        }
+    })
+})
+
 courses.post('/', (req, res) => {
 
     // Get Major_id from course code MATH101 -> math

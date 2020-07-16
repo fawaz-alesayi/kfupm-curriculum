@@ -149,3 +149,19 @@ resume = () =>{
 }
 // END OF SILDE SHOW IN THE HOME PAGE !!!
 
+
+// Search Functionality
+
+function searchCourses(searchText) {
+  console.log(searchText)
+  $.ajax({
+    type: 'get',
+    url: `courses/search/${searchText}`,
+    success: function (data) {
+        console.log(data)
+    },
+    error: (data) => {
+        console.log(data)
+    }
+})
+}
