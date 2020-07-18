@@ -45,14 +45,16 @@
                 <h1 onmouseover="changeColorM(this)" onmouseout="changeColorM(this)" id="SD2">Course Syllabus</h1>
             </header>
             <ul id="x2">
-                <% if (courseInfo.syllabus) %>
+                <% if (courseInfo.syllabus) { %>
                 <li>Lecture: <a href=<%=courseInfo.syllabus %>><%= courseInfo.syllabus %></a>
                     <input type="url" value=<%= courseInfo.syllabus %>>
                 </li>
-                <% if (courseInfo.lab_syllabus) %>
+                <% } %>
+                <% if (courseInfo.lab_syllabus) { %>
                 <li>Lab: <a href=<%=courseInfo.lab_syllabus %>><%= courseInfo.lab_syllabus %></a>
                     <input type="url" value=<%= courseInfo.lab_syllabus %>>
                 </li>
+                <% } %>
             </ul>
         </section>
         <section class="outcome">

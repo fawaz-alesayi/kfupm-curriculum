@@ -21,7 +21,7 @@
 
     <%- include('partials/dropDown') %>
 
-    
+
     <div class='content'>
         <section class="landing">
             <!--Main page with title, Logo, Major Image & Course Name-->
@@ -46,10 +46,14 @@
                 <h1 onmouseover="changeColorM(this)" onmouseout="changeColorM(this)" id="SD2">Course Syllabus</h1>
             </header>
             <ul id="x2">
-                <% if (courseInfo.syllabus) %>
-                <li>Lecture: <%= courseInfo.lab_syllabus %> </li>
-                <% if (courseInfo.lab_syllabus) %>
-                <li>Lab: <%= courseInfo.lab_syllabus %> </li>
+                <% if (courseInfo.syllabus) { %>
+                <li>Lecture: <a href=<%=courseInfo.syllabus %>><%= courseInfo.syllabus %></a>
+                </li>
+                <% } %>
+                <% if (courseInfo.lab_syllabus) { %>
+                <li>Lab: <a href=<%=courseInfo.lab_syllabus %>><%= courseInfo.lab_syllabus %></a>
+                </li>
+                <% } %>
             </ul>
         </section>
         <section class="outcome">
