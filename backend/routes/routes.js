@@ -4,9 +4,13 @@ const majors = require('./majors')
 const courses = require('./courses')
 const admin = require('./admin')
 
+// Match paths: / /index /index.html
 routes.use(/^\/(index)?(.html)?$/, root)
+
 routes.use('/majors', majors)
+
 routes.use('/courses', courses)
+
 routes.use('/admin', admin)
 
 routes.get(/^\/(help)?(.html)?$/, (req, res) => {

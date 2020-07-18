@@ -1,6 +1,5 @@
 const root = require('express').Router()
 const pool = require('../database.js').pool;
-// Match paths: / /index /index.html
 /*
     data array:
     [
