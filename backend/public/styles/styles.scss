@@ -39,8 +39,7 @@ html {
     position: relative;
     margin-left: 25px;
     margin-right: 25px;
-    align-self: baseline;
-    top: 30px;
+    align-self: center;
 
     .search-bar {
         display: block;
@@ -57,12 +56,16 @@ html {
         }
     }
 
-    .result {
-        background-color: white;
+
+    .result-group {
+        position: absolute;
         width: 100%;
-        box-sizing: border-box;
-        padding: 10px;
-        color: black;
+    .result {
+            background-color: white;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            color: black;
 
         &:hover {
             background-color: $body-color;
@@ -73,6 +76,7 @@ html {
             text-decoration: none;
         }
     }
+}
 //button of search
     .sbmt{
         display: block;

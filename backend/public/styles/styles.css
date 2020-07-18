@@ -25,9 +25,9 @@ html {
   position: relative;
   margin-left: 25px;
   margin-right: 25px;
-  -ms-flex-item-align: baseline;
-      align-self: baseline;
-  top: 30px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
 .search-group .search-bar {
@@ -45,7 +45,12 @@ html {
   outline: 0;
 }
 
-.search-group .result {
+.search-group .result-group {
+  position: absolute;
+  width: 100%;
+}
+
+.search-group .result-group .result {
   background-color: white;
   width: 100%;
   -webkit-box-sizing: border-box;
@@ -54,12 +59,12 @@ html {
   color: black;
 }
 
-.search-group .result:hover {
+.search-group .result-group .result:hover {
   background-color: #EBFCFF;
   cursor: pointer;
 }
 
-.search-group .result a {
+.search-group .result-group .result a {
   text-decoration: none;
 }
 
