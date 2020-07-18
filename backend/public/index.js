@@ -51,18 +51,18 @@ function toggleNav() {
 }
 
 //Navigation Being sticky on scrolling
-// window.onscroll = function () { scrolls() };
+window.onscroll = function () { scrolls() };
 
-// var header = document.getElementById("myHeader");
-// var sticky = header.offsetTop;
+var header = document.getElementById("myHeader");
+var sticky = header.offsetTop;
 
-// function scrolls() {
-//   if (window.pageYOffset > sticky) {
-//     header.classList.add("sticky");
-//   } else {
-//     header.classList.remove("sticky");
-//   }
-// }
+function scrolls() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}
 
 //Flipping hamburger icon to close icon
 const menuBtn = document.querySelector('.menu-btn');

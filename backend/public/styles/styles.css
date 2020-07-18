@@ -164,6 +164,10 @@ html {
   font-size: 18px;
 }
 
+.square-card:visited {
+  color: inherit;
+}
+
 .square-card:hover {
   -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
           box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
@@ -190,13 +194,6 @@ html {
   cursor: pointer;
 }
 
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1;
-}
-
 .sticky + .content {
   padding-top: 10vh;
 }
@@ -207,6 +204,13 @@ html {
 
 body {
   background-color: #EBFCFF;
+}
+
+@media screen and (min-width: 700px) {
+  body .sticky {
+    position: fixed !important;
+    top: 0 !important;
+  }
 }
 
 body .header {
@@ -230,8 +234,7 @@ body .header {
   background-color: #1B4965;
   text-decoration: none;
   font-family: "David Libre", serif;
-  position: fixed;
-  top: 0;
+  position: static;
   z-index: 1;
 }
 
@@ -472,7 +475,8 @@ body .content {
   font-size: 20px;
   margin-bottom: 10%;
   position: relative;
-  margin-top: 10%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   /* Slideshow container for HOME PAGE*/
   /* The dots/bullets/indicators */
 }
@@ -930,6 +934,10 @@ body .content .card-container .card, body .content .course-container .card {
   text-decoration: none;
 }
 
+body .content .card-container .card:visited, body .content .course-container .card:visited {
+  color: inherit;
+}
+
 body .content .card-container .card:hover, body .content .course-container .card:hover {
   -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
           box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
@@ -969,7 +977,7 @@ body .content .card-container .card .image1, body .content .course-container .ca
 }
 
 body .content .card-container .card .image2, body .content .course-container .card .image2 {
-  background-image: url("../assets/CS.jpg");
+  background-image: url("../assets/cs.jpg");
 }
 
 body .content .card-container .card .image3, body .content .course-container .card .image3 {
@@ -1267,6 +1275,10 @@ body .content .coursebtn2 {
 
 body .content .coursebtn2:hover {
   opacity: 0.7;
+}
+
+body .content #x1, body .content #x2, body .content #x3, body .content #x4, body .content #x5, body .content #x6, body .content #ccd, body .content #ccs, body .content #cco, body .content #ccpr, body .content #crc, body .content #crr {
+  display: none;
 }
 
 body .content #x1 {

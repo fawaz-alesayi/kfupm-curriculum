@@ -5,7 +5,7 @@ $dropdown-color: #276992;
 $kfupm-logo-wide: url('../assets/logo-kfupm.svg');
 $kfupm-logo: url('../assets/kfupm-mini-log-blackandwhite.png');
 $math-logo: url('../assets/math.jpg');
-$cs-logo: url('../assets/CS.jpg');
+$cs-logo: url('../assets/cs.jpg');
 $swe-logo: url('../assets/swe.jpg');
 @import url('https://fonts.googleapis.com/css2?family=David+Libre:wght@400;700&family=Simonetta:wght@400;900&family=Tajawal:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&family=Signika:wght@300&display=swap');
@@ -166,6 +166,10 @@ html {
     max-height: 400px;
     text-decoration: none;
 
+    &:visited {
+        color: inherit;
+    }
+
     &:hover {
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     }
@@ -200,13 +204,6 @@ html {
     text-align: center;
     font-size: 18px;
 }
-//fixed header for pages
-    .sticky {
-         position: fixed;
-         top: 0;
-         width: 100%;
-         z-index: 1;
-       }
      
        .sticky + .content {
          padding-top: 10vh;
@@ -217,6 +214,13 @@ html {
     }
 body {
     background-color: $body-color;
+
+    @media screen and (min-width: 700px) {
+        .sticky {
+                position: fixed !important;
+                top: 0 !important;
+        }
+    }
 
     .header {
         background-image: url("rsz.jpg");
@@ -232,11 +236,8 @@ body {
         //overflow: hidden;
         text-decoration: none;
         font-family: $header-font;
-        position: fixed;
-        top: 0;
+        position: static;
         z-index: 1;
-
-
 
         // This is the same as selecting .header .header-text { }
         .header-text {
@@ -448,7 +449,8 @@ body {
         font-size: 20px;
         margin-bottom: 10%;
         position: relative;
-        margin-top: 10%;
+        box-sizing: border-box;
+        //margin-top: 5%;
 
             
         /* Slideshow container for HOME PAGE*/
@@ -1224,9 +1226,9 @@ body {
         }
     }
 
-    // #x1, #x2, #x3, #x4, #x5, #x6, #ccd, #ccs, #cco, #ccpr, #crc, #crr {
-    //     display: none;
-    // }
+    #x1, #x2, #x3, #x4, #x5, #x6, #ccd, #ccs, #cco, #ccpr, #crc, #crr {
+        display: none;
+    }
 
         #x1 {
             background-color: white;
