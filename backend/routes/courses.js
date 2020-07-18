@@ -15,7 +15,7 @@ courses.get('/:course', (req, res) => {
         req.params.course, (err, results) => {
             if (err) {
                 res.sendStatus(404)
-                throw err;
+                console.error(err);
             }
             if (results[0]) {
                 courseInfo = results[0]
@@ -23,13 +23,13 @@ courses.get('/:course', (req, res) => {
                 pool.query('SELECT courses.code FROM prerequisites INNER JOIN courses ON courses.course_id=prerequisites.course_id2 AND prerequisites.course_id1=?;', courseInfo.course_id, (err, results2) => {
                     if (err) {
                         res.sendStatus(500)
-                        throw err;
+                        console.error(err);
                     }
                     prereqs = results2
                     pool.query('SELECT courses.code FROM related_courses INNER JOIN courses ON courses.course_id=related_courses.course_id1 OR courses.course_id=related_courses.course_id2 AND related_courses.course_id1=?;', courseInfo.course_id, (err, results3) => {
                         if (err) {
                             res.sendStatus(500)
-                            throw err
+                            console.error(err)
                         } else {
                             let related = results3
                             if (req.session.role == 'admin')
