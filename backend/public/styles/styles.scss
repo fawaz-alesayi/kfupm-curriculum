@@ -152,6 +152,7 @@ html {
 
 //square card in index
 @mixin card($border-radius: 25px, $background-color: $card-color, $min-width: 250px, $width: auto, $height: 30vh) {
+    display: block;
     background-color: $background-color;
     min-width: $min-width;
     width: $width;
@@ -163,6 +164,7 @@ html {
     margin: 2rem;
     margin-top: 0;
     max-height: 400px;
+    text-decoration: none;
 
     &:hover {
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
