@@ -1,3 +1,5 @@
+const e = require('express')
+
 const courses = require('express').Router()
 const pool = require('../database.js').pool
 
@@ -33,7 +35,7 @@ courses.get('/:course', (req, res) => {
                         } else {
                             let related = results3
                             if (req.session.role == 'admin')
-                                res.render('course_admin.ejs', { prereqs: prereqs, courseInfo: courseInfo, related: related })
+                                res.render('course_admin.ejs', { prereqs: prereqs, courseInfo: courseInfo, related: related, admin: true })
                             else
                                 res.render('course.ejs', { prereqs: prereqs, courseInfo: courseInfo, related: related })
                         }
@@ -46,7 +48,7 @@ courses.get('/:course', (req, res) => {
 })
 
 courses.get('/search/:searchText', (req, res) => {
-    pool.query('SELECT courses.`code`, courses.`name` FROM courses WHERE courses.code LIKE ' + pool.escape('%'+req.params.searchText+'%') + ';', (err, results) => {
+    pool.query('SELECT courses.`code`, courses.`name` FROM courses WHERE courses.code LIKE ' + pool.escape('%' + req.params.searchText + '%') + ';', (err, results) => {
         if (err) {
             console.error(err)
         }
@@ -62,30 +64,126 @@ courses.get('/search/:searchText', (req, res) => {
 })
 
 courses.post('/', (req, res) => {
-
     // Get Major_id from course code MATH101 -> math
-    pool.query('SELECT major_id FROM majors WHERE code=?;', req.body.courseCode.toLowerCase().replace(/[0-9]/g, ''), (err, code) => {
+    pool.query('SELECT major_id FROM majors WHERE code=?;', req.body.courseCode.toUpperCase().replace(/[0-9]/g, ''), (err, code) => {
         if (err) {
             res.sendStatus(500)
-            throw err
+            console.error(err)
         }
         if (code.length == 0) { // no major found in database with that code
             res.status(404).send("No Major found with that code.")
         } else {
-            console.log(code[0].major_id)
+            let prereqArray
+            // if there is a prerequisite in request object
+            if (req.body.prerequisite && !isEmptyArray(req.body.prerequisite)) {
+                prereqArray = Array.isArray(req.body.prerequisite) ? req.body.prerequisite.filter(prereq => prereq.trim()) : [String(req.body.prerequisite)]
+                // Check if prerequisites exist
+                pool.query('SELECT code, course_id FROM courses WHERE code IN (?);', [prereqArray], (err, prereqs) => {
+                    if (err) {
+                        res.sendStatus(404)
+                        console.error(err)
+                    } else if (prereqs.length != prereqArray.length) {
+                        let prereqCodes = prereqs.map(prereq => prereq.code)
+                        let difference = prereqArray.filter(x => !prereqCodes.includes(x))
 
+                        res.status(404).send("The following prerequisites dont exist: " + difference.join(', '))
+                    } else {
+                        // Get a single connection to use in a transaction
+                        pool.getConnection((err, connection) => {
+                            if (err) {
+                                res.sendStatus(500)
+                                console.error(err)
+                            } else {
 
-            pool.query('INSERT INTO courses(code, level, name, syllabus, lab_syllabus, resources_url, keywords, major_id) VALUES\
-        (?, ?, ?, ?, ?, ?, ?, ?);', [req.body.courseCode, req.body.courseLevel ? req.body.courseLevel : 0, req.body.courseName, req.body.CourseSyllabusLink, req.body.LabSyllabusLink, req.body.resourcesLink, req.body.courseKeywords, code[0].major_id], (err, result) => {
-                if (err) {
-                    res.sendStatus(500)
-                    throw err
-                } else {
-                    res.status(200).send("Added course to database")
-                }
-            })
+                                // Start DB Transaction
+                                connection.beginTransaction((err) => {
+                                    if (err) {
+                                        connection.release();
+                                        console.error(err)
+                                        res.sendStatus(500)
+                                    }
+                                    console.log(prereqs)
+                                    // Insert course
+                                    connection.query('INSERT INTO courses(code, level, name, syllabus, lab_syllabus, resources_url, keywords, major_id) VALUES\
+                    (?, ?, ?, ?, ?, ?, ?, ?);', [req.body.courseCode.toUpperCase(), req.body.courseLevel ? req.body.courseLevel : 0, req.body.courseName, req.body.CourseSyllabusLink, req.body.LabSyllabusLink, req.body.resourcesLink, req.body.courseKeywords, code[0].major_id], (err, result) => {
+                                        if (err) {
+                                            return connection.rollback(() => {
+                                                connection.release();
+                                                res.sendStatus(500)
+                                                console.error(err)
+                                            })
+                                        }
+                                        else {
+                                            // get id of the row we just inserted
+                                            connection.query('SELECT course_id FROM courses WHERE courses.code=?;', req.body.courseCode, (err, id) => {
+                                                if (err) {
+                                                    return connection.rollback(() => {
+                                                        connection.release();
+                                                        res.sendStatus(500)
+                                                        console.error(err)
+                                                    })
+                                                } else {
+                                                    let prereqRelations = []
+                                                    prereqs.forEach(prereq => prereqRelations.push([id[0].course_id, prereq.course_id]))
+                                                    console.log(prereqRelations)
+                                                    // finally insert to prerequisites
+                                                    connection.query('INSERT INTO prerequisites(course_id1, course_id2) VALUES ?;', [prereqRelations], (err, relations) => {
+                                                        if (err) {
+                                                            return connection.rollback(() => {
+                                                                connection.release();
+                                                                res.sendStatus(500)
+                                                                console.error(err)
+                                                            })
+                                                        } else {
+                                                            connection.commit((err) => {
+                                                                if (err) {
+                                                                    connection.rollback(() => {
+                                                                        connection.release()
+                                                                        res.sendStatus(500)
+                                                                        console.error(err)
+                                                                    })
+                                                                } else {
+                                                                    connection.release()
+                                                                    res.status(200).send("Added course to database")
+                                                                }
+                                                            })
+                                                        }
+                                                    })
+                                                }
+                                            })
+
+                                        }
+                                    })
+                                })
+                            }
+                        })
+
+                    }
+                })
+            } else {
+                // Insert course
+                pool.query('INSERT INTO courses(code, level, name, syllabus, lab_syllabus, resources_url, keywords, major_id) VALUES\
+                                        (?, ?, ?, ?, ?, ?, ?, ?);', [req.body.courseCode, req.body.courseLevel ? req.body.courseLevel : 0, req.body.courseName, req.body.CourseSyllabusLink, req.body.LabSyllabusLink, req.body.resourcesLink, req.body.courseKeywords, code[0].major_id], (err, result) => {
+                    if (err) {
+                        res.sendStatus(500)
+                        console.error(error)
+                    } else {
+                        res.status(200).send("Added course to database")
+                    }
+                })
+            }
         }
     })
 })
+
+function isEmptyArray(array) {
+    if (Array.isArray(array))
+        if (array.length == 0 || array.every(element => !element))
+            return true
+        else
+            return false
+    else
+        return false
+}
 
 module.exports = courses

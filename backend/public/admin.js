@@ -97,7 +97,7 @@ $.ajax({
     data: $('#addCourse').serialize(),
     success: function (data) {
         console.log(data);
-        $("#addCourse").append('<p style="color: green;">' + data.status + ': ' + data.responseText + '</p>')
+        $("#addCourse").append('<p style="color: green;">Success: ' + data + '</p>')
     },
     error: (data) => {
         console.log(data)

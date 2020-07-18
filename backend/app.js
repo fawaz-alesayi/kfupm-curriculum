@@ -8,6 +8,8 @@ const session = require('express-session')
 const pool = require('./database').pool
 const MySQLStore = require('express-mysql-session')(session)
 const sessionStore = new MySQLStore({}, pool)
+const compression = require('compression')
+app.use(compression())
 app.use(cookieParser())
 app.use(session({
     key: 'kfupmcurriculum.sid',

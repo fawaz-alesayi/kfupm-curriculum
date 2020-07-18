@@ -34,12 +34,11 @@ root.get('/', (req, res) => {
             })
             console.log(data)
             if (req.session.role == 'admin')
-                res.render('index_admin.ejs', { data })
+                res.render('index_admin.ejs', { data, admin: true })
             else
                 res.render('index.ejs', { data })
         }
     })
-
 })
 
 module.exports = root

@@ -13,7 +13,7 @@ majors.get('/:major', (req, res) => {
             throw err
         }
         if (req.session.role == 'admin')
-            res.render('major_admin.ejs', { results })
+            res.render('major_admin.ejs', { results, admin: true })
         else
             res.render('major.ejs', { results })
     })

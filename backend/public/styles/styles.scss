@@ -40,7 +40,8 @@ html {
     margin-left: 25px;
     margin-right: 25px;
     align-self: baseline;
-    top: 20px;
+    top: 30px;
+
     .search-bar {
         display: block;
         width: 100%;
@@ -61,7 +62,6 @@ html {
         width: 100%;
         box-sizing: border-box;
         padding: 10px;
-        z-index: 3;
         color: black;
 
         &:hover {
@@ -211,10 +211,7 @@ html {
     }
 body {
     background-color: $body-color;
-    // This is the same as saying body .header { }
 
-   
-    
     .header {
         background-image: url("rsz.jpg");
         background-size: cover;
@@ -229,6 +226,9 @@ body {
         //overflow: hidden;
         text-decoration: none;
         font-family: $header-font;
+        position: fixed;
+        top: 0;
+        z-index: 1;
 
 
 
@@ -439,8 +439,9 @@ body {
     .content {
         padding: 30px;
         font-size: 20px;
-        margin-bottom: 20%;
+        margin-bottom: 10%;
         position: relative;
+        margin-top: 10%;
 
             
         /* Slideshow container for HOME PAGE*/

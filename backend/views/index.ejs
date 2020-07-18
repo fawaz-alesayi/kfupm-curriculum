@@ -19,17 +19,7 @@
 <body>
     <%- include('partials/header') %>
 
-    <nav class="dropDownNav">
-        <!--Adding Hamburger Icon instead of search bar and others for Mobiles -->
-        <div class="search-group">
-            <input type='search' class='search-bar' placeholder="Search for a course..."
-                onkeyup="searchCourses(this.value)">
-            <div class="result-group">
-            </div>
-        </div>
-        <a href="help.html">Help</a>
-        <a href="about.html">About</a>
-    </nav>
+    <%- include('partials/dropDown') %>
 
     <div class='content'>
 
@@ -58,19 +48,7 @@
             <span class="dot" onclick="currentSlide(2)"></span>
             <span class="dot" onclick="currentSlide(3)"></span>
         </div>
-        <section class="landing">
-            <!--Main page with title, Logo, & most viewed courses-->
-
-            <div class='wide-logo'>
-            </div>
-            <div class="bg-image">
-                <header>
-                    <h1>KFUPM Curriculum System</h1>
-                </header>
-                <h3>View courses information, pre-requisites, and much more!</h3>
-            </div>
-        </section>
-
+        
         <section>
             <header class="viewed">
                 <h3>Most Viewed Courses</h3>

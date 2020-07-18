@@ -27,7 +27,7 @@ html {
   margin-right: 25px;
   -ms-flex-item-align: baseline;
       align-self: baseline;
-  top: 20px;
+  top: 30px;
 }
 
 .search-group .search-bar {
@@ -51,7 +51,6 @@ html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 10px;
-  z-index: 3;
   color: black;
 }
 
@@ -224,6 +223,9 @@ body .header {
   background-color: #1B4965;
   text-decoration: none;
   font-family: "David Libre", serif;
+  position: fixed;
+  top: 0;
+  z-index: 1;
 }
 
 body .header .header-text {
@@ -460,8 +462,9 @@ body .toggled {
 body .content {
   padding: 30px;
   font-size: 20px;
-  margin-bottom: 20%;
+  margin-bottom: 10%;
   position: relative;
+  margin-top: 10%;
   /* Slideshow container for HOME PAGE*/
   /* The dots/bullets/indicators */
 }

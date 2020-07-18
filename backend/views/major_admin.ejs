@@ -17,15 +17,7 @@
 <body class="admin">
     <%- include('partials/header') %>
 
-    <nav class="dropDownNav"> <!--Adding Hamburger Icon instead of search bar and others for Mobiles -->
-        <div class="search-group">
-            <input type='search' class='search-bar' placeholder="Search for a course...">
-            <button type="submit" class="sbmt"><img class="imgbtn"
-                    src="https://www.loirelife.com/wp-content/uploads/2015/01/Gites-in-France-Search.png" alt="Search Btn"></button>
-        </div>
-        <a href="help.html">Help</a>
-        <a href="about.html">About</a>
-    </nav>
+    <%- include('partials/dropDown') %>
 
     <div class='content'> 
         <section class="landing"> <!--Main page with title, Logo of university and major-->
