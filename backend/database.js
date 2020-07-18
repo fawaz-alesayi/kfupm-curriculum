@@ -5,7 +5,7 @@ const pool = mysql.createPool({
     host: 'localhost',
     port: 3306,
     user: 'root',
-    password: 'root',
+    //password: 'root',
     database: dbName
 });
 
@@ -28,6 +28,54 @@ function initDB() {
                     `name` VARCHAR(50),\
                     PRIMARY KEY (college_id));', err => {
                     if (err) throw err
+
+                    pool.query('CREATE TABLE IF NOT EXISTS majors ( \
+                        major_id INT AUTO_INCREMENT,\
+                        name VARCHAR(255),\
+                        code VARCHAR(255),\
+                        flowchart_url TEXT,\
+                        resource_url TEXT,\
+                        keywords TEXT,\
+                        college_id INT,\
+                        PRIMARY KEY (major_id),\
+                        FOREIGN KEY (college_id) REFERENCES colleges(college_id) );', err => {
+                        if (err) throw err
+
+                        pool.query('CREATE TABLE IF NOT EXISTS courses ( \
+                            course_id INT AUTO_INCREMENT,\
+                            code VARCHAR(255),\
+                            level INT,\
+                            name VARCHAR(255),\
+                            description TEXT,\
+                            syllabus TEXT,\
+                            lab_syllabus TEXT,\
+                            keywords TEXT,\
+                            course_image_url TEXT,\
+                            resources_url TEXT,\
+                            major_id INT,\
+                            PRIMARY KEY (course_id),\
+                            FOREIGN KEY (major_id) REFERENCES majors(major_id) );', err => {
+                            if (err) throw err
+
+                            pool.query(
+                                'CREATE TABLE IF NOT EXISTS prerequisites (\
+                      course_id1 INT,\
+                      course_id2 INT,\
+                      PRIMARY KEY (course_id1, course_id2),\
+                      FOREIGN KEY (course_id1) REFERENCES courses(course_id),\
+                      FOREIGN KEY (course_id2) REFERENCES courses(course_id) );'
+                            )
+
+                            pool.query(
+                                'CREATE TABLE IF NOT EXISTS related_courses (\
+                      course_id1 INT,\
+                      course_id2 INT,\
+                      PRIMARY KEY (course_id1, course_id2),\
+                      FOREIGN KEY (course_id1) REFERENCES courses(course_id),\
+                      FOREIGN KEY (course_id2) REFERENCES courses(course_id) );'
+                            )
+                        })
+                    })
                 })
 
                 // pool.query('CREATE TABLE IF NOT EXISTS departments ( \
@@ -39,54 +87,6 @@ function initDB() {
                 //     FOREIGN KEY (college_id) REFERENCES colleges(college_id) );', err => {
                 //     if (err) throw err
                 // })
-
-                pool.query('CREATE TABLE IF NOT EXISTS majors ( \
-                    major_id INT AUTO_INCREMENT,\
-                    name VARCHAR(255),\
-                    code VARCHAR(255),\
-                    flowchart_url TEXT,\
-                    resource_url TEXT,\
-                    keywords TEXT,\
-                    college_id INT,\
-                    PRIMARY KEY (major_id),\
-                    FOREIGN KEY (college_id) REFERENCES colleges(college_id) );', err => {
-                    if (err) throw err
-                })
-
-                pool.query('CREATE TABLE IF NOT EXISTS courses ( \
-                    course_id INT AUTO_INCREMENT,\
-                    code VARCHAR(255),\
-                    level INT,\
-                    name VARCHAR(255),\
-                    description TEXT,\
-                    syllabus TEXT,\
-                    lab_syllabus TEXT,\
-                    keywords TEXT,\
-                    course_image_url TEXT,\
-                    resources_url TEXT,\
-                    major_id INT,\
-                    PRIMARY KEY (course_id),\
-                    FOREIGN KEY (major_id) REFERENCES majors(major_id) );', err => {
-                    if (err) throw err
-                })
-
-                pool.query(
-                    'CREATE TABLE IF NOT EXISTS prerequisites (\
-          course_id1 INT,\
-          course_id2 INT,\
-          PRIMARY KEY (course_id1, course_id2),\
-          FOREIGN KEY (course_id1) REFERENCES courses(course_id),\
-          FOREIGN KEY (course_id2) REFERENCES courses(course_id) );'
-                )
-
-                pool.query(
-                    'CREATE TABLE IF NOT EXISTS related_courses (\
-          course_id1 INT,\
-          course_id2 INT,\
-          PRIMARY KEY (course_id1, course_id2),\
-          FOREIGN KEY (course_id1) REFERENCES courses(course_id),\
-          FOREIGN KEY (course_id2) REFERENCES courses(course_id) );'
-                )
 
                 pool.query(
                     'CREATE TABLE IF NOT EXISTS admins (\
