@@ -9,11 +9,14 @@ const pool = require('./database').pool
 const MySQLStore = require('express-mysql-session')(session)
 const sessionStore = new MySQLStore({}, pool)
 const compression = require('compression')
+const cors = require('cors')
+
+app.use(cors())
 app.use(compression())
 app.use(cookieParser())
 app.use(session({
     key: 'kfupmcurriculum.sid',
-    secret: 'changethislater',
+    secret: process.env.storeSecret || 'changethislater',
     store: sessionStore,
     saveUninitialized: false,
     resave: false,

@@ -33,8 +33,10 @@ function initDB() {
                         major_id INT AUTO_INCREMENT,\
                         name VARCHAR(255),\
                         code VARCHAR(255),\
+                        description TEXT,\
                         flowchart_url TEXT,\
                         resource_url TEXT,\
+                        marjor_image_url TEXT,\
                         keywords TEXT,\
                         college_id INT,\
                         PRIMARY KEY (major_id),\
@@ -47,6 +49,7 @@ function initDB() {
                             level INT,\
                             name VARCHAR(255),\
                             description TEXT,\
+                            outcomes TEXT,\
                             syllabus TEXT,\
                             lab_syllabus TEXT,\
                             keywords TEXT,\

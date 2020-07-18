@@ -1259,6 +1259,10 @@ body .content .coursebtn2:hover {
   opacity: 0.7;
 }
 
+body .content #x1 {
+  background-color: white;
+}
+
 body .footer {
   font-size: 1vmax;
   width: 100%;

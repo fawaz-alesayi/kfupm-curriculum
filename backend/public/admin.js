@@ -91,17 +91,19 @@ function insertInput() {
 
 
 function addCourse() {
-$.ajax({
-    type: 'post',
-    url: '/courses',
-    data: $('#addCourse').serialize(),
-    success: function (data) {
-        console.log(data);
-        $("#addCourse").append('<p style="color: green;">Success: ' + data + '</p>')
-    },
-    error: (data) => {
-        console.log(data)
-        $("#addCourse").append('<p style="color: red;">Error Code ' + data.status + ': ' + data.responseText + '</p>')
-    }
-})
+    $.ajax({
+        type: 'post',
+        url: '/courses',
+        data: $('#addCourse').serialize(),
+        success: function (data) {
+            $("#addCourse").append('<p style="color: green;">Success: ' + data + '</p>')
+        },
+        error: (data) => {
+            $("#addCourse").append('<p style="color: red;">Error Code ' + data.status + ': ' + data.responseText + '</p>')
+        }
+    })
+}
+
+function changeCourse() {
+
 }

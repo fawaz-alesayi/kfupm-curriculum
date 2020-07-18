@@ -36,7 +36,7 @@
         <!--Course Information are below !-->
         <section class="outcome">
             <header>
-                <h1 contenteditable="true" onmouseover="changeColorM(this)" onmouseout="changeColorM(this)" id="SD1">Course Description</h1>
+                <h1 onmouseover="changeColorM(this)" onmouseout="changeColorM(this)" id="SD1">Course Description</h1>
             </header>
             <p contenteditable="true" id="x1"><%= courseInfo.description %></p>
         </section>
@@ -46,9 +46,13 @@
             </header>
             <ul id="x2">
                 <% if (courseInfo.syllabus) %>
-                <li>Lecture: <%= courseInfo.lab_syllabus %> </li>
+                <li>Lecture: <a href=<%=courseInfo.syllabus %>><%= courseInfo.syllabus %></a>
+                    <input type="url" value=<%= courseInfo.syllabus %>>
+                </li>
                 <% if (courseInfo.lab_syllabus) %>
-                <li>Lab: <%= courseInfo.lab_syllabus %> </li>
+                <li>Lab: <a href=<%=courseInfo.lab_syllabus %>><%= courseInfo.lab_syllabus %></a>
+                    <input type="url" value=<%= courseInfo.lab_syllabus %>>
+                </li>
             </ul>
         </section>
         <section class="outcome">

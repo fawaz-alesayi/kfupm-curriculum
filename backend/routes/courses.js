@@ -4,7 +4,6 @@ const courses = require('express').Router()
 const pool = require('../database.js').pool
 
 courses.get('/', (req, res) => {
-    console.log(req.url)
     res.redirect(req.url)
 })
 
@@ -18,7 +17,6 @@ courses.get('/:course', (req, res) => {
                 res.sendStatus(404)
                 throw err;
             }
-            console.log(results)
             if (results[0]) {
                 courseInfo = results[0]
 
@@ -54,7 +52,6 @@ courses.get('/search/:searchText', (req, res) => {
         }
         else {
             if (results.length != 0) {
-                console.log(results)
                 res.send(results)
             } else {
                 res.status(404).send("No courses found")
@@ -102,7 +99,6 @@ courses.post('/', (req, res) => {
                                         console.error(err)
                                         res.sendStatus(500)
                                     }
-                                    console.log(prereqs)
                                     // Insert course
                                     connection.query('INSERT INTO courses(code, level, name, syllabus, lab_syllabus, resources_url, keywords, major_id) VALUES\
                     (?, ?, ?, ?, ?, ?, ?, ?);', [req.body.courseCode.toUpperCase(), req.body.courseLevel ? req.body.courseLevel : 0, req.body.courseName, req.body.CourseSyllabusLink, req.body.LabSyllabusLink, req.body.resourcesLink, req.body.courseKeywords, code[0].major_id], (err, result) => {
@@ -125,7 +121,6 @@ courses.post('/', (req, res) => {
                                                 } else {
                                                     let prereqRelations = []
                                                     prereqs.forEach(prereq => prereqRelations.push([id[0].course_id, prereq.course_id]))
-                                                    console.log(prereqRelations)
                                                     // finally insert to prerequisites
                                                     connection.query('INSERT INTO prerequisites(course_id1, course_id2) VALUES ?;', [prereqRelations], (err, relations) => {
                                                         if (err) {
