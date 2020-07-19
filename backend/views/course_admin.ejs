@@ -42,9 +42,9 @@
                 <h1 onmouseover="changeColorM(this)" onmouseout="changeColorM(this)" id="SD1">Course Description</h1>
             </header>
             <% if (courseInfo.description) { %>
-            <p contenteditable="true" id="description"><%= courseInfo.description %></p>
+            <p contenteditable="true" id="description" style="background-color: white;"><%= courseInfo.description %></p>
             <% } else { %>
-            <p contenteditable="true" id="description">Soon...</p>
+            <p contenteditable="true" id="description" style="background-color: white;">Soon...</p>
             <% } %>
         </section>
         <section class="course-syllabus">
@@ -74,9 +74,9 @@
                 <h1 onmouseover="changeColorM(this)" onmouseout="changeColorM(this)" id="SD3">Course Outcomes</h1>
             </header>
             <% if (courseInfo.outcomes) { %>
-            <p id="CourseOutcomes" contenteditable="true"><%= courseInfo.outcomes %></p>
+            <p id="CourseOutcomes" contenteditable="true" style="background-color: white;"><%= courseInfo.outcomes %></p>
             <% } else { %>
-            <p id="CourseOutcomes" contenteditable="true">Soon...</p>
+            <p id="CourseOutcomes" contenteditable="true" style="background-color: white;">Soon...</p>
             <% } %>
         </section>
         <section>

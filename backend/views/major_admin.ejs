@@ -14,7 +14,7 @@
 
 </head>
 
-<body class="admin">
+<body class="admin"> 
     <%- include('partials/header') %>
 
     <%- include('partials/dropDown') %>
@@ -56,13 +56,16 @@
 
         <section>
             <!--Resources of the Major-->
-            <% if (results[0].resource_url) { %>
+
+            <header class='link-header center'>
+                <% if (results[0].resource_url) { %>
                 <a href=<%= results[0].resource_url %> target="_blank"
                     onmouseover="changeColorLM(this)" onmouseout="changeColorLM(this)">Resources</a>
                 <% } else { %>
                     <a href=<%= `http://resources.stkfupm.com/?dir=uploads/${results[0].code}` %> target="_blank"
                         onmouseover="changeColorLM(this)" onmouseout="changeColorLM(this)">Resources</a>
                 <% } %>
+                </header>
         </section>
 
         <div>

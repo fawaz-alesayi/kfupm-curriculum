@@ -1210,8 +1210,10 @@ body .content .fcch .fcch-btn:hover {
 }
 
 body .content .addbtn {
+  display: block;
   background-color: indigo;
-  margin-left: 20%;
+  margin-left: auto;
+  margin-right: auto;
   font-size: 22px;
   padding: 10px;
   padding-right: 10px;
@@ -1227,8 +1229,10 @@ body .content .addbtn:hover {
 }
 
 body .content .rmvbtn {
+  display: block;
   background-color: indigo;
-  margin-left: 36%;
+  margin-left: auto;
+  margin-right: auto;
   font-size: 22px;
   padding: 10px;
   padding-right: 10px;
@@ -1299,10 +1303,6 @@ body .content .coursebtn2:hover {
 
 body .content #x1, body .content #x2, body .content #x3, body .content #x4, body .content #x5, body .content #x6, body .content #ccd, body .content #ccs, body .content #cco, body .content #ccpr, body .content #crc, body .content #crr {
   display: none;
-}
-
-body .content #x1 {
-  background-color: white;
 }
 
 body .footer {

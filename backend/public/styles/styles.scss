@@ -1165,8 +1165,10 @@ body {
         }
     }
     .addbtn{
+        display: block;
         background-color: indigo;
-        margin-left: 20%;
+        margin-left: auto;
+        margin-right: auto;
         font-size: 22px;
         padding: 10px;
         padding-right: 10px;
@@ -1180,8 +1182,10 @@ body {
         }
     }
     .rmvbtn{
+        display: block;
         background-color: indigo;
-        margin-left: 36%;
+        margin-left: auto;
+        margin-right: auto;
         font-size: 22px;
         padding: 10px;
         padding-right: 10px;
@@ -1248,10 +1252,6 @@ body {
     #x1, #x2, #x3, #x4, #x5, #x6, #ccd, #ccs, #cco, #ccpr, #crc, #crr {
         display: none;
     }
-
-        #x1 {
-            background-color: white;
-        }
 }
 
 // Footer styling
