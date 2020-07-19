@@ -481,6 +481,10 @@ body .content {
   /* The dots/bullets/indicators */
 }
 
+body .content .course-syllabus label {
+  display: block;
+}
+
 body .content .slideshow-container {
   max-width: 1250px;
   position: relative;
@@ -801,6 +805,21 @@ body .content .landing {
   text-shadow: 1px 1px indigo;
   font-family: "Signika", sans-serif;
   line-height: 1.2;
+}
+
+body .content .landing label {
+  display: block;
+  font-size: 1vmax;
+  color: black;
+  text-shadow: none;
+  margin-top: 5%;
+}
+
+body .content .landing label input {
+  display: inherit;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
 }
 
 body .content .landing .major {

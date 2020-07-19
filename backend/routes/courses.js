@@ -132,7 +132,7 @@ courses.post('/', (req, res) => {
                                                         } else {
                                                             connection.commit((err) => {
                                                                 if (err) {
-                                                                    connection.rollback(() => {
+                                                                    return connection.rollback(() => {
                                                                         connection.release()
                                                                         res.sendStatus(500)
                                                                         console.error(err)
@@ -168,6 +168,14 @@ courses.post('/', (req, res) => {
                 })
             }
         }
+    })
+})
+
+courses.put('/:courseCode', (req, res) => {
+
+    pool.query('UPDATE courses SET code=?, name=?, description=?, outcomes=?, syllabus=?, lab_syllabus=?, keywords=?, course_image_url=?, resources_url=? WHERE courses.code=?', 
+    [req.body.code, req.body.name, req.body.description, req.body.outcomes, req.body.syllabus, req.body.lab_syllabus, req.body.keywords, req.body.course_image_url, req.body.resources_url, req.body.code], (err, result) => {
+        
     })
 })
 

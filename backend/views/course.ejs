@@ -51,11 +51,11 @@
             </header>
             <ul id="x2">
                 <% if (courseInfo.syllabus) { %>
-                <li><a href=<%=courseInfo.syllabus %>>Lecture</a>
+                <li><a href=<%=courseInfo.syllabus %>>Syllabus</a>
                 </li>
                 <% } %>
                 <% if (courseInfo.lab_syllabus) { %>
-                <li><a href=<%=courseInfo.lab_syllabus %>>Lab</a>
+                <li><a href=<%=courseInfo.lab_syllabus %>>Lab Syllabus</a>
                 </li>
                 <% } %>
             </ul>
@@ -104,7 +104,7 @@
                     onmouseout="changeColorLM(this)"><%= courseInfo.resources_url %></a></p>
             <% } else { %>
             <p id="x6"><a
-                    href=<%= `http://resources.stkfupm.com/?dir=uploads/${course.code.replace('/[0-9]/g', '')}/${course.code}` %>
+                    href=<%= `http://resources.stkfupm.com/?dir=uploads/${courseInfo.code.replace('/[0-9]/g', '')}/${courseInfo.code}` %>
                     target="_blank" onmouseover="changeColorLM(this)" onmouseout="changeColorLM(this)">Resource</a></p>
             <% } %>
         </section>

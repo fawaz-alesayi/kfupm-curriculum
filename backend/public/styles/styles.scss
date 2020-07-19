@@ -452,21 +452,25 @@ body {
         box-sizing: border-box;
         //margin-top: 5%;
 
-            
-        /* Slideshow container for HOME PAGE*/
-.slideshow-container {
-    max-width: 1250px;
-    position: relative;
-    margin: auto;
-
-    .mySlides {
-        display: none;
-          
-          .imgslide {
-              vertical-align: middle;
-              border-radius: 8%;
+        .course-syllabus {
+            label {
+                display: block;
             }
-    }
+        }
+        /* Slideshow container for HOME PAGE*/
+        .slideshow-container {
+            max-width: 1250px;
+            position: relative;
+            margin: auto;
+
+        .mySlides {
+            display: none;
+            
+            .imgslide {
+                vertical-align: middle;
+                border-radius: 8%;
+                }
+            }
 
      /* Fading animation */
   .fade {
@@ -793,6 +797,20 @@ body {
                 text-shadow: 1px 1px indigo;
                 font-family: $landing-font;
                 line-height: 1.2;
+
+            label {
+                display: block;
+                font-size: 1vmax;
+                color: black;
+                text-shadow: none;
+                margin-top: 5%;
+                input {
+                    display: inherit;
+                    margin-left: auto;
+                    margin-right: auto;
+                    margin-top: 15px;
+                }
+            }
 
             .major {
                 color: darkslateblue;

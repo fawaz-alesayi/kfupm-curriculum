@@ -104,6 +104,6 @@ function addCourse() {
     })
 }
 
-function changeCourse() {
-
+function getCourseValues() {
+    
 }

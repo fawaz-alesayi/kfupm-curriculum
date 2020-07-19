@@ -27,10 +27,13 @@
             <div class='wide-logo'>
             </div>
             <header class="major">
-                <h1 contenteditable="true"><%= courseInfo.code %></h1>
-                <h1 contenteditable="true"><%= courseInfo.name %></h1>
+                <h1 contenteditable="true" id="courseCode"><%= courseInfo.code %></h1>
+                <h1 contenteditable="true" id="courseName"><%= courseInfo.name %></h1>
             </header>
             <img class='course-image' alt="Course" src=<%= courseInfo.course_image_url %>>
+            <label for="image_url">Image Link
+                <input type="url" id="image_url">
+            </label>
         </section>
 
         <!--Course Information are below !-->
@@ -39,36 +42,41 @@
                 <h1 onmouseover="changeColorM(this)" onmouseout="changeColorM(this)" id="SD1">Course Description</h1>
             </header>
             <% if (courseInfo.description) { %>
-            <p contenteditable="true" id="x1"><%= courseInfo.description %></p>
+            <p contenteditable="true" id="description"><%= courseInfo.description %></p>
             <% } else { %>
-            <p contenteditable="true" id="x1">Soon...</p>
+            <p contenteditable="true" id="description">Soon...</p>
             <% } %>
         </section>
-        <section>
+        <section class="course-syllabus">
             <header>
                 <h1 onmouseover="changeColorM(this)" onmouseout="changeColorM(this)" id="SD2">Course Syllabus</h1>
             </header>
             <ul id="x2">
                 <% if (courseInfo.syllabus) { %>
                 <li>Lecture: <a href=<%=courseInfo.syllabus %>><%= courseInfo.syllabus %></a>
-                    <input type="url" value=<%= courseInfo.syllabus %>>
+                    <input type="url" id="syllabus" value=<%= courseInfo.syllabus %>>
                 </li>
                 <% } %>
                 <% if (courseInfo.lab_syllabus) { %>
                 <li>Lab: <a href=<%=courseInfo.lab_syllabus %>><%= courseInfo.lab_syllabus %></a>
-                    <input type="url" value=<%= courseInfo.lab_syllabus %>>
                 </li>
                 <% } %>
             </ul>
+            <label for="syllabus">Syllabus link
+                <input type="url" id="syllabus">
+            </label>
+            <label for="labSyllabus">Lab Syllabus link
+                <input type="url" id="labSyllabus">
+            </label>
         </section>
         <section class="outcome">
             <header>
                 <h1 onmouseover="changeColorM(this)" onmouseout="changeColorM(this)" id="SD3">Course Outcomes</h1>
             </header>
             <% if (courseInfo.outcomes) { %>
-            <p id="x3"><%= courseInfo.outcomes %></p>
+            <p id="CourseOutcomes" contenteditable="true"><%= courseInfo.outcomes %></p>
             <% } else { %>
-            <p id="x3">Soon...</p>
+            <p id="CourseOutcomes" contenteditable="true">Soon...</p>
             <% } %>
         </section>
         <section>
@@ -78,7 +86,7 @@
             <% if (prereqs.length) { %>
             <ul id="x4">
                 <% prereqs.forEach(prereq => {  %>
-                <li><%= prereq.code %></li>
+                <li><a href=<%= `/courses/${prereq.code}` %>><%= prereq.code %></a></li>
                 <% }) %>
             </ul>
             <% } %>
@@ -102,12 +110,15 @@
             </header>
             <% if(courseInfo.resources_url) {  %>
             <p id="x6"><a href=<%= courseInfo.resources_url %> target="_blank" onmouseover="changeColorLM(this)"
-                    onmouseout="changeColorLM(this)"><%= courseInfo.resources_url %></a></p>
+                    onmouseout="changeColorLM(this)">KFUPMResources</a></p>
             <% } else { %>
             <p id="x6"><a
-                    href=<%= `http://resources.stkfupm.com/?dir=uploads/${course.code.replace('/[0-9]/g', '')}/${course.code}` %>
-                    target="_blank" onmouseover="changeColorLM(this)" onmouseout="changeColorLM(this)">Resource</a></p>
+                    href=<%= `http://resources.stkfupm.com/?dir=uploads/${courseInfo.code.replace('/[0-9]/g', '')}/${courseInfo.code}` %>
+                    target="_blank" onmouseover="changeColorLM(this)" onmouseout="changeColorLM(this)">KFUPMResource</a></p>
             <% } %>
+            <label for="resource_url">Resource Link
+                <input type="url" id="resource_url">
+            </label>
         </section>
 
         <div>
@@ -119,39 +130,8 @@
     <%- include('partials/footer') %>
 
     <script src="/index.js"></script>
+    <script src="/admin.js"></script>
 
 </body>
-
-<script>
-    // Srcipting from External link, for toggling courses, information headers and picture below !
-
-    $(document).ready(function () {
-        $('#SD1').click(function () {
-            $('#x1').slideToggle(1000);
-            $('#p').slideToggle(1000);
-        });
-
-        $('#SD2').click(function () {
-            $('#x2').slideToggle(1000);
-        });
-
-        $('#SD3').click(function () {
-            $('#x3').slideToggle(1000);
-        });
-
-        $('#SD4').click(function () {
-            $('#x4').slideToggle(1000);
-        });
-
-        $('#SD5').click(function () {
-            $('#x5').slideToggle(1000);
-        });
-
-        $('#SD6').click(function () {
-            $('#x6').slideToggle(1000);
-        });
-    });
-
-</script>
 
 </html>
