@@ -24,17 +24,19 @@
             <div class='wide-logo'>
             </div>
             <header class="major">
-                <h1>Major</h1>
+                <h1><%= results[0].name %></h1>
             </header>
-            <img class='course-image' alt="Major" src="/CHEM.jpg">
+            <img class='course-image' alt="Major" src=<%= results[0].major_image_url %>>
         </section>
 
-
-        <section> <!--Texts with pointers which are for courses in this Major-->
-            <header class='course-header' id="cSlideDown"  onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Courses</header>
+        <section>
+            <!--Texts with pointers which are for courses in this Major-->
+            <header class='course-header' id="cSlideDown" onmouseover="changeColorM(this)"
+                onmouseout="changeColorM(this)">Courses</header>
             <nav class='course-container' id="cox">
                 <% results.forEach(course => { %>
-                <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)"><a href=<%= `/courses/${course.code}` %>><%= course.code %></a></div>
+                <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)"><a
+                        href=<%= `/courses/${course.code}` %>><%= course.code %></a></div>
                 <% }) %>
             </nav>
         </section>
@@ -43,15 +45,19 @@
             Add Course 
         </button>
 
+        <% if (results[0].flowchart_url) { %>
+            <section>
+                <!--Flow chart Picture-->
+                <header class="flowchart-header" id="FcSlideDown" onmouseover="changeColorM(this)"
+                    onmouseout="changeColorM(this)">Flow Chart</header>
+                <img class="center" alt="FC" id="pix" src=<%= results[0].flowchart_url %>>
+            </section>
+            <% } %>
 
-
-        <section> <!--Flow chart Picture-->
-            <header class="flowchart-header" id="FcSlideDown" onmouseover="changeColorM(this)" onmouseout="changeColorM(this)">Flow Chart</header>
-            <img class="center" alt="FC" id="pix" src=<%= results.flowchart_image_name %>>
-        </section>
-
-        <section> <!--Resources of the Major-->
-            <header class='link-header center'><a href="http://resources.stkfupm.com/?dir=uploads/CHEM" target="_blank" onmouseover="changeColorLM(this)" onmouseout="changeColorLM(this)">Resources</a></header>
+        <section>
+            <!--Resources of the Major-->
+            <header class='link-header center'><a href=<%= results[0].resource_url %> target="_blank"
+                    onmouseover="changeColorLM(this)" onmouseout="changeColorLM(this)">Resources</a></header>
         </section>
 
         <div>
