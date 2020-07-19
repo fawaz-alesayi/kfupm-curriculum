@@ -10,7 +10,7 @@ feedback.post('/surveys', (req, res) => {
     else {
         if (Array.isArray(req.body.improve)) {
             while (req.body.improve.length < 4)
-                req.body.improve.length.push(null)
+                req.body.improve.push(null)
             improve = req.body.improve
         }
         else
