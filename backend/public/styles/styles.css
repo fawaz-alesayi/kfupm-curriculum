@@ -48,6 +48,7 @@ html {
 .search-group .result-group {
   position: absolute;
   width: 100%;
+  z-index: 1;
 }
 
 .search-group .result-group .result {
@@ -481,7 +482,7 @@ body .content {
   /* The dots/bullets/indicators */
 }
 
-body .content .course-syllabus label {
+body .content .course-syllabus .course-entry {
   display: block;
 }
 
@@ -807,7 +808,7 @@ body .content .landing {
   line-height: 1.2;
 }
 
-body .content .landing label {
+body .content .landing .course-entry {
   display: block;
   font-size: 1vmax;
   color: black;
@@ -815,7 +816,7 @@ body .content .landing label {
   margin-top: 5%;
 }
 
-body .content .landing label input {
+body .content .landing .course-entry input {
   display: inherit;
   margin-left: auto;
   margin-right: auto;

@@ -104,6 +104,24 @@ function addCourse() {
     })
 }
 
-function getCourseValues() {
-    
+function removeCourse() {
+    const message = 'Are you sure about deleting this course? Deleting a course will remove it from pre-requisites and related courses.'
+    if (window.confirm(message)) {
+        $.ajax({
+            type: 'delete',
+            url: window.location.pathname,
+            success: function () {
+                console.log('Deleted Course Successfully')
+                window.location.replace('/');
+            },
+            error: function (data) {
+                console.log(data)
+            }
+        })
+    }
 }
+
+function getCourseValues() {
+
+}
+

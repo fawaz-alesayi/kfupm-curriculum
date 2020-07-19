@@ -1,5 +1,3 @@
-const e = require('express')
-
 const courses = require('express').Router()
 const pool = require('../database.js').pool
 
@@ -26,7 +24,7 @@ courses.get('/:course', (req, res) => {
                         console.error(err);
                     }
                     prereqs = results2
-                    pool.query('SELECT DISTINCT courses.code FROM related_courses INNER JOIN courses ON (courses.course_id=related_courses.course_id1 OR courses.course_id=related_courses.course_id2) AND (related_courses.course_id2=? OR related_courses.course_id1=?) AND courses.`course_id`<>?;', [courseInfo.course_id,courseInfo.course_id,courseInfo.course_id], (err, results3) => {
+                    pool.query('SELECT DISTINCT courses.code FROM related_courses INNER JOIN courses ON (courses.course_id=related_courses.course_id1 OR courses.course_id=related_courses.course_id2) AND (related_courses.course_id2=? OR related_courses.course_id1=?) AND courses.`course_id`<>?;', [courseInfo.course_id, courseInfo.course_id, courseInfo.course_id], (err, results3) => {
                         if (err) {
                             res.sendStatus(500)
                             console.error(err)
@@ -172,11 +170,25 @@ courses.post('/', (req, res) => {
 })
 
 courses.put('/:courseCode', (req, res) => {
+    pool.query('UPDATE courses SET code=?, name=?, description=?, outcomes=?, syllabus=?, lab_syllabus=?, keywords=?, course_image_url=?, resources_url=? WHERE courses.code=?',
+        [req.body.code, req.body.name, req.body.description, req.body.outcomes, req.body.syllabus, req.body.lab_syllabus, req.body.keywords, req.body.course_image_url, req.body.resources_url, req.body.code], (err, result) => {
 
-    pool.query('UPDATE courses SET code=?, name=?, description=?, outcomes=?, syllabus=?, lab_syllabus=?, keywords=?, course_image_url=?, resources_url=? WHERE courses.code=?', 
-    [req.body.code, req.body.name, req.body.description, req.body.outcomes, req.body.syllabus, req.body.lab_syllabus, req.body.keywords, req.body.course_image_url, req.body.resources_url, req.body.code], (err, result) => {
-        
-    })
+        })
+})
+
+courses.delete('/:courseCode', (req, res) => {
+    if (req.session.role == 'admin') {
+        pool.query('DELETE FROM courses WHERE code=?', req.params.courseCode, (err) => {
+            if (err) {
+                res.sendStatus(500)
+                console.error(err)
+            } else {
+                res.sendStatus(200)
+            }
+        })
+    } else {
+        res.sendStatus(403)
+    }
 })
 
 function isEmptyArray(array) {

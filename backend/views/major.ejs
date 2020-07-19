@@ -38,7 +38,7 @@
             <header class='course-header' id="cSlideDown" onmouseover="changeColorM(this)"
                 onmouseout="changeColorM(this)">Courses</header>
             <nav class='course-container' id="cox">
-                <% results.forEach(course => { %>
+                <% courses.forEach(course => { %>
                 <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)"><a
                         href=<%= `/courses/${course.code}` %>><%= course.code %></a></div>
                 <% }) %>
@@ -56,8 +56,16 @@
 
         <section>
             <!--Resources of the Major-->
-            <header class='link-header center'><a href=<%= results[0].resource_url %> target="_blank"
-                    onmouseover="changeColorLM(this)" onmouseout="changeColorLM(this)">Resources</a></header>
+
+            <header class='link-header center'>
+                <% if (results[0].resource_url) { %>
+                <a href=<%= results[0].resource_url %> target="_blank"
+                    onmouseover="changeColorLM(this)" onmouseout="changeColorLM(this)">Resources</a>
+                <% } else { %>
+                    <a href=<%= `http://resources.stkfupm.com/?dir=uploads/${results[0].code}` %> target="_blank"
+                        onmouseover="changeColorLM(this)" onmouseout="changeColorLM(this)">Resources</a>
+                <% } %>
+                </header>
         </section>
 
         <div>

@@ -60,6 +60,7 @@ html {
     .result-group {
         position: absolute;
         width: 100%;
+        z-index: 1;
     .result {
             background-color: white;
             width: 100%;
@@ -453,7 +454,7 @@ body {
         //margin-top: 5%;
 
         .course-syllabus {
-            label {
+            .course-entry {
                 display: block;
             }
         }
@@ -798,7 +799,7 @@ body {
                 font-family: $landing-font;
                 line-height: 1.2;
 
-            label {
+            .course-entry {
                 display: block;
                 font-size: 1vmax;
                 color: black;

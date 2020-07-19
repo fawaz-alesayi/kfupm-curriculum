@@ -31,7 +31,7 @@
                 <h1 contenteditable="true" id="courseName"><%= courseInfo.name %></h1>
             </header>
             <img class='course-image' alt="Course" src=<%= courseInfo.course_image_url %>>
-            <label for="image_url">Image Link
+            <label for="image_url" class='course-entry'>Image Link
                 <input type="url" id="image_url">
             </label>
         </section>
@@ -62,10 +62,10 @@
                 </li>
                 <% } %>
             </ul>
-            <label for="syllabus">Syllabus link
+            <label for="syllabus" class="course-entry">Syllabus link
                 <input type="url" id="syllabus">
             </label>
-            <label for="labSyllabus">Lab Syllabus link
+            <label for="labSyllabus" class="course-entry">Lab Syllabus link
                 <input type="url" id="labSyllabus">
             </label>
         </section>
@@ -116,10 +116,14 @@
                     href=<%= `http://resources.stkfupm.com/?dir=uploads/${courseInfo.code.replace('/[0-9]/g', '')}/${courseInfo.code}` %>
                     target="_blank" onmouseover="changeColorLM(this)" onmouseout="changeColorLM(this)">KFUPMResource</a></p>
             <% } %>
-            <label for="resource_url">Resource Link
+            <label for="resource_url" class="course-entry">Resource Link
                 <input type="url" id="resource_url">
             </label>
         </section>
+
+        <button class="rmvbtn" onclick="removeCourse()"> 
+            Remove Course
+        </button>
 
         <div>
             <img id='p' src="/BG.png" alt="LOGO" class="courses-image">
