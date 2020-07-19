@@ -26,7 +26,7 @@ courses.get('/:course', (req, res) => {
                         console.error(err);
                     }
                     prereqs = results2
-                    pool.query('SELECT courses.code FROM related_courses INNER JOIN courses ON courses.course_id=related_courses.course_id1 OR courses.course_id=related_courses.course_id2 AND related_courses.course_id1=?;', courseInfo.course_id, (err, results3) => {
+                    pool.query('SELECT DISTINCT courses.code FROM related_courses INNER JOIN courses ON (courses.course_id=related_courses.course_id1 OR courses.course_id=related_courses.course_id2) AND (related_courses.course_id2=? OR related_courses.course_id1=?) AND courses.`course_id`<>?;', [courseInfo.course_id,courseInfo.course_id,courseInfo.course_id], (err, results3) => {
                         if (err) {
                             res.sendStatus(500)
                             console.error(err)
