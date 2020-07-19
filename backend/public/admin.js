@@ -84,9 +84,14 @@ function setup() {
     }
 }
 
-function insertInput() {
+function insertPrereq() {
     let clone = $(".prereq").last().clone()
     $(".prereq").last().after(clone)
+}
+
+function insertRelated() {
+    let clone = $(".related").last().clone()
+    $(".related").last().after(clone)
 }
 
 
@@ -151,6 +156,7 @@ function submitChanges() {
         url: window.location.pathname,
         success: (data) => {
             console.log(data)
+            window.location.replace(`/courses/${newCode}`);
         },
         error: (data) => {
             console.log(data)

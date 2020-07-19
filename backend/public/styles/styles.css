@@ -391,8 +391,8 @@ body .dropDownNav {
   -webkit-transition: 0.3s;
   transition: 0.3s;
   overflow: hidden;
-  padding: 0;
   margin: 0 auto;
+  padding: 0 !important;
 }
 
 body .dropDownNav .search-group {
@@ -402,6 +402,9 @@ body .dropDownNav .search-group {
   border-radius: 25px;
   border-style: none;
   color: black;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
 }
 
 body .dropDownNav .search-group .search-bar {
@@ -411,8 +414,9 @@ body .dropDownNav .search-group .search-bar {
 }
 
 body .dropDownNav .search-group .result-group {
-  position: static;
+  position: absolute;
   padding: 0;
+  width: 100%;
 }
 
 body .dropDownNav .search-group .result-group a {
