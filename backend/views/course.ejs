@@ -41,8 +41,7 @@
             </header>
             <% if (courseInfo.description) { %>
             <p contenteditable="true" id="x1"><%= courseInfo.description %></p>
-            <% } %>
-            <% else { %>
+            <% } else { %>
             <p contenteditable="true" id="x1">Soon...</p>
             <% } %>
         </section>
@@ -67,8 +66,7 @@
             </header>
             <% if (courseInfo.outcomes) { %>
             <p id="x3"><%= courseInfo.outcomes %></p>
-            <% } %>
-            <% else { %>
+            <% } else { %>
             <p id="x3">Soon...</p>
             <% } %>
         </section>
@@ -104,8 +102,7 @@
             <% if(courseInfo.resources_url) {  %>
             <p id="x6"><a href=<%= courseInfo.resources_url %> target="_blank" onmouseover="changeColorLM(this)"
                     onmouseout="changeColorLM(this)"><%= courseInfo.resources_url %></a></p>
-            <% } %>
-            <% else { %>
+            <% } else { %>
             <p id="x6"><a
                     href=<%= `http://resources.stkfupm.com/?dir=uploads/${course.code.replace('/[0-9]/g', '')}/${course.code}` %>
                     target="_blank" onmouseover="changeColorLM(this)" onmouseout="changeColorLM(this)">Resource</a></p>
