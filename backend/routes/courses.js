@@ -170,9 +170,15 @@ courses.post('/', (req, res) => {
 })
 
 courses.put('/:courseCode', (req, res) => {
+    console.log(req.body)
     pool.query('UPDATE courses SET code=?, name=?, description=?, outcomes=?, syllabus=?, lab_syllabus=?, keywords=?, course_image_url=?, resources_url=? WHERE courses.code=?',
-        [req.body.code, req.body.name, req.body.description, req.body.outcomes, req.body.syllabus, req.body.lab_syllabus, req.body.keywords, req.body.course_image_url, req.body.resources_url, req.body.code], (err, result) => {
-
+        [req.body.newCode, req.body.newName, req.body.newDescription, req.body.newCourseOutcomes, req.body.newSyllabus, req.body.newSyllabusLab, req.body.newKeywords, req.body.newImageUrl, req.body.newResourceUrl, req.body.newCode], (err, result) => {
+            if (err) {
+                res.sendStatus(500)
+                console.error(err)
+            } else {
+                res.sendStatus(200)
+            }
         })
 })
 

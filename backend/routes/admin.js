@@ -3,7 +3,7 @@ const pool = require('../database.js').pool
 const bcrypt = require('bcrypt')
 
 admin.get('/login', (req, res) => {
-    res.render('adminlogin.ejs', {result: true})
+    res.render('adminlogin.ejs', { result: true })
 })
 
 admin.post('/login', async (req, res) => {
@@ -14,7 +14,7 @@ admin.post('/login', async (req, res) => {
         }
         else {
             if (result.length == 0) {
-                res.render('adminlogin.ejs', {result: false})
+                res.render('adminlogin.ejs', { result: false })
             }
             else {
                 const saltedPwd = String(result[0].pwd)
@@ -25,7 +25,7 @@ admin.post('/login', async (req, res) => {
                     res.redirect('/')
                 }
                 else
-                res.render('adminlogin.ejs', {result: false})
+                    res.render('adminlogin.ejs', { result: false })
             }
         }
     })
@@ -43,20 +43,24 @@ admin.get('/logout', (req, res) => {
 })
 
 admin.post('/register', async (req, res) => {
-    const hash = await bcrypt.hash(req.body.password, 10)
-    pool.query('INSERT INTO admins(username, pwd) VALUES (?, ?)', [req.body.username, hash], (err, result) => {
-        if (err) {
-            console.error(err)
-            if (err.code == 'ER_DUP_ENTRY')
-                res.send("Already Exists")
-            else {
-                res.send(500)
+    if (req.body.apikey === process.env.apikey) {
+        const hash = await bcrypt.hash(req.body.password, 10)
+        pool.query('INSERT INTO admins(username, pwd) VALUES (?, ?)', [req.body.username, hash], (err, result) => {
+            if (err) {
+                console.error(err)
+                if (err.code == 'ER_DUP_ENTRY')
+                    res.send("Already Exists")
+                else {
+                    res.send(500)
+                }
+            } else {
+                console.log('affected rows: ' + result.affectedRows)
+                res.sendStatus(201)
             }
-        } else {
-            console.log('affected rows: ' + result.affectedRows)
-            res.sendStatus(201)
-        }
-    })
+        })
+    } else {
+        res.send(403) // Forbidden
+    }
 })
 
 module.exports = admin

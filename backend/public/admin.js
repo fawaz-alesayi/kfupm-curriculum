@@ -121,7 +121,42 @@ function removeCourse() {
     }
 }
 
-function getCourseValues() {
+function submitChanges() {
+    let newCode = $('#courseCode').text()
+    let newName = $('#courseName').text()
+    let newImageUrl = $('#image_url').val()
+    let newDescription = $('#description').text()
+    let newSyllabus = $('#syllabus').val()
+    let newSyllabusLab = $('#labSyllabus').val()
+    let newCourseOutcomes = $('#CourseOutcomes').text()
+    let newResourceUrl = $("#resource_url").val()
+    let newKeywords = $("#keywords").val()
+    let restObject = {
+        newCode,
+        newName,
+        newImageUrl,
+        newDescription,
+        newSyllabus,
+        newSyllabusLab,
+        newCourseOutcomes,
+        newResourceUrl,
+        newKeywords
+    }
+
+    console.log(restObject)
+
+    $.ajax({
+        type: 'put',
+        data: restObject,
+        url: window.location.pathname,
+        success: (data) => {
+            console.log(data)
+        },
+        error: (data) => {
+            console.log(data)
+        }
+    })
+
 
 }
 

@@ -11,6 +11,7 @@ const sessionStore = new MySQLStore({}, pool)
 const compression = require('compression')
 const cors = require('cors')
 
+app.use(express.json())
 app.use(cors())
 app.use(compression())
 app.use(cookieParser())

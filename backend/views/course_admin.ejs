@@ -32,7 +32,7 @@
             </header>
             <img class='course-image' alt="Course" src=<%= courseInfo.course_image_url %>>
             <label for="image_url" class='course-entry'>Image Link
-                <input type="url" id="image_url">
+                <input type="url" id="image_url" value=<%= courseInfo.course_image_url %>>
             </label>
         </section>
 
@@ -63,10 +63,10 @@
                 <% } %>
             </ul>
             <label for="syllabus" class="course-entry">Syllabus link
-                <input type="url" id="syllabus">
+                <input type="url" id="syllabus" value=<%= courseInfo.syllabus %>>
             </label>
             <label for="labSyllabus" class="course-entry">Lab Syllabus link
-                <input type="url" id="labSyllabus">
+                <input type="url" id="labSyllabus" value=<%= courseInfo.lab_syllabus %>>
             </label>
         </section>
         <section class="outcome">
@@ -111,19 +111,40 @@
             <% if(courseInfo.resources_url) {  %>
             <p id="x6"><a href=<%= courseInfo.resources_url %> target="_blank" onmouseover="changeColorLM(this)"
                     onmouseout="changeColorLM(this)">KFUPMResources</a></p>
+
+                    <label for="resource_url" class="course-entry">Resource Link
+                        <input type="url" id="resource_url" value="<%= courseInfo.resources_url %>">
+                    </label>
             <% } else { %>
             <p id="x6"><a
                     href=<%= `http://resources.stkfupm.com/?dir=uploads/${courseInfo.code.replace('/[0-9]/g', '')}/${courseInfo.code}` %>
                     target="_blank" onmouseover="changeColorLM(this)" onmouseout="changeColorLM(this)">KFUPMResource</a></p>
+
+                    <label for="resource_url" class="course-entry">Resource Link
+                        <input type="url" id="resource_url" value=<%= `http://resources.stkfupm.com/?dir=uploads/${courseInfo.code.replace('/[0-9]/g', '')}/${courseInfo.code}` %>>
+                    </label>
             <% } %>
-            <label for="resource_url" class="course-entry">Resource Link
-                <input type="url" id="resource_url">
-            </label>
+
         </section>
+
+
+
+        <label for="keywords" class="course-entry">Keywords
+            <input type="text" id="keywords" value=<%= courseInfo.keywords %>>
+        </label>
+
+
+        <button class="sbmtbtn" onclick="submitChanges()"> 
+            Submit Changes
+        </button>
+
 
         <button class="rmvbtn" onclick="removeCourse()"> 
             Remove Course
         </button>
+
+
+
 
         <div>
             <img id='p' src="/BG.png" alt="LOGO" class="courses-image">
