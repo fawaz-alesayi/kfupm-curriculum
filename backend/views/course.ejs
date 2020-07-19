@@ -81,7 +81,7 @@
             <% if (related.length) { %>
             <ul id="x5">
                 <% related.forEach(course => {  %>
-                <li><a href=<%= `/courses/${related.code}` %>><%= related.code %></a></li>
+                <li><a href=<%= `/courses/${course.code}` %>><%= course.code %></a></li>
                 <% }) %>
             </ul>
             <% } %>
