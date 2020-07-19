@@ -9,4 +9,7 @@
     </div>
     <a href="/help">Help</a>
     <a href="/about">About</a>
+    <% if (locals.admin) { %>
+    <a href="/admin/logout">Logout</a>
+    <% } %>
 </nav>
