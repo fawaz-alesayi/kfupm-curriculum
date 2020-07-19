@@ -38,7 +38,10 @@
             <header>
                 <h1 onmouseover="changeColorM(this)" onmouseout="changeColorM(this)" id="SD1">Course Description</h1>
             </header>
-            <p contenteditable="true" id="x1"><%= courseInfo.description %></p>
+            <% if (courseInfo.description) %>
+                <p contenteditable="true" id="x1"><%= courseInfo.description %></p>
+            <% else %>
+                <p contenteditable="true" id="x1">Soon...</p>
         </section>
         <section>
             <header>
@@ -61,7 +64,10 @@
             <header>
                 <h1 onmouseover="changeColorM(this)" onmouseout="changeColorM(this)" id="SD3">Course Outcomes</h1>
             </header>
-            <p id="x3"><%= courseInfo.outcomes %></p>
+            <% if (courseInfo.outcomes) %>
+                <p id="x3"><%= courseInfo.outcomes %></p>
+            <% else %>
+            <p id="x3">Soon...</p>
         </section>
         <section>
             <header>
@@ -82,7 +88,7 @@
             <% if (related.length) { %>
                 <ul id="x5">
                     <% related.forEach(course => {  %>
-                    <li><a href=<%= `/courses/${related.code}` %>><%= related.code %></a></li>
+                    <li><a href=<%= `/courses/${course.code}` %>><%= course.code %></a></li>
                     <% }) %>
                 </ul>
                 <% } %>
@@ -92,8 +98,14 @@
             <header>
                 <h1 onmouseover="changeColorM(this)" onmouseout="changeColorM(this)" id="SD6">Resources</h1>
             </header>
+            <% if(courseInfo.resources_url) {  %>
             <p id="x6"><a href=<%= courseInfo.resources_url %> target="_blank" onmouseover="changeColorLM(this)"
                 onmouseout="changeColorLM(this)"><%= courseInfo.resources_url %></a></p>
+            <% } %>
+            <% else { %>
+                <p id="x6"><a href=<%= `http://resources.stkfupm.com/?dir=uploads/${course.code.replace('/[0-9]/g', '')}/${course.code}` %> target="_blank" onmouseover="changeColorLM(this)"
+                    onmouseout="changeColorLM(this)">Resource</a></p>
+            <% { %>
         </section>
 
         <div>
