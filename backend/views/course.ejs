@@ -39,10 +39,12 @@
             <header>
                 <h1 onmouseover="changeColorM(this)" onmouseout="changeColorM(this)" id="SD1">Course Description</h1>
             </header>
-            <% if (courseInfo.description) %>
+            <% if (courseInfo.description) { %>
             <p contenteditable="true" id="x1"><%= courseInfo.description %></p>
-            <% else %>
+            <% } %>
+            <% else { %>
             <p contenteditable="true" id="x1">Soon...</p>
+            <% } %>
         </section>
         <section>
             <header>
@@ -63,10 +65,12 @@
             <header>
                 <h1 onmouseover="changeColorM(this)" onmouseout="changeColorM(this)" id="SD3">Course Outcomes</h1>
             </header>
-            <% if (courseInfo.outcomes) %>
+            <% if (courseInfo.outcomes) { %>
             <p id="x3"><%= courseInfo.outcomes %></p>
-            <% else %>
+            <% } %>
+            <% else { %>
             <p id="x3">Soon...</p>
+            <% } %>
         </section>
         <section>
             <header>
