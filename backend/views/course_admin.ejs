@@ -30,7 +30,7 @@
                 <h1 contenteditable="true"><%= courseInfo.code %></h1>
                 <h1 contenteditable="true"><%= courseInfo.name %></h1>
             </header>
-            <img class='course-image' alt="Course" src="/CHEM.jpg">
+            <img class='course-image' alt="Course" src=<%= courseInfo.course_image_url %>>
         </section>
 
         <!--Course Information are below !-->
@@ -61,11 +61,7 @@
             <header>
                 <h1 onmouseover="changeColorM(this)" onmouseout="changeColorM(this)" id="SD3">Course Outcomes</h1>
             </header>
-            <p id="x3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam mollitia, harum deserunt sed nam
-                minus, laudantium sapiente iste alias totam accusamus maiores sequi rerum voluptas accusantium fugiat,
-                similique voluptate nostrum! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur
-                dicta dolore, saepe quis deserunt ad voluptas dolorum corporis voluptatum eveniet laudantium officiis
-                cupiditate id animi fugit sint maxime dignissimos quo?</p>
+            <p id="x3"><%= courseInfo.outcomes %></p>
         </section>
         <section>
             <header>
@@ -83,19 +79,21 @@
             <header>
                 <h1 onmouseover="changeColorM(this)" onmouseout="changeColorM(this)" id="SD5">Related Courses</h1>
             </header>
-            <ul id="x5">
-                <li>Course</li>
-                <li>Course</li>
-                <li>Course</li>
-            </ul>
+            <% if (related.length) { %>
+                <ul id="x5">
+                    <% related.forEach(course => {  %>
+                    <li><a href=<%= `/courses/${related.code}` %>><%= related.code %></a></li>
+                    <% }) %>
+                </ul>
+                <% } %>
         </section>
 
         <section>
             <header>
                 <h1 onmouseover="changeColorM(this)" onmouseout="changeColorM(this)" id="SD6">Resources</h1>
             </header>
-            <p id="x6"><a href="http://resources.stkfupm.com" target="_blank" onmouseover="changeColorLM(this)"
-                    onmouseout="changeColorLM(this)">resources.stkfupm.com</a></p>
+            <p id="x6"><a href=<%= courseInfo.resources_url %> target="_blank" onmouseover="changeColorLM(this)"
+                onmouseout="changeColorLM(this)"><%= courseInfo.resources_url %></a></p>
         </section>
 
         <div>
