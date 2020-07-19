@@ -52,7 +52,7 @@
             <div class="modal-content">
                 <span class="close-ing">&times;</span>
                 <h2 class="SurveyMonkey"> KFUPM Curriculum Survey</h2>
-                <form required='req0' name="message" id="message" action="help.html">
+                <form required='req0' id="survey" onsubmit="postSurvey();return false;">
                     <p>1) Would you recommend KFUPM Curriculum System to a friend?</p>
                     <input type="radio" id="Definitely" name="recommend" value="Definitely">
                     <label for="Definitely">Definitely</label><br>
@@ -98,7 +98,7 @@
                     <label for="Others1">Other</label>
                     <br>
                     <br>
-                    <input class="sbmt-for-survey" id="sbmt-for-sur" type=submit value="Submit !">
+                    <input class="sbmt-for-survey" id="sbmt-for-sur" type=submit value="Submit">
                     <br>
                     <br>
                 </form>
@@ -116,33 +116,33 @@
 
             <div class="modal-content1">
                 <span class="close-ing1">&times;</span>
-                <h2 class="SurveyMonkey1">Send a Message !</h2>
-                <form name="message1" id="message1" action="help.html">
+                <h2 class="SurveyMonkey1">Send a Message!</h2>
+                <form id="message" onsubmit="postMessage();return false;">
                     <label class="messageing">
                         Name :
                         <br>
-                        <input required='req1' type="text" name="Name" size="60" class="textarea">
+                        <input required type="text" name="name" size="60" class="textarea">
                     </label>
                     <br>
                     <label class="messageing">
                         City :
                         <br>
-                        <input required='req1' type="text" name="City" size="60" class="textarea">
+                        <input required type="text" name="city" size="60" class="textarea">
                     </label>
                     <br>
                     <label class="messageing">
                         E-mail :
                         <br>
-                        <input required='req1' type="text" name="E-mail" size="60" class="textarea">
+                        <input required type="email" name="email" size="60" class="textarea">
                     </label>
 
                     <label class="messageing">
                         <p>Your Message :</p>
-                        <textarea required='req1' rows="10" cols="62" name="message1" form="message1"
+                        <textarea required rows="10" cols="62" name="message"
                             class="textarea"></textarea>
                     </label><br>
                     <br>
-                    <input class="sbmt-for-survey1" id="sbmt-for-sur1" type=submit value="Submit !">
+                    <input class="sbmt-for-survey1" id="sbmt-for-sur1" type=submit value="Send">
                     <br>
                 </form>
             </div>

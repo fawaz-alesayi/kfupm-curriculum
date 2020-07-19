@@ -97,6 +97,23 @@ function initDB() {
           pwd BINARY(60) NOT NULL\
           );'
                 )
+
+                pool.query('CREATE TABLE IF NOT EXISTS surveys (\
+                    survey_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,\
+                    recommend VARCHAR(50),\
+                    likes VARCHAR(50),\
+                    reliability VARCHAR(50),\
+                    multi_choice1 VARCHAR(50),\
+                    multi_choice2 VARCHAR(50),\
+                    multi_choice3 VARCHAR(50),\
+                    multi_choice4 VARCHAR(50));', (err) => {
+                        if (err) throw err
+                    })
+
+
+                pool.query('CREATE TABLE IF NOT EXISTS user_messages (`message_id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,`name` VARCHAR(255),`city` VARCHAR(255),`email` VARCHAR(255),`message` TEXT);', (err) => {
+                            if (err) throw err
+                        })
             })
         }
     })

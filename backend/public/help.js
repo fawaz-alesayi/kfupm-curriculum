@@ -56,9 +56,9 @@ span1.onclick = function() {
   modal1.style.display = "none";
 }
 
-submit1.onclick = function() {
-    modal1.style.display = "none";
-}
+// submit1.onclick = function() {
+//     modal1.style.display = "none";
+// }
 
 //resize text area for different devices
 function adjust() {
@@ -66,4 +66,34 @@ function adjust() {
 
   txt.style.width = "100%";
   txt.style.height = "100%";
+}
+
+// Survey ajax
+function postSurvey() {
+  $.ajax({
+      type: 'post',
+      url: '/feedback/surveys',
+      data: $('#survey').serialize(),
+      success: () => {
+          $("#survey").append('<p style="color: green;">Thank you for participating in our short survey</p>')
+      },
+      error: () => {
+          $("#survey").append('<p style="color: red;">Whoops! Something wrong happened.</p>')
+      }
+  })
+}
+
+// message ajax
+function postMessage() {
+  $.ajax({
+      type: 'post',
+      url: '/feedback/messages',
+      data: $('#message').serialize(),
+      success: () => {
+          $("#message").append('<p style="color: green;">Your message was sent successfully.y</p>')
+      },
+      error: () => {
+          $("#message").append('<p style="color: red;">Whoops! Something wrong happened.</p>')
+      }
+  })
 }

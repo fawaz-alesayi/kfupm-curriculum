@@ -3,6 +3,7 @@ const root = require('./root')
 const majors = require('./majors')
 const courses = require('./courses')
 const admin = require('./admin')
+const feedback = require('./feedback')
 
 // Match paths: / /index /index.html
 routes.use(/^\/(index)?(.html)?$/, root)
@@ -12,6 +13,8 @@ routes.use('/majors', majors)
 routes.use('/courses', courses)
 
 routes.use('/admin', admin)
+
+routes.use('/feedback', feedback)
 
 routes.get(/^\/(help)?(.html)?$/, (req, res) => {
     if (req.session.role == 'admin')
