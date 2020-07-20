@@ -390,7 +390,7 @@ body .dropDownNav {
   background-color: #276992;
   -webkit-transition: 0.3s;
   transition: 0.3s;
-  overflow: hidden;
+  overflow: scroll;
   margin: 0 auto;
   padding: 0 !important;
 }
