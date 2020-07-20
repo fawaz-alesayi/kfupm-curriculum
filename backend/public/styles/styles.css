@@ -390,7 +390,7 @@ body .dropDownNav {
   background-color: #276992;
   -webkit-transition: 0.3s;
   transition: 0.3s;
-  overflow: hidden;
+  overflow: scroll;
   margin: 0 auto;
   padding: 0 !important;
 }
@@ -472,6 +472,9 @@ body .dropDownNav .login-container .button:hover {
 }
 
 body .toggled {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   height: 250px;
 }
 
@@ -761,7 +764,7 @@ body .content .modal1 .modal-content1 .sbmt-for-survey1 {
   width: 20%;
   position: absolute;
   padding: 5px;
-  margin-bottom: 30%;
+  margin-bottom: 50%;
   margin-left: 30%;
   width: 20%;
   height: 5%;
