@@ -199,6 +199,10 @@ html {
   padding-top: 10vh;
 }
 
+.admin {
+  background-color: #d0fdc6;
+}
+
 body {
   background-color: #EBFCFF;
 }
@@ -208,10 +212,6 @@ body {
     position: fixed !important;
     top: 0 !important;
   }
-}
-
-body .admin {
-  background-color: #d0fdc6;
 }
 
 body .header {
