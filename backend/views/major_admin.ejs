@@ -80,39 +80,39 @@
                     <h2 class="SurveyMonkey">Add a Course (inputs marked as * are required)</h2>
                     <form id="addCourse" onsubmit="addCourse();return false;">
                         <p>Course Code *</p>
-                        <input type='text' name='courseCode' placeholder="MATH101, PHYS101, ..." required pattern="[A-Za-z]{2,}\d{3,}" height="100px" width="200px">
+                        <input style="width: 80%; height: 40px;" type='text' name='courseCode' placeholder="MATH101, PHYS101, ..." required pattern="[A-Za-z]{2,}\d{3,}">
 
                         <p>Course Level</p>
-                        <input type='number' name='courseLevel' placeholder="100, 200, 300, ..." height="100px" width="200px">
+                        <input style="width: 80%; height: 40px;" type='number' name='courseLevel' placeholder="100, 200, 300, ...">
 
                         <p>Course Name</p>
-                        <input type='text' name='courseName' height="200px" width="300px">
+                        <input style="width: 80%; height: 40px;" type='text' name='courseName'>
 
                         <p>Course Description</p>
-                        <input type='text' name='courseDescription' height="300px" width="400px">
+                        <input style="width: 80%; height: 100px;" type='text' name='courseDescription'>
 
                         <p>Course Outcomes</p>
-                        <input type='text' name='courseOutcomes' height="300px" width="400px">
+                        <input style="width: 80%; height: 100px;" type='text' name='courseOutcomes'>
 
                         <p>Prerequisites</p>
-                        <input style='display: block;' type='text' class='prereq' name='prerequisite' height="100px" width="200px">
+                        <input style='display: block; width: 80%; height: 40px;' type='text' class='prereq' name='prerequisite'>
                         <i class="fa" style="cursor: pointer;" onclick="insertPrereq()">&#xf067;</i>
 
                         <p>Related Course</p>
-                        <input style='display: block;' type='text' class='related' name='related' height="100px" width="200px">
+                        <input style='display: block; width: 80%; height: 40px;' type='text' class='related' name='related'>
                         <i class="fa" style="cursor: pointer;" onclick="insertRelated()">&#xf067;</i>
 
                         <p>Syllabus Link</p>
-                        <input type='text' name='CourseSyllabusLink' height="100px" width="200px">
+                        <input style="width: 80%; height: 100px;" type='text' name='CourseSyllabusLink'>
 
                         <p>Lab Syllabus Link</p>
-                        <input type='text' name='LabSyllabusLink' height="100px" width="200px">
+                        <input style="width: 80%; height: 100px;" type='text' name='LabSyllabusLink'>
 
                         <p>Resources Link</p>
-                        <input type='text' name='resourcesLink' height="100px" width="200px">
+                        <input style="width: 80%; height: 100px;" type='text' name='resourcesLink'>
 
                         <p>Keywords</p>
-                        <input type='text' name='courseKeywords' placeholder="kfupm, math, orientation" height="100px" width="200px">
+                        <input style="width: 80%; height: 100px;" type='text' name='courseKeywords' placeholder="kfupm, math, orientation">
                         <br>
 
 

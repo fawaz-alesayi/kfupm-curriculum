@@ -64,7 +64,7 @@ function postSurvey() {
       url: '/feedback/surveys',
       data: $('#survey').serialize(),
       success: () => {
-          $("#survey").append('<p style="color: antiquewhite;">Thank you for participating in our short survey</p>')
+          $("#survey").append('<p style="color: palegreen;">Thank you for participating in our short survey</p>')
       },
       error: () => {
           $("#survey").append('<p style="color: crimson;">Whoops! Something wrong happened.</p>')
@@ -79,7 +79,7 @@ function postMessage() {
       url: '/feedback/messages',
       data: $('#message').serialize(),
       success: () => {
-          $("#message").append('<p style="color: antiquewhite;">Your message was sent successfully</p>')
+          $("#message").append('<p style="color: palegreen;">Your message was sent successfully</p>')
       },
       error: () => {
           $("#message").append('<p style="color: crimson;">Whoops! Something wrong happened.</p>')
