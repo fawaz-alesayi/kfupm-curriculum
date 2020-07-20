@@ -80,33 +80,39 @@
                     <h2 class="SurveyMonkey">Add a Course (inputs marked as * are required)</h2>
                     <form id="addCourse" onsubmit="addCourse();return false;">
                         <p>Course Code *</p>
-                        <input type='text' name='courseCode' placeholder="MATH101, PHYS101, ..." required pattern="[A-Za-z]{2,}\d{3,}">
+                        <input type='text' name='courseCode' placeholder="MATH101, PHYS101, ..." required pattern="[A-Za-z]{2,}\d{3,}" height="100px" width="200px">
 
                         <p>Course Level</p>
-                        <input type='number' name='courseLevel' placeholder="100, 200, 300, ...">
+                        <input type='number' name='courseLevel' placeholder="100, 200, 300, ..." height="100px" width="200px">
 
                         <p>Course Name</p>
-                        <input type='text' name='courseName'>
+                        <input type='text' name='courseName' height="200px" width="300px">
+
+                        <p>Course Description</p>
+                        <input type='text' name='courseDescription' height="300px" width="400px">
+
+                        <p>Course Outcomes</p>
+                        <input type='text' name='courseOutcomes' height="300px" width="400px">
 
                         <p>Prerequisites</p>
-                        <input style='display: block;' type='text' class='prereq' name='prerequisite'>
+                        <input style='display: block;' type='text' class='prereq' name='prerequisite' height="100px" width="200px">
                         <i class="fa" style="cursor: pointer;" onclick="insertPrereq()">&#xf067;</i>
 
                         <p>Related Course</p>
-                        <input style='display: block;' type='text' class='related' name='related'>
+                        <input style='display: block;' type='text' class='related' name='related' height="100px" width="200px">
                         <i class="fa" style="cursor: pointer;" onclick="insertRelated()">&#xf067;</i>
 
                         <p>Syllabus Link</p>
-                        <input type='text' name='CourseSyllabusLink'>
+                        <input type='text' name='CourseSyllabusLink' height="100px" width="200px">
 
                         <p>Lab Syllabus Link</p>
-                        <input type='text' name='LabSyllabusLink'>
+                        <input type='text' name='LabSyllabusLink' height="100px" width="200px">
 
                         <p>Resources Link</p>
-                        <input type='text' name='resourcesLink'>
+                        <input type='text' name='resourcesLink' height="100px" width="200px">
 
                         <p>Keywords</p>
-                        <input type='text' name='courseKeywords' placeholder="kfupm, math, orientation">
+                        <input type='text' name='courseKeywords' placeholder="kfupm, math, orientation" height="100px" width="200px">
                         <br>
 
 

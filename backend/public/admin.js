@@ -101,10 +101,10 @@ function addCourse() {
         url: '/courses',
         data: $('#addCourse').serialize(),
         success: function (data) {
-            $("#addCourse").append('<p style="color: green;">Success: ' + data + '</p>')
+            $("#addCourse").append('<p style="color: antiquewhite;">Success: ' + data + '</p>')
         },
         error: (data) => {
-            $("#addCourse").append('<p style="color: red;">Error Code ' + data.status + ': ' + data.responseText + '</p>')
+            $("#addCourse").append('<p style="color: crimson;">Error Code ' + data.status + ': ' + data.responseText + '</p>')
         }
     })
 }

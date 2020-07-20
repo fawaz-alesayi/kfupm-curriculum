@@ -211,7 +211,7 @@ html {
        }    
   //BACKGROUND FOR ADMIN PAGE ONLY
        .admin{
-        background-color: #bdbdbd;
+        background-color: #defcd7;
     }
 body {
     background-color: $body-color;
@@ -991,35 +991,6 @@ body {
         .link-header {
             margin-top: 50px;
             font-size: 2rem;
-        }
-// lower image in index
-        .index-image-right{
-            position: absolute;
-            bottom: 105px;
-            left: 20px;
-            width: 15%;
-            height: 13%;
-            z-index: -1;
-        }
-// lower image in index
-        .index-image-left{
-            position: absolute;
-            bottom: 105px;
-            right: 20px;
-            width: 15%;
-            height: 13%;
-            z-index: -1;
-        }
-        // lower image in index hides for mobiles
-
-        @media screen and (max-width: 1000px) {
-            .index-image-right{
-                display: none;
-            }
-            
-            .index-image-left{
-                display: none;
-            }
         }
 // lower image in major
         .major-image-right{
