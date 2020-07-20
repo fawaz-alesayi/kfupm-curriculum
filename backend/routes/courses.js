@@ -31,7 +31,7 @@ courses.get('/:course', async (req, res) => {
 
 courses.get('/search/:searchText', async (req, res) => {
     try {
-        let results = await pool.query('SELECT courses.`code`, courses.`name` FROM courses WHERE courses.code LIKE ' + pool.escape('%' + req.params.searchText + '%') + ';')
+        let results = await pool.query('SELECT courses.`code`, courses.`name` FROM courses WHERE courses.code LIKE ' + pool.escape(req.params.searchText + '%') + ';')
         if (results.length != 0) {
             res.send(results)
         } else {
@@ -70,8 +70,8 @@ courses.post('/', async (req, res) => {
                         await connection.beginTransaction()
 
                         // Insert course
-                        let result = await connection.query('INSERT INTO courses(code, level, name, syllabus, lab_syllabus, resources_url, keywords, major_id) VALUES\
-                    (?, ?, ?, ?, ?, ?, ?, ?);', [req.body.courseCode.toUpperCase(), req.body.courseLevel ? req.body.courseLevel : 0, req.body.courseName, req.body.CourseSyllabusLink, req.body.LabSyllabusLink, req.body.resourcesLink, req.body.courseKeywords, code[0].major_id])
+                        await connection.query('INSERT INTO courses(code, level, name, description, outcomes, syllabus, lab_syllabus, resources_url, keywords, major_id) VALUES\
+                    (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);', [req.body.courseCode.toUpperCase(), req.body.courseLevel ? req.body.courseLevel : 0, req.body.courseName, req.body.CourseSyllabusLink, req.body.LabSyllabusLink, req.body.resourcesLink, req.body.courseKeywords, code[0].major_id])
 
                         // get id of the row we just inserted
                         let id = await connection.query('SELECT course_id FROM courses WHERE courses.code=?;', req.body.courseCode)
