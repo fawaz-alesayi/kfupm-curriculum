@@ -71,7 +71,7 @@ courses.post('/', async (req, res) => {
 
                         // Insert course
                         await connection.query('INSERT INTO courses(code, level, name, description, outcomes, syllabus, lab_syllabus, resources_url, keywords, major_id) VALUES\
-                    (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);', [req.body.courseCode.toUpperCase(), req.body.courseLevel ? req.body.courseLevel : 0, req.body.courseName, req.body.CourseSyllabusLink, req.body.LabSyllabusLink, req.body.resourcesLink, req.body.courseKeywords, code[0].major_id])
+                    (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);', [req.body.courseCode.toUpperCase(), req.body.courseLevel ? req.body.courseLevel : 0, req.body.courseName, req.body.courseDescription, req.body.courseOutcomes, req.body.CourseSyllabusLink, req.body.LabSyllabusLink, req.body.resourcesLink, req.body.courseKeywords, code[0].major_id])
 
                         // get id of the row we just inserted
                         let id = await connection.query('SELECT course_id FROM courses WHERE courses.code=?;', req.body.courseCode)
