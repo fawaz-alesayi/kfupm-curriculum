@@ -209,10 +209,7 @@ html {
        .sticky + .content {
          padding-top: 10vh;
        }    
-  //BACKGROUND FOR ADMIN PAGE ONLY
-       .admin{
-        background-color: #defcd7;
-    }
+ 
 body {
     background-color: $body-color;
 
@@ -221,6 +218,11 @@ body {
                 position: fixed !important;
                 top: 0 !important;
         }
+    }
+
+     //BACKGROUND FOR ADMIN PAGE ONLY
+     .admin{
+        background-color: #defcd7;
     }
 
     .header {

@@ -199,10 +199,6 @@ html {
   padding-top: 10vh;
 }
 
-.admin {
-  background-color: #bdbdbd;
-}
-
 body {
   background-color: #EBFCFF;
 }
@@ -212,6 +208,10 @@ body {
     position: fixed !important;
     top: 0 !important;
   }
+}
+
+body .admin {
+  background-color: #defcd7;
 }
 
 body .header {
@@ -1048,33 +1048,6 @@ body .content .course-image {
 body .content .link-header {
   margin-top: 50px;
   font-size: 2rem;
-}
-
-body .content .index-image-right {
-  position: absolute;
-  bottom: 105px;
-  left: 20px;
-  width: 15%;
-  height: 13%;
-  z-index: -1;
-}
-
-body .content .index-image-left {
-  position: absolute;
-  bottom: 105px;
-  right: 20px;
-  width: 15%;
-  height: 13%;
-  z-index: -1;
-}
-
-@media screen and (max-width: 1000px) {
-  body .content .index-image-right {
-    display: none;
-  }
-  body .content .index-image-left {
-    display: none;
-  }
 }
 
 body .content .major-image-right {
