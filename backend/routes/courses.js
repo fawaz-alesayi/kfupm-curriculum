@@ -91,8 +91,8 @@ courses.post('/', async (req, res) => {
                 }
             } else {
                 // Insert course
-                await pool.query('INSERT INTO courses(code, level, name, syllabus, lab_syllabus, resources_url, keywords, major_id) VALUES\
-                                        (?, ?, ?, ?, ?, ?, ?, ?);', [req.body.courseCode, req.body.courseLevel ? req.body.courseLevel : 0, req.body.courseName, req.body.CourseSyllabusLink, req.body.LabSyllabusLink, req.body.resourcesLink, req.body.courseKeywords, code[0].major_id])
+                await pool.query('INSERT INTO courses(code, level, name, description, outcomes, syllabus, lab_syllabus, resources_url, keywords, major_id) VALUES\
+                (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);', [req.body.courseCode.toUpperCase(), req.body.courseLevel ? req.body.courseLevel : 0, req.body.courseName, req.body.courseDescription, req.body.courseOutcomes, req.body.CourseSyllabusLink, req.body.LabSyllabusLink, req.body.resourcesLink, req.body.courseKeywords, code[0].major_id])
                 res.status(200).send("Added course to database")
             }
         }
