@@ -102,6 +102,20 @@ courses.post('/', async (req, res) => {
     }
 })
 
+courses.post('/:courseCode/survey', async (req, res) => {
+    try {
+        let code = await pool.query('SELECT courses.course_id FROM courses WHERE courses.code=? LIMIT 1;', req.params.courseCode)
+        if (code.length)
+            await pool.query('INSERT INTO courses(taken, familiar, reliability, difficulty, need_to_improve, course_id)', [req.body.taken, req.body.familiar, req.body.reliability, req.body.difficulty, req.body.improve, code])
+        else
+            throw new Error('No course with code name ' + code)
+        res.sendStatus(200)
+    } catch (err) {
+        res.sendStatus(500)
+        console.error(err)
+    }
+})
+
 courses.put('/:courseCode', async (req, res) => {
     console.log(req.body)
     try {

@@ -1,5 +1,4 @@
 const mysqlPromise = require('promise-mysql')
-const mysql = require('mysql')
 const dbName = 'maindb'
 const session = require('express-session')
 const MySQLStore = require('express-mysql-session')(session)
@@ -11,11 +10,15 @@ async function initDB(pool) {
         await pool.query('CREATE TABLE IF NOT EXISTS colleges ( \
             college_id INT AUTO_INCREMENT,\
             `name` VARCHAR(50) NOT NULL,\
+            `vision` TEXT,\
+            `mission` TEXT,\
+            `description` TEXT,\
             PRIMARY KEY (college_id));')
-        await pool.query('CREATE TABLE IF NOT EXISTS majors ( \
+
+        await pool.query('CREATE TABLE IF NOT EXISTS majors (\
             major_id INT AUTO_INCREMENT,\
             name VARCHAR(255),\
-            code VARCHAR(255) UNIQUE MOT NULL,\
+            code VARCHAR(255) UNIQUE NOT NULL,\
             description TEXT,\
             flowchart_url TEXT,\
             resource_url TEXT,\
@@ -55,6 +58,17 @@ async function initDB(pool) {
             FOREIGN KEY (course_id1) REFERENCES courses(course_id) ON DELETE CASCADE,\
             FOREIGN KEY (course_id2) REFERENCES courses(course_id) ON DELETE CASCADE);')
 
+        await pool.query('CREATE TABLE IF NOT EXISTS course_surveys (\
+            id INT PRIMARY KEY,\
+            taken BOOLEAN,\
+            familiar BOOLEAN,\
+            reliability TEXT,\
+            difficulty TEXT,\
+            need_to_improve TEXT,\
+            course_id INT,\
+            FOREIGN KEY (course_id) REFERENCES courses(course_id) ON DELETE CASCADE);\
+            ')
+
         pool.query('CREATE TABLE IF NOT EXISTS admins (\
             username VARCHAR(255) PRIMARY KEY NOT NULL,\
             pwd BINARY(60) NOT NULL\
@@ -73,7 +87,8 @@ async function initDB(pool) {
         pool.query('CREATE TABLE IF NOT EXISTS user_messages (`message_id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,`name` VARCHAR(255),`city` VARCHAR(255),`email` VARCHAR(255),`message` TEXT);')
     }
     catch (error) {
-        throw error
+        console.error(error)
+        process.exit()
     }
 }
 
@@ -93,6 +108,7 @@ module.exports = (async () => {
         password: process.env.dbPass || '',
         database: dbName
     })
+    await initDB(pool)
     sessionStore = new MySQLStore({}, pool)
    
      return { pool, sessionStore };

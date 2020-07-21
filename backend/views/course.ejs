@@ -38,6 +38,7 @@
         <section class="outcome">
             <header>
                 <h1 onmouseover="changeColorM(this)" onmouseout="changeColorM(this)" id="SD1">Course Description</h1>
+                <i class="fa fa-caret-right" aria-hidden="true"></i>
             </header>
             <% if (courseInfo.description) { %>
             <p contenteditable="true" id="x1"><%= courseInfo.description %></p>
@@ -48,6 +49,7 @@
         <section>
             <header>
                 <h1 onmouseover="changeColorM(this)" onmouseout="changeColorM(this)" id="SD2">Course Syllabus</h1>
+                <i class="fa fa-caret-right" aria-hidden="true"></i>
             </header>
             <ul id="x2">
                 <% if (courseInfo.syllabus) { %>
@@ -63,6 +65,7 @@
         <section class="outcome">
             <header>
                 <h1 onmouseover="changeColorM(this)" onmouseout="changeColorM(this)" id="SD3">Course Outcomes</h1>
+                <i class="fa fa-caret-right" aria-hidden="true"></i>
             </header>
             <% if (courseInfo.outcomes) { %>
             <p id="x3"><%= courseInfo.outcomes %></p>
@@ -73,6 +76,7 @@
         <section>
             <header>
                 <h1 onmouseover="changeColorM(this)" onmouseout="changeColorM(this)" id="SD4">Course Pre-requisites</h1>
+                <i class="fa fa-caret-right" aria-hidden="true"></i>
             </header>
             <% if (prereqs.length) { %>
             <ul id="x4">
@@ -85,6 +89,7 @@
         <section>
             <header>
                 <h1 onmouseover="changeColorM(this)" onmouseout="changeColorM(this)" id="SD5">Related Courses</h1>
+                <i class="fa fa-caret-right" aria-hidden="true"></i>
             </header>
             <% if (related.length) { %>
             <ul id="x5">
@@ -98,6 +103,7 @@
         <section>
             <header>
                 <h1 onmouseover="changeColorM(this)" onmouseout="changeColorM(this)" id="SD6">Resources</h1>
+                <i class="fa fa-caret-right" aria-hidden="true"></i>
             </header>
             <% if(courseInfo.resources_url) {  %>
             <p id="x6"><a href=<%= courseInfo.resources_url %> target="_blank" onmouseover="changeColorLM(this)"
@@ -109,7 +115,7 @@
             <% } %>
         </section>
 
-        <h4 class="svh" id="mySurveyBtn">
+        <h4 class="svh" id="mySurveyBtn" onclick="showModal()">
             It's our pleasure to take Survey for <%= courseInfo.code %> course by clicking Here!
         </h4>
 
@@ -118,8 +124,22 @@
             <div class="modal-content">
                 <span class="close-ing">&times;</span>
                 <h2 class="SurveyMonkey"> <%= courseInfo.code %> Survey</h2>
-                <form required='req0' id="survey" onsubmit="postSurvey();return false;">
-                    <p>1) Are you familiar with <%= courseInfo.code %> information ?</p>
+                <form required='req0' id="survey" onsubmit="postCourseSurvey();return false;">
+
+                    <p>1) Have you taken <%= courseInfo.code %>?</p>
+                    <input type="radio" id="Yes" name="finish" value="1">
+                    <label for="Yes">Yes</label><br>
+                    <input type="radio" id="Imtakingthiscourserightnow" name="finish"
+                        value="Im taking this course right now">
+                    <label for="Imtakingthiscourserightnow">Im taking this course right now</label><br>
+                    <input type="radio" id="No0" name="finish" value="0">
+                    <label for="No0">No</label>
+
+                    <br>
+
+                    <br>
+
+                    <p>2) Are you familiar with <%= courseInfo.code %> information ?</p>
                     <input type="radio" id="Definitely" name="familiarity" value="Definitely">
                     <label for="Definitely">Definitely</label><br>
                     <input type="radio" id="Maybe" name="familiarity" value="Maybe">
@@ -129,13 +149,7 @@
 
                     <br>
 
-                    <p>2) Did you finish this <%= courseInfo.code %> course ?</p>
-                    <input type="radio" id="Yes" name="finish" value="Yes">
-                    <label for="Yes">Yes</label><br>
-                    <input type="radio" id="Imtakingthiscourserightnow" name="finish" value="Im taking this course right now">
-                    <label for="Imtakingthiscourserightnow">Im taking this course right now</label><br>
-                    <input type="radio" id="No0" name="finish" value="No">
-                    <label for="No0">No</label><br>
+
 
                     <br>
 
@@ -161,7 +175,8 @@
 
                     <br>
 
-                    <p>5) What things that need to be improved related to information of <%= courseInfo.code %> course?</p>
+                    <p>5) What things that need to be improved related to information of <%= courseInfo.code %> course?
+                    </p>
                     <input type="checkbox" id="Description" name="improvec" value="Description">
                     <label for="Description">Description</label><br>
                     <input type="checkbox" id="Resources" name="improvec" value="Resources">
@@ -190,37 +205,59 @@
     <%- include('partials/footer') %>
 
     <script src="/index.js"></script>
+    <script src="/help.js"></script>
 
     <script>
         // Srcipting from External link, for toggling courses, information headers and picture below !
-    
+
         $(document).ready(function () {
             $('#SD1').click(function () {
+                $('#SD1').next().toggleClass('caret-toggled')
                 $('#x1').slideToggle(1000);
             });
-    
+
             $('#SD2').click(function () {
+                $('#SD2').next().toggleClass('caret-toggled')
                 $('#x2').slideToggle(1000);
             });
-    
+
             $('#SD3').click(function () {
+                $('#SD3').next().toggleClass('caret-toggled')
                 $('#x3').slideToggle(1000);
             });
-    
+
             $('#SD4').click(function () {
+                $('#SD4').next().toggleClass('caret-toggled')
                 $('#x4').slideToggle(1000);
             });
-    
+
             $('#SD5').click(function () {
+                $('#SD5').next().toggleClass('caret-toggled')
                 $('#x5').slideToggle(1000);
             });
-    
+
             $('#SD6').click(function () {
+                $('#SD6').next().toggleClass('caret-toggled')
                 $('#x6').slideToggle(1000);
             });
         });
-    
+
+        function postCourseSurvey() {
+            $.ajax({
+                type: 'post',
+                url: window.location.pathname,
+                data: $('#survey').serialize(),
+                success: () => {
+                    $("#survey").append('<p style="color: palegreen;">Thank you for participating in the survey!</p>')
+                },
+                error: () => {
+                    $("#survey").append('<p style="color: crimson;">Whoops! Something wrong happened.</p>')
+                }
+            })
+        }
+
     </script>
 
 </body>
+
 </html>

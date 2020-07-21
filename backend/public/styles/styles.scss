@@ -151,6 +151,15 @@ html {
     color: white;
   }
 
+  .fa-caret-right {
+      transition-property: transform;
+      transition-duration: 0.5s;
+  }
+
+  .caret-toggled {
+      transform: rotate(90deg)
+  }
+
 //square card in index
 @mixin card($border-radius: 25px, $background-color: $card-color, $min-width: 250px, $width: auto, $height: 30vh) {
     display: block;
@@ -195,6 +204,11 @@ html {
         cursor: pointer;
     }
 }
+
+.card-box:hover .square-card {
+    transform: rotateY(180deg);
+  }
+
 //square cards in the below of index
 .square-card {
     @include card(0, $card-color);
@@ -204,6 +218,19 @@ html {
     padding: 0;
     text-align: center;
     font-size: 18px;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+
+    .front, .back {
+        backface-visibility: hidden;
+    }
+
+    .back {
+        transform: rotateY(180deg);
+    }
+
+
 }
      
        .sticky + .content {
@@ -929,6 +956,7 @@ body {
             justify-content: center;
             align-items: center;
             margin-bottom: 0px;
+            perspective: 5000px;
 
             .card {
                 @include card();
@@ -973,6 +1001,7 @@ body {
         }
 // make pointers for course information in course page
         #SD1, #SD2, #SD3, #SD4, #SD5, #SD6 {
+            display: inline-block;
             cursor: pointer;
         }
 
