@@ -33,6 +33,7 @@
             <!--Texts with pointers which are for courses in this Major-->
             <header class='course-header' id="cSlideDown" onmouseover="changeColorM(this)"
                 onmouseout="changeColorM(this)">Courses</header>
+                <i class="fa fa-caret-right" aria-hidden="false"></i>
             <nav class='course-container' id="cox">
                 <% courses.forEach(course => { %>
                 <div class='course' onmouseover="changeColorM(this)" onmouseout="changeColorM(this)"><a
@@ -50,6 +51,7 @@
                 <!--Flow chart Picture-->
                 <header class="flowchart-header" id="FcSlideDown" onmouseover="changeColorM(this)"
                     onmouseout="changeColorM(this)">Flow Chart</header>
+                    <i class="fa fa-caret-right" aria-hidden="false"></i>
                 <img class="center" alt="FC" id="pix" src=<%= results[0].flowchart_url %>>
             </section>
             <% } %>
