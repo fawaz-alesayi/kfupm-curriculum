@@ -33,7 +33,7 @@
             <!--Texts with pointers which are for courses in this Major-->
             <header class='course-header' id="cSlideDown" onmouseover="changeColorM(this)"
                 onmouseout="changeColorM(this)">Courses
-                <i class="fa fa-caret-right" aria-hidden="true"></i>
+                <i id="coxa" class="fa fa-caret-right" aria-hidden="false"></i>
             </header>
             <nav class='course-container' id="cox">
                 <% courses.forEach(course => { %>
@@ -52,7 +52,7 @@
                 <!--Flow chart Picture-->
                 <header class="flowchart-header" id="FcSlideDown" onmouseover="changeColorM(this)"
                     onmouseout="changeColorM(this)">Flow Chart
-                    <i class="fa fa-caret-right" aria-hidden="true"></i>
+                    <i id="pixa" class="fa fa-caret-right" aria-hidden="false"></i>
                 </header>
                 <img class="center" alt="FC" id="pix" src=<%= results[0].flowchart_url %>>
             </section>
@@ -142,10 +142,12 @@
         $(document).ready(function(){
             $('#FcSlideDown').click(function(){
                 $('#pix').slideToggle(1000);
+                $('#pixa').next().toggleClass('caret-toggled')
                 });
                     
              $('#cSlideDown').click(function(){
                 $('#cox').slideToggle(1000);
+                $('#coxa').next().toggleClass('caret-toggled')
                 $('#picr').slideToggle(1000);
                 $('#picl').slideToggle(1000);
                 });
