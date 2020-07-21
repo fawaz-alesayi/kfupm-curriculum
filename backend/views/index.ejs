@@ -96,13 +96,13 @@
                 <div class="card-box">
                     <div class="square-card">
                         <div class="text-container">
-                            <div class="front">
+                            <div class="front back">
                                 <h4><b><%= object.college %></b></h4>
                                 <p>
                                     KFUPM <%= object.college %>
                                 </p>
                             </div>
-                            <div class="back">
+                            <div class="front back">
                                 <% object.majors.forEach(major => { %>
                                 <p class="color-new-text" onmouseover="changeColor(this)"
                                     onmouseout="changeColor(this)">
