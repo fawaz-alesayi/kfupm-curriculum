@@ -109,6 +109,78 @@
             <% } %>
         </section>
 
+        <h4 class="svh" id="mySurveyBtn">
+            It's our pleasure to take Survey for <%= courseInfo.code %> course by clicking Here!
+        </h4>
+
+        <div id="mySurveyMdl" class="modal">
+
+            <div class="modal-content">
+                <span class="close-ing">&times;</span>
+                <h2 class="SurveyMonkey"> <%= courseInfo.code %> Survey</h2>
+                <form required='req0' id="survey" onsubmit="postSurvey();return false;">
+                    <p>1) Are you familiar with <%= courseInfo.code %> information ?</p>
+                    <input type="radio" id="Definitely" name="familiarity" value="Definitely">
+                    <label for="Definitely">Definitely</label><br>
+                    <input type="radio" id="Maybe" name="familiarity" value="Maybe">
+                    <label for="Maybe">Maybe</label><br>
+                    <input type="radio" id="No" name="familiarity" value="No">
+                    <label for="No">No</label>
+
+                    <br>
+
+                    <p>2) Did you finish this <%= courseInfo.code %> course ?</p>
+                    <input type="radio" id="Yes" name="finish" value="Yes">
+                    <label for="Yes">Yes</label><br>
+                    <input type="radio" id="Imtakingthiscourserightnow" name="finish" value="Im taking this course right now">
+                    <label for="Imtakingthiscourserightnow">Im taking this course right now</label><br>
+                    <input type="radio" id="No0" name="finish" value="No">
+                    <label for="No0">No</label><br>
+
+                    <br>
+
+                    <p>3) Do you see that information of <%= courseInfo.code %> course reliable & up to date?</p>
+                    <input type="radio" id="Yes" name="nither" value="Yes">
+                    <label for="Yes">Yes</label><br>
+                    <input type="radio" id="OnlyReliable" name="nither" value="Only Reliable">
+                    <label for="OnlyReliable">Only Reliable</label><br>
+                    <input type="radio" id="OnlyUptodate" name="nither" value="Only Up to date">
+                    <label for="OnlyUptodate">Only Up to date</label><br>
+                    <input type="radio" id="No1" name="nither" value="No">
+                    <label for="No1">No</label>
+
+                    <br>
+
+                    <p>4) How do you rate the difficulty of <%= courseInfo.code %> course ?</p>
+                    <input type="radio" id="Easy" name="difficulty" value="Easy">
+                    <label for="Easy">Easy</label><br>
+                    <input type="radio" id="Average" name="difficulty" value="Average">
+                    <label for="Average">Average</label><br>
+                    <input type="radio" id="Hard" name="difficulty" value="Hard">
+                    <label for="Hard">Hard</label><br>
+
+                    <br>
+
+                    <p>5) What things that need to be improved related to information of <%= courseInfo.code %> course?</p>
+                    <input type="checkbox" id="Description" name="improvec" value="Description">
+                    <label for="Description">Description</label><br>
+                    <input type="checkbox" id="Resources" name="improvec" value="Resources">
+                    <label for="Resources">Resources</label><br>
+                    <input type="checkbox" id="Syllabus" name="improvec" value="Syllabus">
+                    <label for="Syllabus">Syllabus</label><br>
+                    <input type="checkbox" id="Outcomes" name="improvec" value="Outcomes">
+                    <label for="Outcomes">Outcomes</label>
+                    <input type="checkbox" id="Pre-requisites" name="improvec" value="Pre-requisites">
+                    <label for="Pre-requisites">Pre-requisites</label>
+                    <br>
+                    <br>
+                    <input class="sbmt-for-survey" id="sbmt-for-sur" type=submit value="Submit">
+                    <br>
+                    <br>
+                </form>
+            </div>
+        </div>
+
         <div>
             <img id='p' src="/BG.png" alt="LOGO" class="courses-image">
         </div>
