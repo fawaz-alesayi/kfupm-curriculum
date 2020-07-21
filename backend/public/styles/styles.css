@@ -1112,11 +1112,38 @@ body .content .major-image-left {
   z-index: -1;
 }
 
+body .content .other-right-image {
+  position: absolute;
+  top: 625px;
+  left: -30px;
+  width: 20%;
+  height: 350px;
+  z-index: -1;
+}
+
+body .content .other-left-image {
+  position: absolute;
+  top: 625px;
+  right: -30px;
+  width: 20%;
+  height: 350px;
+  z-index: -1;
+}
+
 @media screen and (max-width: 1000px) {
   body .content .major-image-right {
     display: none;
   }
   body .content .major-image-left {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  body .content .other-right-image {
+    display: none;
+  }
+  body .content .other-left-image {
     display: none;
   }
 }
