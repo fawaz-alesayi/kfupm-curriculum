@@ -203,7 +203,6 @@ html {
 .square-card .text-container {
   padding: 2px 16px;
   cursor: pointer;
-  margin-top: 20px;
 }
 
 .square-card .color-new-text {
@@ -230,6 +229,7 @@ html {
 .square-card .back {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
+  margin-top: 10px;
 }
 
 .sticky + .content {
@@ -1147,7 +1147,7 @@ body .content .other-left-image {
 @media screen and (max-width: 1440px) {
   body .content .courses-image {
     position: absolute;
-    bottom: 0px;
+    bottom: 40px;
     right: -20px;
     width: 40%;
     height: 500px;
