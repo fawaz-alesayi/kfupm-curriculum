@@ -98,14 +98,17 @@
                         <div class="text-container">
                             <div class="front">
                                 <h4><b><%= object.college %></b></h4>
-                                    <p>
+                                    <h6>
                                         KFUPM <%= object.college %>
-                                    </p>
+                                    </h6>
+                                <p>
+                                    Hover the mouse to see Majors !
+                                </p>
                             </div>
                             <div class="back">
-                                <p>
+                                <h6>
                                     KFUPM <%= object.college %>
-                                </p>
+                                </h6>
                                 <% object.majors.forEach(major => { %>
                                     <p class="color-new-text" onmouseover="changeColor(this)"
                                         onmouseout="changeColor(this)">
