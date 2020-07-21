@@ -211,15 +211,7 @@ html {
             display: none;
         }
   }
-//ADDDDDDDDDDDDDDDDDDDDDDDDDDD
-  @media screen and (max-width: 700){
-    .card-box:active .square-card {
-        transform: rotateY(180deg);
-            .front {
-                display: none;
-            }
-      }
-  }
+
 //square cards in the below of index
 .square-card {
     @include card(0, $card-color);

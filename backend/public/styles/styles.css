@@ -164,16 +164,6 @@ html {
   display: none;
 }
 
-@media screen and (max-width: 700) {
-  .card-box:active .square-card {
-    -webkit-transform: rotateY(180deg);
-            transform: rotateY(180deg);
-  }
-  .card-box:active .square-card .front {
-    display: none;
-  }
-}
-
 .square-card {
   display: block;
   background-color: #5FA8D3;
