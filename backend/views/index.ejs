@@ -87,6 +87,7 @@
         <section>
             <header>
                 <h1 id="Sd">Look for courses that you want!</h1>
+                <i class="fa fa-caret-right" aria-hidden="false"></i>
                 <!--Square Cards that contain majors in all colleges-->
             </header>
             <div class='card-container' id="x">
@@ -94,7 +95,7 @@
                 <div class="card-box">
                     <div class="square-card">
                         <div class="text-container">
-                            <div class="front" onclick="toggleSibling(this)">
+                            <div class="front">
                                 <h4><b><%= object.college %></b></h4>
                                 <p>
                                     KFUPM <%= object.college %>
@@ -131,10 +132,7 @@
             });
 
         });
-
-        function toggleSibling(obj) {
-            $(obj).next().slideToggle(1000)
-        }    
+   
     </script>
 
 </body>
