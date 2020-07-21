@@ -18,14 +18,14 @@ routes.use('/feedback', feedback)
 
 routes.get(/^\/(help)?(.html)?$/, (req, res) => {
     if (req.session.role == 'admin')
-        res.render('help', {admin: true})
+        res.render('help_admin', {admin: true})
     else
         res.render('help')
 })
 
 routes.get(/^\/(about)?(.html)?$/, (req, res) => {
     if (req.session.role == 'admin')
-        res.render('about', {admin: true})
+        res.render('about_admin', {admin: true})
     else
         res.render('about')
 })
