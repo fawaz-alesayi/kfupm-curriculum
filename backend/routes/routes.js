@@ -25,7 +25,7 @@ routes.get(/^\/(help)?(.html)?$/, (req, res) => {
 
 routes.get(/^\/(about)?(.html)?$/, (req, res) => {
     if (req.session.role == 'admin')
-        res.render('about_admin', {admin: true})
+        res.render('‏‏about_admin.ejs', {admin: true})
     else
         res.render('about')
 })
