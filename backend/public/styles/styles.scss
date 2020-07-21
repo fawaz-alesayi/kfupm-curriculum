@@ -214,7 +214,7 @@ html {
     @include card(0, $card-color);
     width: auto;
     max-width: 10vw;
-    height: 55vh;
+    height: 45vh;
     padding: 0;
     text-align: center;
     font-size: 18px;
@@ -228,7 +228,7 @@ html {
 
     .back {
         transform: rotateY(180deg);
-        margin-top: 10px;
+        margin-top: 20px;
     }
 
 
@@ -1043,6 +1043,25 @@ body {
             z-index: -1;
     }
 
+    
+    .other-right-image{
+        position: absolute;
+        top: 625px;
+        left: -30px;
+        width: 20%;
+        height: 350px;
+        z-index: -1;
+    }
+
+    .other-left-image{
+        position: absolute;
+        top: 625px;
+        right: -30px;
+        width: 20%;
+        height: 350px;
+        z-index: -1;
+}
+
 // lower image in major hides for mobiles
     @media screen and (max-width: 1000px) {
         .major-image-right{
@@ -1050,6 +1069,16 @@ body {
         }
 
         .major-image-left{
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: 1000px) {
+        .other-right-image{
+            display: none;
+        }
+    
+        .other-left-image{
             display: none;
         }
     }
