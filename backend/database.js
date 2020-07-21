@@ -61,7 +61,7 @@ async function initDB(pool) {
         await pool.query('CREATE TABLE IF NOT EXISTS course_surveys (\
             id INT PRIMARY KEY,\
             taken BOOLEAN,\
-            familiar BOOLEAN,\
+            familiar TEXT,\
             reliability TEXT,\
             difficulty TEXT,\
             need_to_improve TEXT,\

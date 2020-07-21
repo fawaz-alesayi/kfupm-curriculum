@@ -127,12 +127,12 @@
                 <form required='req0' id="survey" onsubmit="postCourseSurvey();return false;">
 
                     <p>1) Have you taken <%= courseInfo.code %>?</p>
-                    <input type="radio" id="Yes" name="finish" value="1">
+                    <input type="radio" id="Yes" name="taken" value="1">
                     <label for="Yes">Yes</label><br>
                     <input type="radio" id="Imtakingthiscourserightnow" name="finish"
                         value="Im taking this course right now">
                     <label for="Imtakingthiscourserightnow">Im taking this course right now</label><br>
-                    <input type="radio" id="No0" name="finish" value="0">
+                    <input type="radio" id="No0" name="taken" value="0">
                     <label for="No0">No</label>
 
                     <br>
@@ -140,11 +140,11 @@
                     <br>
 
                     <p>2) Are you familiar with <%= courseInfo.code %> information ?</p>
-                    <input type="radio" id="Definitely" name="familiarity" value="Definitely">
+                    <input type="radio" id="Definitely" name="familiar" value="Definitely">
                     <label for="Definitely">Definitely</label><br>
-                    <input type="radio" id="Maybe" name="familiarity" value="Maybe">
+                    <input type="radio" id="Maybe" name="familiar" value="Maybe">
                     <label for="Maybe">Maybe</label><br>
-                    <input type="radio" id="No" name="familiarity" value="No">
+                    <input type="radio" id="No" name="familiar" value="No">
                     <label for="No">No</label>
 
                     <br>
