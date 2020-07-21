@@ -207,9 +207,13 @@ html {
 
 .card-box:hover .square-card {
     transform: rotateY(180deg);
-        // .front {
-        //     display: none;
-        // }
+        .front {
+            display: none;
+        }
+
+        .back{
+            display: none;
+        }
   }
 
 //square cards in the below of index
