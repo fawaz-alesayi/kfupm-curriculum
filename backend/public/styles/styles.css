@@ -160,10 +160,6 @@ html {
           transform: rotateY(180deg);
 }
 
-.card-box:hover .square-card .front {
-  display: none;
-}
-
 .square-card {
   display: block;
   background-color: #5FA8D3;
