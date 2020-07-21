@@ -203,6 +203,7 @@ html {
 .square-card .text-container {
   padding: 2px 16px;
   cursor: pointer;
+  margin-top: 20px;
 }
 
 .square-card .color-new-text {
