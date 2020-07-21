@@ -43,7 +43,6 @@
         </div>
         <a href="about.html">About</a>
         <a href="help.html">Help</a>
-          </div>
     </nav>
 
     <div class='content'> 
@@ -51,19 +50,19 @@
         <div class="slideshow-container" title="Home pictures">
 
             <div class="mySlides fade">
-              <img class="imgslide" src="1a.jpg" style="width:100%">
+              <img class="imgslide" alt="home" src="1a.jpg" style="width:100%">
             </div>
             
             <div class="mySlides fade">
-              <img class="imgslide" src="2a.jpg" style="width:100%">
+              <img class="imgslide" alt="home" src="2a.jpg" style="width:100%">
             </div>
             
             <div class="mySlides fade">
-              <img class="imgslide" src="3b.jpg" style="width:100%">
+              <img class="imgslide" alt="home" src="3b.jpg" style="width:100%">
             </div>
 
             <div class="mySlides fade">
-              <img class="imgslide" src="4a.jpg" style="width:100%">
+              <img class="imgslide" alt="home" src="4a.jpg" style="width:100%">
             </div>
             
             <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -265,45 +264,45 @@
     <script src="index.js"></script>
     <script src="login.js"></script>
 
+    <script>
+        // Srcipting from External link, for toggling Colleges square cards, majors in the college and logo pictures below !
+        $(document).ready(function () {
+    
+            $('#Sd').click(function () {
+                $('#x').slideToggle(2000);
+                $('#pr').slideToggle(1000);
+                $('#pl').slideToggle(1000);
+            });
+    
+            $('#c1').click(function () {
+                $('#ca').slideToggle(2000);
+            });
+    
+            $('#c2').click(function () {
+                $('#cb').slideToggle(2000);
+            });
+    
+            $('#c3').click(function () {
+                $('#cc').slideToggle(2000);
+            });
+    
+            $('#c4').click(function () {
+                $('#cd').slideToggle(2000);
+            });
+    
+            $('#c5').click(function () {
+                $('#ce').slideToggle(2000);
+            });
+    
+            $('#c6').click(function () {
+                $('#cf').slideToggle(2000);
+            });
+    
+            $('#c7').click(function () {
+                $('#cg').slideToggle(2000);
+            });
+        });
+    </script>
+
 </body>
-
-<script>
-    // Srcipting from External link, for toggling Colleges square cards, majors in the college and logo pictures below !
-    $(document).ready(function () {
-
-        $('#Sd').click(function () {
-            $('#x').slideToggle(2000);
-            $('#pr').slideToggle(1000);
-            $('#pl').slideToggle(1000);
-        });
-
-        $('#c1').click(function () {
-            $('#ca').slideToggle(2000);
-        });
-
-        $('#c2').click(function () {
-            $('#cb').slideToggle(2000);
-        });
-
-        $('#c3').click(function () {
-            $('#cc').slideToggle(2000);
-        });
-
-        $('#c4').click(function () {
-            $('#cd').slideToggle(2000);
-        });
-
-        $('#c5').click(function () {
-            $('#ce').slideToggle(2000);
-        });
-
-        $('#c6').click(function () {
-            $('#cf').slideToggle(2000);
-        });
-
-        $('#c7').click(function () {
-            $('#cg').slideToggle(2000);
-        });
-    });
-</script>
 </html>
