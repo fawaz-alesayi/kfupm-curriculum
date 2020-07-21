@@ -207,11 +207,9 @@ html {
 
 .card-box:hover .square-card {
     transform: rotateY(180deg);
+    display: none;
+    -webkit-transform: rotateY(180deg);
         .front {
-            display: none;
-        }
-
-        .back{
             display: none;
         }
   }
@@ -227,14 +225,18 @@ html {
     font-size: 18px;
     transition: transform 0.6s;
     transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transition: transform 0.6s;
     position: relative;
 
     .front, .back {
         backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
     }
 
     .back {
         transform: rotateY(180deg);
+        -webkit-transform: rotateY(180deg);
     }
 
 
