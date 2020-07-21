@@ -87,7 +87,7 @@
         <section>
             <header>
                 <h1 id="Sd">Look for courses that you want!
-                    <i class="fa fa-caret-right" aria-hidden="true"></i>
+                    <i id="xa" class="fa fa-caret-right" aria-hidden="true"></i>
                 </h1>
                 <!--Square Cards that contain majors in all colleges-->
             </header>
@@ -130,6 +130,7 @@
 
             $('#Sd').click(function () {
                 $('#x').slideToggle(2000);
+                $('#xa').next().toggleClass('caret-toggled')
             });
 
         });
