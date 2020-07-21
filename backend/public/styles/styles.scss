@@ -1043,23 +1043,6 @@ body {
             z-index: -1;
     }
 
-    .other-right-image{
-        position: absolute;
-        bottom: 100px;
-        left: -30px;
-        width: 20%;
-        height: 350px;
-        z-index: -1;
-    }
-
-    .other-left-image{
-        position: absolute;
-        bottom: 100px;
-        right: -30px;
-        width: 20%;
-        height: 350px;
-        z-index: -1;
-}
 // lower image in major hides for mobiles
     @media screen and (max-width: 1000px) {
         .major-image-right{
@@ -1071,16 +1054,6 @@ body {
         }
     }
 
-
-    @media screen and (max-width: 1000px) {
-        .other-right-image{
-            display: none;
-        }
-
-        .other-left-image{
-            display: none;
-        }
-    }
 
 // lower image in course page
     @media screen and (max-width: 1440px) {
